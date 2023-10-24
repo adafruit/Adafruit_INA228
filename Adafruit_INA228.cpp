@@ -69,8 +69,10 @@ bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire) {
   }
 
   Config = new Adafruit_I2CRegister(i2c_dev, INA228_REG_CONFIG, 2, MSBFIRST);
-  ADC_Config = new Adafruit_I2CRegister(i2c_dev, INA228_REG_ADCCFG, 2, MSBFIRST);
-  Diag_Alert = new Adafruit_I2CRegister(i2c_dev, INA228_REG_DIAGALRT, 2, MSBFIRST);
+  ADC_Config =
+      new Adafruit_I2CRegister(i2c_dev, INA228_REG_ADCCFG, 2, MSBFIRST);
+  Diag_Alert =
+      new Adafruit_I2CRegister(i2c_dev, INA228_REG_DIAGALRT, 2, MSBFIRST);
 
   reset();
   delay(2); // delay 2ms to give time for first measurement to finish
@@ -91,7 +93,6 @@ void Adafruit_INA228::reset(void) {
   setMode(INA228_MODE_CONTINUOUS);
 }
 
-
 /**************************************************************************/
 /*!
     @brief Sets the shunt calibration by resistor
@@ -99,9 +100,9 @@ void Adafruit_INA228::reset(void) {
 */
 /**************************************************************************/
 void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
-  _current_lsb =  max_current / (float)(1UL << 19);
-  //Serial.print("current lsb is (uA) ");
-  //Serial.println(_current_lsb * 1000000, 8);
+  _current_lsb = max_current / (float)(1UL << 19);
+  // Serial.print("current lsb is (uA) ");
+  // Serial.println(_current_lsb * 1000000, 8);
 
   bool adcrange = (Config->read() >> 4) & 1;
   float scale = 1;
@@ -109,9 +110,9 @@ void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
     scale = 4;
   }
 
-  float shunt_cal = 13107.2 * 1000000.0 * shunt_res * _current_lsb  * scale;
-  //Serial.print("shunt cal is ");
-  //Serial.println(shunt_cal);
+  float shunt_cal = 13107.2 * 1000000.0 * shunt_res * _current_lsb * scale;
+  // Serial.print("shunt cal is ");
+  // Serial.println(shunt_cal);
 
   Adafruit_I2CRegister shunt =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_SHUNTCAL, 2, MSBFIRST);
@@ -139,7 +140,8 @@ float Adafruit_INA228::readCurrent(void) {
   Adafruit_I2CRegister current =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_CURRENT, 3, MSBFIRST);
   int32_t i = current.read();
-  if (i & 0x800000) i |= 0xFF000000;
+  if (i & 0x800000)
+    i |= 0xFF000000;
   return (float)i / 16.0 * _current_lsb * 1000.0;
 }
 /**************************************************************************/
@@ -171,10 +173,10 @@ float Adafruit_INA228::readShuntVoltage(void) {
   Adafruit_I2CRegister shunt_voltage =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_VSHUNT, 3, MSBFIRST);
   int32_t v = shunt_voltage.read();
-  if (v & 0x800000) v |= 0xFF000000;
+  if (v & 0x800000)
+    v |= 0xFF000000;
   return v / 16.0 * scale / 1000000.0;
 }
-
 
 /**************************************************************************/
 /*!
@@ -196,11 +198,11 @@ float Adafruit_INA228::readPower(void) {
 /**************************************************************************/
 float Adafruit_INA228::readEnergy(void) {
   Adafruit_I2CRegister energy =
-    Adafruit_I2CRegister(i2c_dev, INA228_REG_ENERGY, 5, MSBFIRST);
+      Adafruit_I2CRegister(i2c_dev, INA228_REG_ENERGY, 5, MSBFIRST);
   uint8_t buff[5];
   energy.read(buff, 5);
   float e = 0;
-  for (int i=0; i<5; i++) {
+  for (int i = 0; i < 5; i++) {
     e *= 256;
     e += buff[i];
   }
@@ -294,7 +296,7 @@ INA228_ConversionTime Adafruit_INA228::getVoltageConversionTime(void) {
 /**************************************************************************/
 void Adafruit_INA228::setVoltageConversionTime(INA228_ConversionTime time) {
   Adafruit_I2CRegisterBits voltage_conversion_time =
-    Adafruit_I2CRegisterBits(ADC_Config, 3, 9);
+      Adafruit_I2CRegisterBits(ADC_Config, 3, 9);
   voltage_conversion_time.write(time);
 }
 
@@ -318,7 +320,7 @@ bool Adafruit_INA228::conversionReady(void) {
 /**************************************************************************/
 INA228_AlertPolarity Adafruit_INA228::getAlertPolarity(void) {
   Adafruit_I2CRegisterBits alert_polarity =
-    Adafruit_I2CRegisterBits(Diag_Alert, 1, 12);
+      Adafruit_I2CRegisterBits(Diag_Alert, 1, 12);
   return (INA228_AlertPolarity)alert_polarity.read();
 }
 /**************************************************************************/
@@ -359,8 +361,8 @@ void Adafruit_INA228::setAlertLatch(INA228_AlertLatch state) {
 /**************************************************************************/
 /*!
     @brief Reads the 12 possible alert reason bits from DIAG_ALRT
-    @return 10 bits that indiccate MEMSTAT (bit 0), CONVRF, POL, BUSUL, BUSOL, SHNTUL, SHNTOL,
-    TMPOL, reserved, MATHOF, CHARGEOF, ENERGYOF (bit 11)
+    @return 10 bits that indiccate MEMSTAT (bit 0), CONVRF, POL, BUSUL, BUSOL,
+   SHNTUL, SHNTOL, TMPOL, reserved, MATHOF, CHARGEOF, ENERGYOF (bit 11)
 */
 /**************************************************************************/
 uint16_t Adafruit_INA228::alertFunctionFlags(void) {

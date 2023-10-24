@@ -24,7 +24,7 @@
 
 #define INA228_I2CADDR_DEFAULT 0x40 ///< INA228 default i2c address
 #define INA228_REG_CONFIG 0x00      ///< Configuration register
-#define INA228_REG_ADCCFG 0x01 
+#define INA228_REG_ADCCFG 0x01
 #define INA228_REG_SHUNTCAL 0x02
 #define INA228_REG_SHUNTTEMPCO 0x03
 #define INA228_REG_VSHUNT 0x04
@@ -41,8 +41,8 @@
 #define INA228_REG_BUVL 0x0F
 #define INA228_REG_TEMPLIMIT 0x10
 #define INA228_REG_PWRLIMIT 0x10
-#define INA228_REG_MFG_UID 0x3E     ///< Manufacturer ID Register
-#define INA228_REG_DVC_UID 0x3F     ///< Device ID and Revision Register
+#define INA228_REG_MFG_UID 0x3E ///< Manufacturer ID Register
+#define INA228_REG_DVC_UID 0x3F ///< Device ID and Revision Register
 
 /**
  * @brief Mode options.
@@ -50,10 +50,11 @@
  * Allowed values for setMode.
  */
 typedef enum _mode {
-  INA228_MODE_SHUTDOWN = 0x00,   /**< SHUTDOWN: Minimize quiescient current and
-                                  turn off current into the device inputs. Set
-                                  another mode to exit shutown mode **/
-  INA228_MODE_TRIGGERED = 0x07,  /**< TRIGGERED: Trigger a one-shot measurement
+  INA228_MODE_SHUTDOWN = 0x00, /**< SHUTDOWN: Minimize quiescient current and
+                                turn off current into the device inputs. Set
+                                another mode to exit shutown mode **/
+  INA228_MODE_TRIGGERED =
+      0x07,                      /**< TRIGGERED: Trigger a one-shot measurement
                                    of temp, current and bus voltage. Set the TRIGGERED
                                    mode again to take a new measurement **/
   INA228_MODE_CONTINUOUS = 0x0F, /**< CONTINUOUS: (Default) Continuously update
@@ -69,12 +70,12 @@ typedef enum _mode {
 typedef enum _conversion_time {
   INA228_TIME_50_us,   ///< Measurement time: 50us
   INA228_TIME_84_us,   ///< Measurement time: 84us
-  INA228_TIME_150_us,   ///< Measurement time: 150us
-  INA228_TIME_280_us,   ///< Measurement time: 280us
-  INA228_TIME_540_us,   ///< Measurement time: 540us
-  INA228_TIME_1052_us,   ///< Measurement time: 1052us
-  INA228_TIME_2074_us,   ///< Measurement time: 2074us
-  INA228_TIME_4120_us,   ///< Measurement time: 4120us
+  INA228_TIME_150_us,  ///< Measurement time: 150us
+  INA228_TIME_280_us,  ///< Measurement time: 280us
+  INA228_TIME_540_us,  ///< Measurement time: 540us
+  INA228_TIME_1052_us, ///< Measurement time: 1052us
+  INA228_TIME_2074_us, ///< Measurement time: 2074us
+  INA228_TIME_4120_us, ///< Measurement time: 4120us
 } INA228_ConversionTime;
 
 /**
@@ -173,7 +174,7 @@ public:
   void setAveragingCount(INA228_AveragingCount count);
 
   Adafruit_I2CRegister *Config, ///< BusIO Register for Config
-    *ADC_Config, ///< BusIO Register for Config
+      *ADC_Config,              ///< BusIO Register for Config
       *Diag_Alert,              ///< BusIO Register for MaskEnable
       *AlertLimit;              ///< BusIO Register for AlertLimit
 
