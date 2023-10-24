@@ -3,7 +3,7 @@ Adafruit_INA228 [![Build Status](https://github.com/adafruit/Adafruit_INA228/wor
 
 This is the Adafruit INA228 Current and Power sensor library
 
-Tested and works great with the [Adafruit INA228 Breakout Board](http://www.adafruit.com/products)
+Tested and works great with the [Adafruit INA228 Breakout Board](https://www.adafruit.com/product/5832)
 
 This chip uses I2C to communicate, 2 pins are required to interface
 
