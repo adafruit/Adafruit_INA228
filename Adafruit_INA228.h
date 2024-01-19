@@ -23,23 +23,63 @@
 #include <Wire.h>
 
 #define INA228_I2CADDR_DEFAULT 0x40 ///< INA228 default i2c address
-#define INA228_REG_CONFIG 0x00      ///< Configuration register
-#define INA228_REG_ADCCFG 0x01
+//! @brief Configuration Register (CONFIG), 16 bits. Includes bits for reset,
+//! shunt calibration reset, conversion delay, temperature compensation, and ADC
+//! range.
+#define INA228_REG_CONFIG 0x00 ///< Configuration Register
+//! @brief ADC Configuration Register (ADC_CONFIG), 16 bits. Includes bits for
+//! ADC mode, averaging sample count, and temperature / shunt/bus voltage
+//! conversion time.
+#define INA228_REG_ADCCFG 0x01 ///< ADC Configuration Register
+//! @brief Shunt Calibration Register (SHUNT_CAL), 16 bits. Provides the device
+//! with a conversion constant value that represents shunt resistance for
+//! calculating current.
 #define INA228_REG_SHUNTCAL 0x02
+//! @brief Shunt Temperature Coefficient Register (SHUNT_TEMPCO), 16 bits.
+//! Stores the temperature coefficient of the shunt for temperature compensation
+//! correction.
 #define INA228_REG_SHUNTTEMPCO 0x03
+//! @brief Shunt Voltage Measurement Register (VSHUNT), 24 bits. Measures
+//! differential voltage across the shunt output.
 #define INA228_REG_VSHUNT 0x04
+//! @brief Bus Voltage Measurement Register (VBUS), 24 bits. Measures bus
+//! voltage output.
 #define INA228_REG_VBUS 0x05
+//! @brief Temperature Measurement Register (DIETEMP), 16 bits. Measures
+//! internal die temperature.
 #define INA228_REG_DIETEMP 0x06
+//! @brief Current Result Register (CURRENT), 24 bits. Outputs calculated
+//! current in Amperes.
 #define INA228_REG_CURRENT 0x07
+//! @brief Power Result Register (POWER), 24 bits. Outputs calculated power in
+//! watts.
 #define INA228_REG_POWER 0x08
+//! @brief Energy Result Register (ENERGY), 40 bits. Outputs calculated energy
+//! in Joules.
 #define INA228_REG_ENERGY 0x09
+//! @brief Charge Result Register (CHARGE), 40 bits. Outputs calculated charge
+//! in Coulombs.
 #define INA228_REG_CHARGE 0x0A
+//! @brief Diagnostic Flags and Alert Register (DIAG_ALRT), 16 bits. Includes
+//! various diagnostic flags and alert settings.
 #define INA228_REG_DIAGALRT 0x0B
+//! @brief Shunt Overvoltage Threshold Register (SOVL), 16 bits. Sets threshold
+//! for shunt overvoltage detection.
 #define INA228_REG_SOVL 0x0C
+//! @brief Shunt Undervoltage Threshold Register (SUVL), 16 bits. Sets threshold
+//! for shunt undervoltage detection.
 #define INA228_REG_SUVL 0x0D
+//! @brief Bus Overvoltage Threshold Register (BOVL), 16 bits. Sets threshold
+//! for bus overvoltage detection.
 #define INA228_REG_BOVL 0x0E
+//! @brief Bus Undervoltage Threshold Register (BUVL), 16 bits. Sets threshold
+//! for bus undervoltage detection.
 #define INA228_REG_BUVL 0x0F
+//! @brief Temperature Over-Limit Threshold Register (TEMP_LIMIT), 16 bits. Sets
+//! threshold for over temperature detection.
 #define INA228_REG_TEMPLIMIT 0x10
+//! @brief Power Over-Limit Threshold Register (PWR_LIMIT), 16 bits. Sets
+//! threshold for power over-limit detection.
 #define INA228_REG_PWRLIMIT 0x10
 #define INA228_REG_MFG_UID 0x3E ///< Manufacturer ID Register
 #define INA228_REG_DVC_UID 0x3F ///< Device ID and Revision Register
@@ -139,10 +179,11 @@ class Adafruit_INA228 {
 public:
   Adafruit_INA228();
   bool begin(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT,
-             TwoWire *theWire = &Wire);
+             TwoWire *theWire = &Wire, reset = true);
   void reset(void);
+  void resetAccumulated(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  void setShunt(float shunt_res = 0.015, float max_current = 10);
   float readDieTemp(void);
 
   float readCurrent(void);

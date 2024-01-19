@@ -47,9 +47,11 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The I2C address to be used.
  *    @param  theWire
  *            The Wire object to be used for I2C connections.
+ *    @param  reset
+ *            Whether or not to reset the registers on initialization.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire) {
+bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire, bool reset) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
@@ -74,7 +76,8 @@ bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire) {
   Diag_Alert =
       new Adafruit_I2CRegister(i2c_dev, INA228_REG_DIAGALRT, 2, MSBFIRST);
 
-  reset();
+  if (reset)
+    reset();
   delay(2); // delay 2ms to give time for first measurement to finish
   return true;
 }
@@ -91,6 +94,16 @@ void Adafruit_INA228::reset(void) {
       Adafruit_I2CRegisterBits(Diag_Alert, 1, 14);
   alert_conv.write(1);
   setMode(INA228_MODE_CONTINUOUS);
+}
+
+/**************************************************************************/
+/*!
+    @brief Resets the accumulation registers for energy and charge.
+*/
+/**************************************************************************/
+void Adafruit_INA228::resetAccumulated(void) {
+  Adafruit_I2CRegisterBits resetAcc = Adafruit_I2CRegisterBits(Config, 1, 14);
+  resetAcc.write(1);
 }
 
 /**************************************************************************/
@@ -216,7 +229,7 @@ float Adafruit_INA228::readEnergy(void) {
 */
 /**************************************************************************/
 INA228_MeasurementMode Adafruit_INA228::getMode(void) {
-  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(Config, 3, 0);
+  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(ADC_Config, 4, 12);
   return (INA228_MeasurementMode)mode.read();
 }
 /**************************************************************************/
@@ -369,4 +382,138 @@ uint16_t Adafruit_INA228::alertFunctionFlags(void) {
   Adafruit_I2CRegisterBits alert_flags =
       Adafruit_I2CRegisterBits(Diag_Alert, 12, 0);
   return alert_flags.read();
+}
+
+/**************************************************************************/
+/**
+ * @brief Gets the current alert type setting.
+ *
+ * @return INA228_AlertType The current alert type.
+ */
+/**************************************************************************/
+INA228_AlertType Adafruit_INA228::getAlertType(void) {
+  uint16_t reg_value = readRegister(INA228_REG_DIAGALRT);
+  return static_cast<INA228_AlertType>(reg_value);
+}
+
+/**************************************************************************/
+/**
+ * @brief Sets the alert type.
+ *
+ * @param alert The alert type to set.
+ */
+/**************************************************************************/
+void Adafruit_INA228::setAlertType(INA228_AlertType alert) {
+  uint16_t reg_value = alert;
+  writeRegister(INA228_REG_DIAGALRT, reg_value);
+}
+
+/**
+ * @brief Set the alert limit for a specific fault type.
+ * @param limit The threshold value for the alert.
+ * @param faultType The type of fault for which to set the limit.
+ */
+void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
+  uint16_t reg_value;
+  switch (faultType) {
+  case INA228_FAULT_OVERCURRENT:
+    reg_value = static_cast<uint16_t>(limit / (312.5e-9 * 16));
+    writeRegister(INA228_REG_SOVL, reg_value);
+    break;
+  case INA228_FAULT_OVERVOLTAGE:
+    reg_value = static_cast<uint16_t>(limit / (195.3125e-6 * 16));
+    writeRegister(INA228_REG_BOVL, reg_value);
+    break;
+    // Additional fault types can be added here
+  }
+}
+
+// /**
+//  * @brief Get the current alert limit for a specific fault type.
+//  * @param faultType The type of fault for which to get the limit.
+//  * @return The current alert limit value.
+//  */
+// float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
+//   uint16_t reg_value;
+//   switch (faultType) {
+//     case INA228_FAULT_OVERCURRENT:
+//       reg_value = readRegister(INA228_REG_SOVL);
+//       return reg_value * (312.5e-9 * 16);
+//     case INA228_FAULT_OVERVOLTAGE:
+//       reg_value = readRegister(INA228_REG_BOVL);
+//       return reg_value * (195.3125e-6 * 16);
+//     // Additional fault types can be added here
+//   }
+//   return 0.0; // Default return value
+// }
+
+/**
+ * @brief Get the current alert limit for a specific fault type.
+ * @param faultType The type of fault for which to get the limit.
+ * @return The current alert limit value.
+ */
+float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
+  uint16_t reg_value;
+  uint8_t adcRange =
+      readRegister(INA228_REG_ADC_CONFIG) & 0x01; // Extracting the ADCRANGE bit
+
+  switch (faultType) {
+  case INA228_FAULT_OVERCURRENT:
+    reg_value = readRegister(INA228_REG_SOVL);
+    if (adcRange == 0) {
+      return reg_value * (5e-6); // 5 µV/LSB for ADCRANGE = 0
+    } else {
+      return reg_value * (1.25e-6); // 1.25 µV/LSB for ADCRANGE = 1
+    }
+
+  case INA228_FAULT_OVERVOLTAGE:
+    reg_value = readRegister(INA228_REG_BOVL);
+    return reg_value * (3.125e-3); // 3.125 mV/LSB
+
+  case INA228_FAULT_UNDERVOLTAGE:
+    reg_value = readRegister(INA228_REG_BUVL);
+    return reg_value * (3.125e-3); // 3.125 mV/LSB for BUVL
+
+  case INA228_FAULT_TEMPERATURE:
+    reg_value = readRegister(TEMP_LIMIT);
+    return reg_value * (7.8125e-3); // 7.8125 m°C/LSB
+
+  default:
+    return 0.0; // Default return value
+  }
+}
+
+/**
+ * @brief Sets the alert limit based on the fault type.
+ *
+ * @param limit The limit value to set for the specified fault type.
+ * @param faultType The type of fault for which to set the limit.
+ */
+void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
+  uint16_t reg_value;
+  switch (faultType) {
+  case INA228_FAULT_OVERCURRENT:
+    reg_value = static_cast<uint16_t>(
+        limit / (312.5e-9 * 16)); // Conversion for overcurrent
+    writeRegister(INA228_REG_SOVL, reg_value);
+    break;
+  case INA228_FAULT_OVERVOLTAGE:
+    reg_value = static_cast<uint16_t>(
+        limit / (195.3125e-6 * 16)); // Conversion for overvoltage
+    writeRegister(INA228_REG_BOVL, reg_value);
+    break;
+  }
+}
+
+/**
+ * @brief Sets the Slow Alert function. When enabled, ALERT function is asserted
+ * on the completed averaged value. This gives the flexibility to delay the
+ * ALERT until after the averaged value. See SLOWALERT bit in DIAG_ALRT register
+ *
+ * @param enable True to enable Slow Alert, false to disable.
+ */
+void Adafruit_INA228::setSlowAlert(bool enable) {
+  Adafruit_I2CRegisterBits slow_alert =
+      Adafruit_I2CRegisterBits(Diag_Alert, 1, 13);
+  slow_alert.write(enable);
 }

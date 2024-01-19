@@ -17,9 +17,9 @@ void setup() {
       ;
   }
   Serial.println("Found INA228 chip");
-  // we need to set the resistance (default 0.1 ohm) and our max expected
-  // current (no greater than 3.2A)
-  ina228.setShunt(0.1, 1.0);
+  // we need to set the resistance (default 0.015 ohm) and our max expected
+  // current (no greater than 10A)
+  ina228.setShunt(0.15, 10.0);
 
   ina228.setAveragingCount(INA228_COUNT_16);
   uint16_t counts[] = {1, 4, 16, 64, 128, 256, 512, 1024};
@@ -118,6 +118,9 @@ void loop() {
   Serial.print(ina228.readPower());
   Serial.println(" mW");
 
+  // Energy+Charge eventually overflow, either accept that or you can manually
+  // call resetAccumulated(). To detect the event you'll want to verify bit 11
+  // of the Diag_Alert register (ENERGYOF bit) [Table 7-16]
   Serial.print("Energy: ");
   Serial.print(ina228.readEnergy());
   Serial.println(" J");
