@@ -149,7 +149,7 @@ float Adafruit_INA228::readDieTemp(void) {
     @return The current current measurement in mA
 */
 /**************************************************************************/
-float Adafruit_INA228::readCurrent(void) {
+float Adafruit_INA228::getCurrent_mA(void) {
   Adafruit_I2CRegister current =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_CURRENT, 3, MSBFIRST);
   int32_t i = current.read();
@@ -163,7 +163,7 @@ float Adafruit_INA228::readCurrent(void) {
     @return The current bus voltage measurement in mV
 */
 /**************************************************************************/
-float Adafruit_INA228::readBusVoltage(void) {
+float Adafruit_INA228::getBusVoltage_V(void) {
 
   Adafruit_I2CRegister bus_voltage =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_VBUS, 3, MSBFIRST);
@@ -176,7 +176,7 @@ float Adafruit_INA228::readBusVoltage(void) {
     @return The current shunt voltage measurement in mV
 */
 /**************************************************************************/
-float Adafruit_INA228::readShuntVoltage(void) {
+float Adafruit_INA228::getShuntVoltage_mV(void) {
   bool adcrange = (Config->read() >> 4) & 1;
   float scale = 312.5;
   if (adcrange) {
@@ -477,7 +477,7 @@ float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
   case INA228_FAULT_TEMPERATURE:
     reg_value = readRegister(TEMP_LIMIT);
     return reg_value * (7.8125e-3); // 7.8125 m°C/LSB
-
+  case INA228_FAULT
   default:
     return 0.0; // Default return value
   }

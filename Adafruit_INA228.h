@@ -186,9 +186,9 @@ public:
   void setShunt(float shunt_res = 0.015, float max_current = 10);
   float readDieTemp(void);
 
-  float readCurrent(void);
-  float readBusVoltage(void);
-  float readShuntVoltage(void);
+  float getCurrent_mA(void);
+  float getBusVoltage_V(void);
+  float getShuntVoltage_mV(void);
   float readPower(void);
   float readEnergy(void);
 
