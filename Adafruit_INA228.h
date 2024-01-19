@@ -177,9 +177,8 @@ typedef enum _alert_latch {
  */
 class Adafruit_INA228 {
 public:
-  Adafruit_INA228();
-  bool begin(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT,
-             TwoWire *theWire = &Wire, reset = true);
+  Adafruit_INA228(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT);
+  bool begin(TwoWire *theWire = &Wire, bool reset = true);
   void reset(void);
   void resetAccumulated(void);
 
@@ -221,6 +220,7 @@ public:
 
 private:
   float _current_lsb;
+  uint8_t _i2caddr = -1;
   Adafruit_I2CDevice *i2c_dev;
 };
 

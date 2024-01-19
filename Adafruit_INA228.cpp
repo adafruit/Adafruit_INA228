@@ -38,21 +38,24 @@
 
 /*!
  *    @brief  Instantiates a new INA228 class
+ *    @param  i2c_address
+ *            The I2C address to be used.
  */
-Adafruit_INA228::Adafruit_INA228(void) {}
+Adafruit_INA228::Adafruit_INA228(uint8_t i2c_address) {
+  _current_lsb = 0;
+  _i2caddr = i2c_address;
+}
 
 /*!
  *    @brief  Sets up the HW
- *    @param  i2c_address
- *            The I2C address to be used.
  *    @param  theWire
  *            The Wire object to be used for I2C connections.
  *    @param  reset
  *            Whether or not to reset the registers on initialization.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire, bool reset) {
-  i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
+bool Adafruit_INA228::begin(TwoWire *theWire, bool reset) {
+  i2c_dev = new Adafruit_I2CDevice(_i2caddr, theWire);
 
   if (!i2c_dev->begin()) {
     return false;
