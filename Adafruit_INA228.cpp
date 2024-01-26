@@ -80,7 +80,7 @@ bool Adafruit_INA228::begin(TwoWire *theWire, bool reset) {
       new Adafruit_I2CRegister(i2c_dev, INA228_REG_DIAGALRT, 2, MSBFIRST);
 
   if (reset)
-    reset();
+    Adafruit_INA228::reset();
   delay(2); // delay 2ms to give time for first measurement to finish
   return true;
 }
@@ -416,18 +416,55 @@ void Adafruit_INA228::setAlertType(INA228_AlertType alert) {
  * @param limit The threshold value for the alert.
  * @param faultType The type of fault for which to set the limit.
  */
-void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
+void Adafruit_INA228::setAlertLimit(float limit, INA228_AlertType faultType) {
   uint16_t reg_value;
   switch (faultType) {
-  case INA228_FAULT_OVERCURRENT:
-    reg_value = static_cast<uint16_t>(limit / (312.5e-9 * 16));
-    writeRegister(INA228_REG_SOVL, reg_value);
-    break;
-  case INA228_FAULT_OVERVOLTAGE:
-    reg_value = static_cast<uint16_t>(limit / (195.3125e-6 * 16));
-    writeRegister(INA228_REG_BOVL, reg_value);
-    break;
-    // Additional fault types can be added here
+    case INA228_ALERT_OVERCURRENT:
+      reg_value = static_cast<uint16_t>(limit / (312.5e-9 * 16));
+      writeRegister(INA228_REG_SOVL, reg_value);
+      break;
+    case INA228_ALERT_OVERVOLTAGE:
+      reg_value = static_cast<uint16_t>(limit / (195.3125e-6 * 16));
+      writeRegister(INA228_REG_BOVL, reg_value);
+      break;
+    case INA228_ALERT_UNDERVOLTAGE:
+      reg_value = static_cast<uint16_t>(limit / (195.3125e-6 * 16));
+      writeRegister(INA228_REG_BUVL, reg_value);
+      break;
+    case INA228_ALERT_UNDERCURRENT:
+      reg_value = static_cast<uint16_t>(limit / (312.5e-9 * 16));
+      writeRegister(INA228_REG_SUVL, reg_value);
+      break;
+    case INA228_ALERT_OVERPOWER:
+      reg_value = static_cast<uint16_t>(limit / (YOUR_CALCULATION_HERE));
+      writeRegister(INA228_REG_PWRLIMIT, reg_value);
+      break;
+
+
+    case OVER_TEMPERATURE:
+      registerValue = (uint16_t)(threshold / 7.8125e-3);
+      return writeRegister(TEMP_LIMIT_REGISTER, registerValue);
+    case BUS_UNDER_VOLTAGE:
+      registerValue = (uint16_t)(threshold / 3.125e-3);
+      return writeRegister(BUVL_REGISTER, registerValue);
+    case BUS_OVER_VOLTAGE:
+      registerValue = (uint16_t)(threshold / 3.125e-3);
+      return writeRegister(BOVL_REGISTER, registerValue);
+    case SHUNT_UNDER_VOLTAGE:
+      registerValue = (uint16_t)(threshold / (ADCRANGE == 0 ? 5e-6 : 1.25e-6));
+      return writeRegister(SUVL_REGISTER, registerValue);
+    case SHUNT_OVER_VOLTAGE:
+      registerValue = (uint16_t)(threshold / (ADCRANGE == 0 ? 5e-6 : 1.25e-6));
+      return writeRegister(SOVL_REGISTER, registerValue);
+    case POWER_OVER_LIMIT:
+      // Assuming _current_lsb and shunt_resistance are calculated elsewhere in your code
+      power_LSB = _current_lsb * shunt_resistance;
+      registerValue = (uint16_t)(threshold / (power_LSB * 256));
+      return writeRegister(PWR_LIMIT_REGISTER, registerValue);
+  
+    default:
+      // Handle any additional fault types here
+      break;
   }
 }
 
@@ -436,7 +473,7 @@ void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
 //  * @param faultType The type of fault for which to get the limit.
 //  * @return The current alert limit value.
 //  */
-// float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
+// float Adafruit_INA228::getAlertLimit(INA228_AlertType faultType) {
 //   uint16_t reg_value;
 //   switch (faultType) {
 //     case INA228_FAULT_OVERCURRENT:
@@ -455,11 +492,11 @@ void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
  * @param faultType The type of fault for which to get the limit.
  * @return The current alert limit value.
  */
-float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
+float Adafruit_INA228::getAlertLimit(INA228_AlertType faultType) {
   uint16_t reg_value;
   uint8_t adcRange =
       readRegister(INA228_REG_ADC_CONFIG) & 0x01; // Extracting the ADCRANGE bit
-
+  //TODO: Use AlertLimit register and define the bit names
   switch (faultType) {
   case INA228_FAULT_OVERCURRENT:
     reg_value = readRegister(INA228_REG_SOVL);
@@ -492,7 +529,7 @@ float Adafruit_INA228::getAlertLimit(INA228_FaultType faultType) {
  * @param limit The limit value to set for the specified fault type.
  * @param faultType The type of fault for which to set the limit.
  */
-void Adafruit_INA228::setAlertLimit(float limit, INA228_FaultType faultType) {
+void Adafruit_INA228::setAlertLimit(float limit, INA228_AlertType faultType) {
   uint16_t reg_value;
   switch (faultType) {
   case INA228_FAULT_OVERCURRENT:

@@ -197,14 +197,16 @@ public:
   bool conversionReady(void);
   uint16_t alertFunctionFlags(void);
 
-  float getAlertLimit(void);
-  void setAlertLimit(float limit);
+  float getAlertLimit(INA228_AlertType faultType);
+  void setAlertLimit(float limit, INA228_AlertType faultType);
   INA228_AlertLatch getAlertLatch(void);
   void setAlertLatch(INA228_AlertLatch state);
   INA228_AlertPolarity getAlertPolarity(void);
   void setAlertPolarity(INA228_AlertPolarity polarity);
   INA228_AlertType getAlertType(void);
   void setAlertType(INA228_AlertType alert);
+  //TODO: verify if this is needed, or if same as alert latch
+  void setSlowAlertMode(bool slow);
 
   INA228_ConversionTime getCurrentConversionTime(void);
   void setCurrentConversionTime(INA228_ConversionTime time);
