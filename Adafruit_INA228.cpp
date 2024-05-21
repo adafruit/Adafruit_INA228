@@ -128,7 +128,8 @@ void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
 float Adafruit_INA228::readDieTemp(void) {
   Adafruit_I2CRegister temp =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_DIETEMP, 2, MSBFIRST);
-  return (float)temp.read() * 7.8125 / 1000.0;
+  int16_t t = temp.read();
+  return (float)t * 7.8125 / 1000.0;
 }
 /**************************************************************************/
 /*!
