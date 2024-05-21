@@ -49,7 +49,7 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The Wire object to be used for I2C connections.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire) {
+bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire, bool skipReset) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
@@ -74,8 +74,10 @@ bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire) {
   Diag_Alert =
       new Adafruit_I2CRegister(i2c_dev, INA228_REG_DIAGALRT, 2, MSBFIRST);
 
-  reset();
-  delay(2); // delay 2ms to give time for first measurement to finish
+  if (!skipReset) {
+    reset();
+    delay(2); // delay 2ms to give time for first measurement to finish
+  }
   return true;
 }
 /**************************************************************************/

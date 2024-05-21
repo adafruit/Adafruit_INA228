@@ -139,7 +139,7 @@ class Adafruit_INA228 {
 public:
   Adafruit_INA228();
   bool begin(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT,
-             TwoWire *theWire = &Wire);
+             TwoWire *theWire = &Wire, bool skipReset = false);
   void reset(void);
 
   void setShunt(float shunt_res = 0.1, float max_current = 3.2);
