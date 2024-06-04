@@ -24,25 +24,25 @@
 
 #define INA228_I2CADDR_DEFAULT 0x40 ///< INA228 default i2c address
 #define INA228_REG_CONFIG 0x00      ///< Configuration register
-#define INA228_REG_ADCCFG 0x01
-#define INA228_REG_SHUNTCAL 0x02
-#define INA228_REG_SHUNTTEMPCO 0x03
-#define INA228_REG_VSHUNT 0x04
-#define INA228_REG_VBUS 0x05
-#define INA228_REG_DIETEMP 0x06
-#define INA228_REG_CURRENT 0x07
-#define INA228_REG_POWER 0x08
-#define INA228_REG_ENERGY 0x09
-#define INA228_REG_CHARGE 0x0A
-#define INA228_REG_DIAGALRT 0x0B
-#define INA228_REG_SOVL 0x0C
-#define INA228_REG_SUVL 0x0D
-#define INA228_REG_BOVL 0x0E
-#define INA228_REG_BUVL 0x0F
-#define INA228_REG_TEMPLIMIT 0x10
-#define INA228_REG_PWRLIMIT 0x10
-#define INA228_REG_MFG_UID 0x3E ///< Manufacturer ID Register
-#define INA228_REG_DVC_UID 0x3F ///< Device ID and Revision Register
+#define INA228_REG_ADCCFG 0x01      ///< ADC Configuration register
+#define INA228_REG_SHUNTCAL 0x02    ///< Shunt calibration register
+#define INA228_REG_SHUNTTEMPCO 0x03 ///< Shunt temperature coefficient register
+#define INA228_REG_VSHUNT 0x04      ///< Shunt voltage register
+#define INA228_REG_VBUS 0x05        ///< Bus voltage register
+#define INA228_REG_DIETEMP 0x06     ///< Die temperature register
+#define INA228_REG_CURRENT 0x07     ///< Current register
+#define INA228_REG_POWER 0x08       ///< Power register
+#define INA228_REG_ENERGY 0x09      ///< Energy register
+#define INA228_REG_CHARGE 0x0A      ///< Charge register
+#define INA228_REG_DIAGALRT 0x0B    ///< Diagnostic alert register
+#define INA228_REG_SOVL 0x0C        ///< Shunt over-voltage limit register
+#define INA228_REG_SUVL 0x0D        ///< Shunt under-voltage limit register
+#define INA228_REG_BOVL 0x0E        ///< Bus over-voltage limit register
+#define INA228_REG_BUVL 0x0F        ///< Bus under-voltage limit register
+#define INA228_REG_TEMPLIMIT 0x10   ///< Temperature limit register
+#define INA228_REG_PWRLIMIT 0x10    ///< Power limit register
+#define INA228_REG_MFG_UID 0x3E     ///< Manufacturer ID Register
+#define INA228_REG_DVC_UID 0x3F     ///< Device ID and Revision Register
 
 /**
  * @brief Mode options.
