@@ -47,6 +47,8 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The I2C address to be used.
  *    @param  theWire
  *            The Wire object to be used for I2C connections.
+ *    @param  skipReset
+ *            If true, the device will not be reset during initialization.
  *    @return True if initialization was successful, otherwise false.
  */
 bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire,
@@ -100,6 +102,7 @@ void Adafruit_INA228::reset(void) {
 /*!
     @brief Sets the shunt calibration by resistor
     @param shunt_res Resistance of the shunt in ohms (floating point)
+    @param max_current Maximum current that will be measured in Amps
 */
 /**************************************************************************/
 void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
