@@ -158,7 +158,7 @@ public:
              TwoWire *theWire = &Wire, bool skipReset = false);
   void reset(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2,
+  void setShunt(float shunt_res = 0.015, float max_current = 10.,
                 uint8_t adc_range = 0);
   uint8_t getADCRange(void);
   float readDieTemp(void);
