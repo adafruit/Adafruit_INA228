@@ -302,6 +302,29 @@ void Adafruit_INA228::setVoltageConversionTime(INA228_ConversionTime time) {
       Adafruit_I2CRegisterBits(ADC_Config, 3, 9);
   voltage_conversion_time.write(time);
 }
+/**************************************************************************/
+/*!
+    @brief Reads the temperature conversion time
+    @return The temperature conversion time
+*/
+/**************************************************************************/
+INA228_ConversionTime Adafruit_INA228::getTemperatureConversionTime(void) {
+  Adafruit_I2CRegisterBits temperature_conversion_time =
+      Adafruit_I2CRegisterBits(ADC_Config, 3, 3);
+  return (INA228_ConversionTime)temperature_conversion_time.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets the temperature conversion time
+    @param time
+           The new temperature conversion time
+*/
+/**************************************************************************/
+void Adafruit_INA228::setTemperatureConversionTime(INA228_ConversionTime time) {
+  Adafruit_I2CRegisterBits temperature_conversion_time =
+      Adafruit_I2CRegisterBits(ADC_Config, 3, 3);
+  temperature_conversion_time.write(time);
+}
 
 /**************************************************************************/
 /*!

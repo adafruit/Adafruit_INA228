@@ -186,6 +186,8 @@ public:
   void setCurrentConversionTime(INA228_ConversionTime time);
   INA228_ConversionTime getVoltageConversionTime(void);
   void setVoltageConversionTime(INA228_ConversionTime time);
+  INA228_ConversionTime getTemperatureConversionTime(void);
+  void setTemperatureConversionTime(INA228_ConversionTime time);
   INA228_AveragingCount getAveragingCount(void);
   void setAveragingCount(INA228_AveragingCount count);
 
