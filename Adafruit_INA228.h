@@ -158,7 +158,9 @@ public:
              TwoWire *theWire = &Wire, bool skipReset = false);
   void reset(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  void setShunt(float shunt_res = 0.1, float max_current = 3.2,
+                uint8_t adc_range = 0);
+  uint8_t getADCRange(void);
   float readDieTemp(void);
 
   float readCurrent(void);
@@ -198,6 +200,7 @@ public:
 
 private:
   float _current_lsb;
+  uint8_t _adc_range;
   Adafruit_I2CDevice *i2c_dev;
 };
 
