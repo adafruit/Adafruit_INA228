@@ -49,7 +49,8 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The Wire object to be used for I2C connections.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire, bool skipReset) {
+bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire,
+                            bool skipReset) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {

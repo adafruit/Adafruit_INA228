@@ -52,27 +52,27 @@
 typedef enum _mode {
   /**< SHUTDOWN: Minimize quiescient current and turn off current into the
   device inputs. Set another mode to exit shutown mode **/
-  INA228_MODE_SHUTDOWN            = 0x00,
-  INA228_MODE_TRIG_BUS            = 0x01,
-  INA228_MODE_TRIG_SHUNT          = 0x02,
-  INA228_MODE_TRIG_BUS_SHUNT      = 0x03,
-  INA228_MODE_TRIG_TEMP           = 0x04,
-  INA228_MODE_TRIG_TEMP_BUS       = 0x05,
-  INA228_MODE_TRIG_TEMP_SHUNT     = 0x06,
+  INA228_MODE_SHUTDOWN = 0x00,
+  INA228_MODE_TRIG_BUS = 0x01,
+  INA228_MODE_TRIG_SHUNT = 0x02,
+  INA228_MODE_TRIG_BUS_SHUNT = 0x03,
+  INA228_MODE_TRIG_TEMP = 0x04,
+  INA228_MODE_TRIG_TEMP_BUS = 0x05,
+  INA228_MODE_TRIG_TEMP_SHUNT = 0x06,
   INA228_MODE_TRIG_TEMP_BUS_SHUNT = 0x07,
 
-  INA228_MODE_SHUTDOWN2           = 0x08,
-  INA228_MODE_CONT_BUS            = 0x09,
-  INA228_MODE_CONT_SHUNT          = 0x0A,
-  INA228_MODE_CONT_BUS_SHUNT      = 0x0B,
-  INA228_MODE_CONT_TEMP           = 0x0C,
-  INA228_MODE_CONT_TEMP_BUS       = 0x0D,
-  INA228_MODE_CONT_TEMP_SHUNT     = 0x0E,
+  INA228_MODE_SHUTDOWN2 = 0x08,
+  INA228_MODE_CONT_BUS = 0x09,
+  INA228_MODE_CONT_SHUNT = 0x0A,
+  INA228_MODE_CONT_BUS_SHUNT = 0x0B,
+  INA228_MODE_CONT_TEMP = 0x0C,
+  INA228_MODE_CONT_TEMP_BUS = 0x0D,
+  INA228_MODE_CONT_TEMP_SHUNT = 0x0E,
   INA228_MODE_CONT_TEMP_BUS_SHUNT = 0x0F,
 
   /**< TRIGGERED: Trigger a one-shot measurement of temp, current and bus
   voltage. Set the TRIGGERED mode again to take a new measurement **/
-  INA228_MODE_TRIGGERED  = INA228_MODE_TRIG_TEMP_BUS_SHUNT,
+  INA228_MODE_TRIGGERED = INA228_MODE_TRIG_TEMP_BUS_SHUNT,
   /**< CONTINUOUS: (Default) Continuously update the temp, current, bus
   voltage and power registers with new measurements **/
   INA228_MODE_CONTINUOUS = INA228_MODE_CONT_TEMP_BUS_SHUNT
