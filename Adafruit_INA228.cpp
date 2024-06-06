@@ -239,7 +239,7 @@ float Adafruit_INA228::readEnergy(void) {
 */
 /**************************************************************************/
 INA228_MeasurementMode Adafruit_INA228::getMode(void) {
-  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(Config, 3, 0);
+  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(ADC_Config, 4, 12);
   return (INA228_MeasurementMode)mode.read();
 }
 /**************************************************************************/
