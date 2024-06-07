@@ -47,6 +47,9 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The I2C address to be used.
  *    @param  theWire
  *            The Wire object to be used for I2C connections.
+ *    @param  skipReset
+ *            When set to true, will omit resetting all INA228 registers to
+ *            their default values. Default: false.
  *    @return True if initialization was successful, otherwise false.
  */
 bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire,
