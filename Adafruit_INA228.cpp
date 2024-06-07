@@ -96,6 +96,17 @@ void Adafruit_INA228::reset(void) {
   setMode(INA228_MODE_CONTINUOUS);
   getADCRange();
 }
+/**************************************************************************/
+/*!
+    @brief Resets the energy and charge accumulators of the INA228 chip
+    to 0.
+*/
+/**************************************************************************/
+void Adafruit_INA228::reset_accumulators(void) {
+  Adafruit_I2CRegisterBits reset_accumulators =
+      Adafruit_I2CRegisterBits(Config, 1, 14);
+  reset_accumulators.write(1);
+}
 
 /**************************************************************************/
 /*!
