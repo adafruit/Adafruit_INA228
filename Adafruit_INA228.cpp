@@ -105,7 +105,7 @@ void Adafruit_INA228::reset(void) {
     to 0.
 */
 /**************************************************************************/
-void Adafruit_INA228::reset_accumulators(void) {
+void Adafruit_INA228::resetAccumulators(void) {
   Adafruit_I2CRegisterBits reset_accumulators =
       Adafruit_I2CRegisterBits(Config, 1, 14);
   reset_accumulators.write(1);

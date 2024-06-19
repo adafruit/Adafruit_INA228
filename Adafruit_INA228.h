@@ -173,7 +173,7 @@ public:
   bool begin(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT,
              TwoWire *theWire = &Wire, bool skipReset = false);
   void reset(void);
-  void reset_accumulators(void);
+  void resetAccumulators(void);
 
   void setShunt(float shunt_res = 0.015, float max_current = 10.,
                 uint8_t adc_range = 0);
