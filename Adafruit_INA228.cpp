@@ -113,48 +113,55 @@ void Adafruit_INA228::resetAccumulators(void) {
 
 /**************************************************************************/
 /*!
-    @brief Sets the shunt calibration by resistor
-    @param shunt_res Resistance of the shunt in ohms (floating point)
-    @param max_current Maximum expected current in A (floating point)
-    @param adc_range
-           Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
+    @brief Updates the shunt calibration value to the INA228 register.
 */
 /**************************************************************************/
-void Adafruit_INA228::setShunt(float shunt_res, float max_current,
-                               uint8_t adc_range) {
-  _current_lsb = max_current / (float)(1UL << 19);
-  // Serial.print("current lsb is (uA) ");
-  // Serial.println(_current_lsb * 1000000, 8);
-
-  Adafruit_I2CRegisterBits adc_range_bit =
-      Adafruit_I2CRegisterBits(Config, 1, 4);
-  adc_range_bit.write(adc_range);
-  getADCRange();
-
+void Adafruit_INA228::_updateShuntCalRegister() {
   float scale = 1;
-  if (_adc_range) {
+  if (getADCRange()) {
     scale = 4;
   }
-
-  float shunt_cal = 13107.2 * 1000000.0 * shunt_res * _current_lsb * scale;
-  // Serial.print("shunt cal is ");
-  // Serial.println(shunt_cal);
+  float shunt_cal = 13107.2 * 1000000.0 * _shunt_res * _current_lsb * scale;
 
   Adafruit_I2CRegister shunt =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_SHUNTCAL, 2, MSBFIRST);
   shunt.write(shunt_cal);
 }
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt calibration by resistor.
+    @param shunt_res Resistance of the shunt in ohms (floating point)
+    @param max_current Maximum expected current in A (floating point)
+*/
+/**************************************************************************/
+void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
+  _shunt_res = shunt_res;
+  _current_lsb = max_current / (float)(1UL << 19);
+  _updateShuntCalRegister();
+}
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt full scale ADC range across IN+ and IN-.
+    @param adc_range
+           Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
+*/
+/**************************************************************************/
+void Adafruit_INA228::setADCRange(uint8_t adc_range) {
+  Adafruit_I2CRegisterBits adc_range_bit =
+      Adafruit_I2CRegisterBits(Config, 1, 4);
+  adc_range_bit.write(adc_range);
+  _updateShuntCalRegister();
+}
+
 /**************************************************************************/
 /*!
     @brief Reads the shunt full scale ADC range across IN+ and IN-.
-    0: +/- 163.84 mV. 1: +/- 40.96 mV.
-    @return ADC range (0 or 1)
+    @return Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
 */
 /**************************************************************************/
-uint8_t Adafruit_INA228::getADCRange() {
-  _adc_range = (Config->read() >> 4) & 1;
-  return _adc_range;
-}
+uint8_t Adafruit_INA228::getADCRange() { return (Config->read() >> 4) & 1; }
 
 /**************************************************************************/
 /*!
@@ -203,7 +210,7 @@ float Adafruit_INA228::readBusVoltage(void) {
 /**************************************************************************/
 float Adafruit_INA228::readShuntVoltage(void) {
   float scale = 312.5;
-  if (_adc_range) {
+  if (getADCRange()) {
     scale = 78.125;
   }
 

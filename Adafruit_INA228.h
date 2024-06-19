@@ -175,8 +175,9 @@ public:
   void reset(void);
   void resetAccumulators(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2,
-                uint8_t adc_range = 0);
+  void _updateShuntCalRegister(void);
+  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  void setADCRange(uint8_t);
   uint8_t getADCRange(void);
   float readDieTemp(void);
 
@@ -216,8 +217,8 @@ public:
       *AlertLimit;              ///< BusIO Register for AlertLimit
 
 private:
+  float _shunt_res;
   float _current_lsb;
-  uint8_t _adc_range;
   Adafruit_I2CDevice *i2c_dev;
 };
 
