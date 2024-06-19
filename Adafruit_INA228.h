@@ -53,21 +53,37 @@ typedef enum _mode {
   /**< SHUTDOWN: Minimize quiescient current and turn off current into the
   device inputs. Set another mode to exit shutown mode **/
   INA228_MODE_SHUTDOWN = 0x00,
+
+  /**< Triggered bus voltage, single shot **/
   INA228_MODE_TRIG_BUS = 0x01,
+  /**< Triggered shunt voltage, single shot **/
   INA228_MODE_TRIG_SHUNT = 0x02,
+  /**< Triggered shunt voltage and bus voltage, single shot **/
   INA228_MODE_TRIG_BUS_SHUNT = 0x03,
+  /**< Triggered temperature, single shot **/
   INA228_MODE_TRIG_TEMP = 0x04,
+  /**< Triggered temperature and bus voltage, single shot **/
   INA228_MODE_TRIG_TEMP_BUS = 0x05,
+  /**< Triggered temperature and shunt voltage, single shot **/
   INA228_MODE_TRIG_TEMP_SHUNT = 0x06,
+  /**< Triggered bus voltage, shunt voltage and temperature, single shot **/
   INA228_MODE_TRIG_TEMP_BUS_SHUNT = 0x07,
 
+  /**< Shutdown **/
   INA228_MODE_SHUTDOWN2 = 0x08,
+  /**< Continuous bus voltage only **/
   INA228_MODE_CONT_BUS = 0x09,
+  /**< Continuous shunt voltage only **/
   INA228_MODE_CONT_SHUNT = 0x0A,
+  /**< Continuous shunt and bus voltage **/
   INA228_MODE_CONT_BUS_SHUNT = 0x0B,
+  /**< Continuous temperature only **/
   INA228_MODE_CONT_TEMP = 0x0C,
+  /**< Continuous bus voltage and temperature **/
   INA228_MODE_CONT_TEMP_BUS = 0x0D,
+  /**< Continuous temperature and shunt voltage **/
   INA228_MODE_CONT_TEMP_SHUNT = 0x0E,
+  /**< Continuous bus voltage, shunt voltage and temperature **/
   INA228_MODE_CONT_TEMP_BUS_SHUNT = 0x0F,
 
   /**< TRIGGERED: Trigger a one-shot measurement of temp, current and bus
