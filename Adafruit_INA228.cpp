@@ -97,7 +97,6 @@ void Adafruit_INA228::reset(void) {
       Adafruit_I2CRegisterBits(Diag_Alert, 1, 14);
   alert_conv.write(1);
   setMode(INA228_MODE_CONTINUOUS);
-  getADCRange();
 }
 /**************************************************************************/
 /*!
