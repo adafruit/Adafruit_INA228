@@ -24,25 +24,25 @@
 
 #define INA228_I2CADDR_DEFAULT 0x40 ///< INA228 default i2c address
 #define INA228_REG_CONFIG 0x00      ///< Configuration register
-#define INA228_REG_ADCCFG 0x01
-#define INA228_REG_SHUNTCAL 0x02
-#define INA228_REG_SHUNTTEMPCO 0x03
-#define INA228_REG_VSHUNT 0x04
-#define INA228_REG_VBUS 0x05
-#define INA228_REG_DIETEMP 0x06
-#define INA228_REG_CURRENT 0x07
-#define INA228_REG_POWER 0x08
-#define INA228_REG_ENERGY 0x09
-#define INA228_REG_CHARGE 0x0A
-#define INA228_REG_DIAGALRT 0x0B
-#define INA228_REG_SOVL 0x0C
-#define INA228_REG_SUVL 0x0D
-#define INA228_REG_BOVL 0x0E
-#define INA228_REG_BUVL 0x0F
-#define INA228_REG_TEMPLIMIT 0x10
-#define INA228_REG_PWRLIMIT 0x10
-#define INA228_REG_MFG_UID 0x3E ///< Manufacturer ID Register
-#define INA228_REG_DVC_UID 0x3F ///< Device ID and Revision Register
+#define INA228_REG_ADCCFG 0x01      ///< ADC configuration register
+#define INA228_REG_SHUNTCAL 0x02    ///< Shunt calibration register
+#define INA228_REG_SHUNTTEMPCO 0x03 ///< Shunt temperature coefficient register
+#define INA228_REG_VSHUNT 0x04      ///< Shunt voltage measurement register
+#define INA228_REG_VBUS 0x05        ///< Bus voltage measurement register
+#define INA228_REG_DIETEMP 0x06     ///< Temperature measurement register
+#define INA228_REG_CURRENT 0x07     ///< Current result register
+#define INA228_REG_POWER 0x08       ///< Power result register
+#define INA228_REG_ENERGY 0x09      ///< Energy result register
+#define INA228_REG_CHARGE 0x0A      ///< Charge result register
+#define INA228_REG_DIAGALRT 0x0B    ///< Diagnostic flags and alert register
+#define INA228_REG_SOVL 0x0C        ///< Shunt overvoltage threshold register
+#define INA228_REG_SUVL 0x0D        ///< Shunt undervoltage threshold register
+#define INA228_REG_BOVL 0x0E        ///< Bus overvoltage threshold register
+#define INA228_REG_BUVL 0x0F        ///< Bus undervoltage threshold register
+#define INA228_REG_TEMPLIMIT 0x10 ///< Temperature over-limit threshold register
+#define INA228_REG_PWRLIMIT 0x10  ///< Power over-limit threshold register
+#define INA228_REG_MFG_UID 0x3E   ///< Manufacturer ID register
+#define INA228_REG_DVC_UID 0x3F   ///< Device ID and revision register
 
 /**
  * @brief Mode options.
@@ -50,16 +50,48 @@
  * Allowed values for setMode.
  */
 typedef enum _mode {
-  INA228_MODE_SHUTDOWN = 0x00, /**< SHUTDOWN: Minimize quiescient current and
-                                turn off current into the device inputs. Set
-                                another mode to exit shutown mode **/
-  INA228_MODE_TRIGGERED =
-      0x07,                      /**< TRIGGERED: Trigger a one-shot measurement
-                                   of temp, current and bus voltage. Set the TRIGGERED
-                                   mode again to take a new measurement **/
-  INA228_MODE_CONTINUOUS = 0x0F, /**< CONTINUOUS: (Default) Continuously update
-                                    the temp, current, bus voltage and power
-                                    registers with new measurements **/
+  /**< SHUTDOWN: Minimize quiescient current and turn off current into the
+  device inputs. Set another mode to exit shutown mode **/
+  INA228_MODE_SHUTDOWN = 0x00,
+
+  /**< Triggered bus voltage, single shot **/
+  INA228_MODE_TRIG_BUS = 0x01,
+  /**< Triggered shunt voltage, single shot **/
+  INA228_MODE_TRIG_SHUNT = 0x02,
+  /**< Triggered shunt voltage and bus voltage, single shot **/
+  INA228_MODE_TRIG_BUS_SHUNT = 0x03,
+  /**< Triggered temperature, single shot **/
+  INA228_MODE_TRIG_TEMP = 0x04,
+  /**< Triggered temperature and bus voltage, single shot **/
+  INA228_MODE_TRIG_TEMP_BUS = 0x05,
+  /**< Triggered temperature and shunt voltage, single shot **/
+  INA228_MODE_TRIG_TEMP_SHUNT = 0x06,
+  /**< Triggered bus voltage, shunt voltage and temperature, single shot **/
+  INA228_MODE_TRIG_TEMP_BUS_SHUNT = 0x07,
+
+  /**< Shutdown **/
+  INA228_MODE_SHUTDOWN2 = 0x08,
+  /**< Continuous bus voltage only **/
+  INA228_MODE_CONT_BUS = 0x09,
+  /**< Continuous shunt voltage only **/
+  INA228_MODE_CONT_SHUNT = 0x0A,
+  /**< Continuous shunt and bus voltage **/
+  INA228_MODE_CONT_BUS_SHUNT = 0x0B,
+  /**< Continuous temperature only **/
+  INA228_MODE_CONT_TEMP = 0x0C,
+  /**< Continuous bus voltage and temperature **/
+  INA228_MODE_CONT_TEMP_BUS = 0x0D,
+  /**< Continuous temperature and shunt voltage **/
+  INA228_MODE_CONT_TEMP_SHUNT = 0x0E,
+  /**< Continuous bus voltage, shunt voltage and temperature **/
+  INA228_MODE_CONT_TEMP_BUS_SHUNT = 0x0F,
+
+  /**< TRIGGERED: Trigger a one-shot measurement of temp, current and bus
+  voltage. Set the TRIGGERED mode again to take a new measurement **/
+  INA228_MODE_TRIGGERED = INA228_MODE_TRIG_TEMP_BUS_SHUNT,
+  /**< CONTINUOUS: (Default) Continuously update the temp, current, bus
+  voltage and power registers with new measurements **/
+  INA228_MODE_CONTINUOUS = INA228_MODE_CONT_TEMP_BUS_SHUNT
 } INA228_MeasurementMode;
 
 /**
@@ -141,8 +173,11 @@ public:
   bool begin(uint8_t i2c_addr = INA228_I2CADDR_DEFAULT,
              TwoWire *theWire = &Wire, bool skipReset = false);
   void reset(void);
+  void resetAccumulators(void);
 
   void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  void setADCRange(uint8_t);
+  uint8_t getADCRange(void);
   float readDieTemp(void);
 
   float readCurrent(void);
@@ -157,19 +192,21 @@ public:
   bool conversionReady(void);
   uint16_t alertFunctionFlags(void);
 
-  float getAlertLimit(void);
-  void setAlertLimit(float limit);
+  // float getAlertLimit(void);
+  // void setAlertLimit(float limit);
   INA228_AlertLatch getAlertLatch(void);
   void setAlertLatch(INA228_AlertLatch state);
   INA228_AlertPolarity getAlertPolarity(void);
   void setAlertPolarity(INA228_AlertPolarity polarity);
-  INA228_AlertType getAlertType(void);
-  void setAlertType(INA228_AlertType alert);
+  // INA228_AlertType getAlertType(void);
+  // void setAlertType(INA228_AlertType alert);
 
   INA228_ConversionTime getCurrentConversionTime(void);
   void setCurrentConversionTime(INA228_ConversionTime time);
   INA228_ConversionTime getVoltageConversionTime(void);
   void setVoltageConversionTime(INA228_ConversionTime time);
+  INA228_ConversionTime getTemperatureConversionTime(void);
+  void setTemperatureConversionTime(INA228_ConversionTime time);
   INA228_AveragingCount getAveragingCount(void);
   void setAveragingCount(INA228_AveragingCount count);
 
@@ -179,6 +216,8 @@ public:
       *AlertLimit;              ///< BusIO Register for AlertLimit
 
 private:
+  void _updateShuntCalRegister(void);
+  float _shunt_res;
   float _current_lsb;
   Adafruit_I2CDevice *i2c_dev;
 };

@@ -47,9 +47,13 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            The I2C address to be used.
  *    @param  theWire
  *            The Wire object to be used for I2C connections.
+ *    @param  skipReset
+ *            When set to true, will omit resetting all INA228 registers to
+ *            their default values. Default: false.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire, bool skipReset) {
+bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire,
+                            bool skipReset) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
@@ -94,32 +98,69 @@ void Adafruit_INA228::reset(void) {
   alert_conv.write(1);
   setMode(INA228_MODE_CONTINUOUS);
 }
+/**************************************************************************/
+/*!
+    @brief Resets the energy and charge accumulators of the INA228 chip
+    to 0.
+*/
+/**************************************************************************/
+void Adafruit_INA228::resetAccumulators(void) {
+  Adafruit_I2CRegisterBits reset_accumulators =
+      Adafruit_I2CRegisterBits(Config, 1, 14);
+  reset_accumulators.write(1);
+}
 
 /**************************************************************************/
 /*!
-    @brief Sets the shunt calibration by resistor
-    @param shunt_res Resistance of the shunt in ohms (floating point)
+    @brief Updates the shunt calibration value to the INA228 register.
 */
 /**************************************************************************/
-void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
-  _current_lsb = max_current / (float)(1UL << 19);
-  // Serial.print("current lsb is (uA) ");
-  // Serial.println(_current_lsb * 1000000, 8);
-
-  bool adcrange = (Config->read() >> 4) & 1;
+void Adafruit_INA228::_updateShuntCalRegister() {
   float scale = 1;
-  if (adcrange) {
+  if (getADCRange()) {
     scale = 4;
   }
-
-  float shunt_cal = 13107.2 * 1000000.0 * shunt_res * _current_lsb * scale;
-  // Serial.print("shunt cal is ");
-  // Serial.println(shunt_cal);
+  float shunt_cal = 13107.2 * 1000000.0 * _shunt_res * _current_lsb * scale;
 
   Adafruit_I2CRegister shunt =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_SHUNTCAL, 2, MSBFIRST);
   shunt.write(shunt_cal);
 }
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt calibration by resistor.
+    @param shunt_res Resistance of the shunt in ohms (floating point)
+    @param max_current Maximum expected current in A (floating point)
+*/
+/**************************************************************************/
+void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
+  _shunt_res = shunt_res;
+  _current_lsb = max_current / (float)(1UL << 19);
+  _updateShuntCalRegister();
+}
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt full scale ADC range across IN+ and IN-.
+    @param adc_range
+           Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
+*/
+/**************************************************************************/
+void Adafruit_INA228::setADCRange(uint8_t adc_range) {
+  Adafruit_I2CRegisterBits adc_range_bit =
+      Adafruit_I2CRegisterBits(Config, 1, 4);
+  adc_range_bit.write(adc_range);
+  _updateShuntCalRegister();
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads the shunt full scale ADC range across IN+ and IN-.
+    @return Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
+*/
+/**************************************************************************/
+uint8_t Adafruit_INA228::getADCRange() { return (Config->read() >> 4) & 1; }
 
 /**************************************************************************/
 /*!
@@ -167,9 +208,8 @@ float Adafruit_INA228::readBusVoltage(void) {
 */
 /**************************************************************************/
 float Adafruit_INA228::readShuntVoltage(void) {
-  bool adcrange = (Config->read() >> 4) & 1;
   float scale = 312.5;
-  if (adcrange) {
+  if (getADCRange()) {
     scale = 78.125;
   }
 
@@ -178,7 +218,7 @@ float Adafruit_INA228::readShuntVoltage(void) {
   int32_t v = shunt_voltage.read();
   if (v & 0x800000)
     v |= 0xFF000000;
-  return v / 16.0 * scale / 1000000.0;
+  return (float)v / 16.0 * scale / 1000000.0;
 }
 
 /**************************************************************************/
@@ -219,7 +259,7 @@ float Adafruit_INA228::readEnergy(void) {
 */
 /**************************************************************************/
 INA228_MeasurementMode Adafruit_INA228::getMode(void) {
-  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(Config, 3, 0);
+  Adafruit_I2CRegisterBits mode = Adafruit_I2CRegisterBits(ADC_Config, 4, 12);
   return (INA228_MeasurementMode)mode.read();
 }
 /**************************************************************************/
@@ -301,6 +341,29 @@ void Adafruit_INA228::setVoltageConversionTime(INA228_ConversionTime time) {
   Adafruit_I2CRegisterBits voltage_conversion_time =
       Adafruit_I2CRegisterBits(ADC_Config, 3, 9);
   voltage_conversion_time.write(time);
+}
+/**************************************************************************/
+/*!
+    @brief Reads the temperature conversion time
+    @return The temperature conversion time
+*/
+/**************************************************************************/
+INA228_ConversionTime Adafruit_INA228::getTemperatureConversionTime(void) {
+  Adafruit_I2CRegisterBits temperature_conversion_time =
+      Adafruit_I2CRegisterBits(ADC_Config, 3, 3);
+  return (INA228_ConversionTime)temperature_conversion_time.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets the temperature conversion time
+    @param time
+           The new temperature conversion time
+*/
+/**************************************************************************/
+void Adafruit_INA228::setTemperatureConversionTime(INA228_ConversionTime time) {
+  Adafruit_I2CRegisterBits temperature_conversion_time =
+      Adafruit_I2CRegisterBits(ADC_Config, 3, 3);
+  temperature_conversion_time.write(time);
 }
 
 /**************************************************************************/
