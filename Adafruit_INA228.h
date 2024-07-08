@@ -175,7 +175,7 @@ public:
   void reset(void);
   void resetAccumulators(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  void setShunt(float shunt_res = 0.015, float max_current = 10.0);
   void setADCRange(uint8_t);
   uint8_t getADCRange(void);
   float readDieTemp(void);
