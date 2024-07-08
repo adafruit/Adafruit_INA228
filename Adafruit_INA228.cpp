@@ -254,6 +254,27 @@ float Adafruit_INA228::readEnergy(void) {
 
 /**************************************************************************/
 /*!
+    @brief Reads and scales the current value of the Charge register.
+    @return The current Charge calculation in Coulombs
+*/
+/**************************************************************************/
+float Adafruit_INA228::readCharge(void) {
+  Adafruit_I2CRegister charge =
+      Adafruit_I2CRegister(i2c_dev, INA228_REG_CHARGE, 5, MSBFIRST);
+  uint8_t buff[5];
+  charge.read(buff, 5);
+  int64_t c = 0;
+  for (int i = 0; i < 5; i++) {
+    c *= 256;
+    c += buff[i];
+  }
+  if (c & 0x8000000000)
+    c |= 0xFFFFFF0000000000;
+  return float(c) * _current_lsb;
+}
+
+/**************************************************************************/
+/*!
     @brief Returns the current measurement mode
     @return The current mode
 */
