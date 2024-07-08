@@ -185,6 +185,7 @@ public:
   float readShuntVoltage(void);
   float readPower(void);
   float readEnergy(void);
+  float readCharge(void);
 
   void setMode(INA228_MeasurementMode mode);
   INA228_MeasurementMode getMode(void);
