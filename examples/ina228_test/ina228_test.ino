@@ -17,9 +17,9 @@ void setup() {
       ;
   }
   Serial.println("Found INA228 chip");
-  // we need to set the resistance (default 0.1 ohm) and our max expected
-  // current (no greater than 3.2A)
-  ina228.setShunt(0.1, 1.0);
+  // we need to set the resistance (Ohms) and our max expected current (Amps)
+  // For product code 5832, resistance is 0.015Ohm and no greater than 10A
+  ina228.setShunt(0.015, 10.0);
 
   ina228.setAveragingCount(INA228_COUNT_16);
   uint16_t counts[] = {1, 4, 16, 64, 128, 256, 512, 1024};
@@ -121,6 +121,10 @@ void loop() {
   Serial.print("Energy: ");
   Serial.print(ina228.readEnergy());
   Serial.println(" J");
+
+  Serial.print("Charge: ");
+  Serial.print(ina228.readCharge());
+  Serial.println(" C");
 
   Serial.print("Temperature: ");
   Serial.print(ina228.readDieTemp());
