@@ -174,6 +174,7 @@ float Adafruit_INA228::readDieTemp(void) {
   int16_t t = temp.read();
   return (float)t * 7.8125 / 1000.0;
 }
+
 /**************************************************************************/
 /*!
     @brief Reads and scales the current value of the Current register.
@@ -188,18 +189,35 @@ float Adafruit_INA228::readCurrent(void) {
     i |= 0xFF000000;
   return (float)i / 16.0 * _current_lsb * 1000.0;
 }
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Current register.
+    @return The current current measurement in mA
+*/
+/**************************************************************************/
+float Adafruit_INA228::getCurrent_mA(void) { return readCurrent(); }
+
 /**************************************************************************/
 /*!
     @brief Reads and scales the current value of the Bus Voltage register.
-    @return The current bus voltage measurement in mV
+    @return The current bus voltage measurement in V
 */
 /**************************************************************************/
 float Adafruit_INA228::readBusVoltage(void) {
 
   Adafruit_I2CRegister bus_voltage =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_VBUS, 3, MSBFIRST);
-  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125 / 1000.0;
+  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125;
 }
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Bus Voltage register.
+    @return The current bus voltage measurement in V
+*/
+/**************************************************************************/
+float Adafruit_INA228::getBusVoltage_V(void) { return readBusVoltage(); }
 
 /**************************************************************************/
 /*!
@@ -223,6 +241,14 @@ float Adafruit_INA228::readShuntVoltage(void) {
 
 /**************************************************************************/
 /*!
+    @brief Reads and scales the current value of the Shunt Voltage register.
+    @return The current shunt voltage measurement in mV
+*/
+/**************************************************************************/
+float Adafruit_INA228::getShuntVoltage_mV(void) { return readShuntVoltage(); }
+
+/**************************************************************************/
+/*!
     @brief Reads and scales the current value of the Power register.
     @return The current Power calculation in mW
 */
@@ -232,6 +258,14 @@ float Adafruit_INA228::readPower(void) {
       Adafruit_I2CRegister(i2c_dev, INA228_REG_POWER, 3, MSBFIRST);
   return (float)power.read() * 3.2 * _current_lsb * 1000;
 }
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Power register.
+    @return The current Power calculation in mW
+*/
+/**************************************************************************/
+float Adafruit_INA228::getPower_mW(void) { return readPower(); }
 
 /**************************************************************************/
 /*!

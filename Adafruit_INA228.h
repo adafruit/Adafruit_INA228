@@ -180,6 +180,13 @@ public:
   uint8_t getADCRange(void);
   float readDieTemp(void);
 
+  // consistant INA interface:
+  float getBusVoltage_V(void);
+  float getShuntVoltage_mV(void);
+  float getCurrent_mA(void);
+  float getPower_mW(void);
+  //
+
   float readCurrent(void);
   float readBusVoltage(void);
   float readShuntVoltage(void);
