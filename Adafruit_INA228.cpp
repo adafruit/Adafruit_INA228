@@ -470,3 +470,30 @@ uint16_t Adafruit_INA228::alertFunctionFlags(void) {
       Adafruit_I2CRegisterBits(Diag_Alert, 12, 0);
   return alert_flags.read();
 }
+/**************************************************************************/
+/*!
+    @brief Sets Bus Voltage Over Limit
+    @param limit
+           The limit for triggering the alert in mV
+*/
+/**************************************************************************/
+void Adafruit_INA228::setBusVoltageOverLimit(float limit) {
+  Adafruit_I2CRegister bovl =
+      Adafruit_I2CRegister(i2c_dev, INA228_REG_BOVL, 2, MSBFIRST);
+
+  uint16_t value = ((uint16_t) limit / 3.125);
+  bovl.write(value);
+}
+/**************************************************************************/
+/*!
+    @brief Reads the bus voltage over limit
+    @return limit in mV
+*/
+/**************************************************************************/
+float Adafruit_INA228::getBusVoltageOverLimit(void) {
+  Adafruit_I2CRegister bovl =
+      Adafruit_I2CRegister(i2c_dev, INA228_REG_BOVL, 2, MSBFIRST);
+
+  float limit_mv = (float)((uint32_t)bovl.read()) * 3.125;
+  return limit_mv;
+}
