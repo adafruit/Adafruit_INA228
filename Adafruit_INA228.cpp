@@ -481,7 +481,7 @@ void Adafruit_INA228::setBusVoltageOverLimit(float limit) {
   Adafruit_I2CRegister bovl =
       Adafruit_I2CRegister(i2c_dev, INA228_REG_BOVL, 2, MSBFIRST);
 
-  uint16_t value = ((uint16_t) limit / 3.125);
+  uint16_t value = ((uint16_t)limit / 3.125);
   bovl.write(value);
 }
 /**************************************************************************/
