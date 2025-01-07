@@ -208,6 +208,9 @@ public:
   // INA228_AlertType getAlertType(void);
   // void setAlertType(INA228_AlertType alert);
 
+  float getBusVoltageOverLimit(void);
+  void setBusVoltageOverLimit(float);
+
   INA228_ConversionTime getCurrentConversionTime(void);
   void setCurrentConversionTime(INA228_ConversionTime time);
   INA228_ConversionTime getVoltageConversionTime(void);
