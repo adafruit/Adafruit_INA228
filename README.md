@@ -1,6 +1,6 @@
 Adafruit_INA228
 ===============
-[![Build Status](https://github.com/adafruit/Adafruit_INA228/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_INA228/actions) 
+[![Build Status](https://github.com/adafruit/Adafruit_INA228/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_INA228/actions)
 [![Documentation](https://raw.githubusercontent.com/adafruit/ci-arduino/master/assets/doxygen_badge.svg)](https://adafruit.github.io/Adafruit_INA228/html/index.html)
 
 This is the Adafruit INA228 Current and Power sensor library
