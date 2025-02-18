@@ -17,9 +17,8 @@ void setup() {
       ;
   }
   Serial.println("Found INA228 chip");
-  // we need to set the resistance (default 0.1 ohm) and our max expected
-  // current (no greater than 3.2A)
-  ina228.setShunt(0.1, 1.0);
+  // set shunt resistance and max current
+  ina228.setShunt(0.015, 10.0);
 
   ina228.setAveragingCount(INA228_COUNT_16);
   uint16_t counts[] = {1, 4, 16, 64, 128, 256, 512, 1024};
