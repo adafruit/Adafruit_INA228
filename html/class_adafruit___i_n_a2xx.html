@@ -80,8 +80,6 @@ Inheritance diagram for Adafruit_INA2xx:</div>
   <img src="class_adafruit___i_n_a2xx.png" usemap="#Adafruit_5FINA2xx_map" alt=""/>
   <map id="Adafruit_5FINA2xx_map" name="Adafruit_5FINA2xx_map">
 <area href="class_adafruit___i_n_a228.html" title="Class that stores state and functions for interacting with INA228 Current and Power Sensor..." alt="Adafruit_INA228" shape="rect" coords="0,56,106,80"/>
-<area href="class_adafruit___i_n_a237.html" title="Class that stores state and functions for interacting with INA237/INA238 Current and Power Sensors..." alt="Adafruit_INA237" shape="rect" coords="116,56,222,80"/>
-<area href="class_adafruit___i_n_a238.html" title="Class that stores state and functions for interacting with INA238 Current and Power Sensor (subclass ..." alt="Adafruit_INA238" shape="rect" coords="116,112,222,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -277,7 +275,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if initialization was successful (including verifying the manufacturer ID is Texas Instruments: 0x5449), otherwise false. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a6deb385940093a7a8c2ba0938168e709">Adafruit_INA228</a>, <a class="el" href="class_adafruit___i_n_a237.html#a5b57c715d573272a487186edd4469e71">Adafruit_INA237</a>, and <a class="el" href="class_adafruit___i_n_a238.html#a419f14f55eb3aff12f7f9e63f5eaf9a1">Adafruit_INA238</a>.</p>
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a6deb385940093a7a8c2ba0938168e709">Adafruit_INA228</a>.</p>
 
 </div>
 </div>
@@ -325,7 +323,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#ab7d1be4af28e9d3e2389deffcaaa6382">Adafruit_INA228</a>, and <a class="el" href="class_adafruit___i_n_a237.html#a6c17e64857065843706a46ccc80797a8">Adafruit_INA237</a>.</p>
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#ab7d1be4af28e9d3e2389deffcaaa6382">Adafruit_INA228</a>.</p>
 
 </div>
 </div>
@@ -404,7 +402,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section note"><dt>Note</dt><dd>This base implementation uses the INA228 conversion factor of 7.8125 m°C/LSB. Derived classes override this method as needed (e.g., INA237). </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The current die temp in deg C </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e">Adafruit_INA228</a>, and <a class="el" href="class_adafruit___i_n_a237.html#ab1e34a67d118bca72df89749bad07ee4">Adafruit_INA237</a>.</p>
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e">Adafruit_INA228</a>.</p>
 
 </div>
 </div>
@@ -436,7 +434,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section note"><dt>Note</dt><dd>This base implementation uses the INA228 conversion factor. Derived classes override this method for their specific conversion factors. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The current bus voltage measurement in V </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#ac15ad2bb42b2e5954668242dbe5487f1">Adafruit_INA228</a>, and <a class="el" href="class_adafruit___i_n_a237.html#a64e9ad6f47c561fe08352f7ed4b924b1">Adafruit_INA237</a>.</p>
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#ac15ad2bb42b2e5954668242dbe5487f1">Adafruit_INA228</a>.</p>
 
 </div>
 </div>
@@ -551,8 +549,6 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <p>Reads and scales the current value of the Current register. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current current measurement in mA </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a237.html#abc259e72a96b712f12058a500e53b064">Adafruit_INA237</a>.</p>
-
 </div>
 </div>
 <a id="af11dad939e5072cc063edcc84c580ddb"></a>
@@ -582,8 +578,6 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <p>Reads and scales the current value of the Shunt Voltage register. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current shunt voltage measurement in mV </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a237.html#a7a6e4eb322f25f8d390e4f4a7af62bca">Adafruit_INA237</a>.</p>
-
 </div>
 </div>
 <a id="aa044dc5239e8d854fe70e8295a7f3c4b"></a>
@@ -612,8 +606,6 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 <p>Reads and scales the current value of the Power register. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current Power calculation in mW </dd></dl>
-
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a237.html#a78c43dfbbd2257050ea35fcdb7ebfabb">Adafruit_INA237</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +1007,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <p>Updates the shunt calibration value to the register. This is implemented in the derived classes due to different calculations. </p>
 <p>Updates the shunt calibration register based on device-specific calculations </p>
 
-<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342">Adafruit_INA228</a>, and <a class="el" href="class_adafruit___i_n_a237.html#af4e10e12e0d94a5c725aa26aa984dd09">Adafruit_INA237</a>.</p>
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342">Adafruit_INA228</a>.</p>
 
 </div>
 </div>

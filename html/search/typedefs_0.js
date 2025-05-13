@@ -6,7 +6,6 @@ var searchData=
   ['ina228_5faveragingcount',['INA228_AveragingCount',['../_adafruit___i_n_a228_8h.html#a593a90cd922382d9c16c793cba7231c0',1,'Adafruit_INA228.h']]],
   ['ina228_5fconversiontime',['INA228_ConversionTime',['../_adafruit___i_n_a228_8h.html#a8901269aef0ef183a021e25931e3adaa',1,'Adafruit_INA228.h']]],
   ['ina228_5fmeasurementmode',['INA228_MeasurementMode',['../_adafruit___i_n_a228_8h.html#afdaad2099fc73f9de2476f80ce0e19ad',1,'Adafruit_INA228.h']]],
-  ['ina237_5falerttype',['INA237_AlertType',['../_adafruit___i_n_a237_8h.html#a1c988ddedc2786e59aca503b313b0724',1,'Adafruit_INA237.h']]],
   ['ina2xx_5falertlatch',['INA2XX_AlertLatch',['../_adafruit___i_n_a2xx_8h.html#a506602c21f0e225443dffd7c3bc59529',1,'Adafruit_INA2xx.h']]],
   ['ina2xx_5falertpolarity',['INA2XX_AlertPolarity',['../_adafruit___i_n_a2xx_8h.html#add29c0793a518722fff0f917f159a780',1,'Adafruit_INA2xx.h']]],
   ['ina2xx_5faveragingcount',['INA2XX_AveragingCount',['../_adafruit___i_n_a2xx_8h.html#af9857e31250dd864fae0bade94374c67',1,'Adafruit_INA2xx.h']]],

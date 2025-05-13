@@ -3,7 +3,7 @@ var searchData=
   ['getadcrange',['getADCRange',['../class_adafruit___i_n_a2xx.html#a7b46b85c358186b9ace323b260a2e03b',1,'Adafruit_INA2xx']]],
   ['getalertlatch',['getAlertLatch',['../class_adafruit___i_n_a2xx.html#ac0d1f770a576567d86455f6c33d2d00e',1,'Adafruit_INA2xx']]],
   ['getalertpolarity',['getAlertPolarity',['../class_adafruit___i_n_a2xx.html#a22708779feb92fef1b53dec1d26d336a',1,'Adafruit_INA2xx']]],
-  ['getalerttype',['getAlertType',['../class_adafruit___i_n_a228.html#a7e1e4b42cc9d92b2544527a4c9b1d9b1',1,'Adafruit_INA228::getAlertType()'],['../class_adafruit___i_n_a237.html#a838055b7f33554847d78d6bcc1d8f96f',1,'Adafruit_INA237::getAlertType()']]],
+  ['getalerttype',['getAlertType',['../class_adafruit___i_n_a228.html#a7e1e4b42cc9d92b2544527a4c9b1d9b1',1,'Adafruit_INA228']]],
   ['getaveragingcount',['getAveragingCount',['../class_adafruit___i_n_a2xx.html#a76a566dd9816fb47dc7e1020ec898ea2',1,'Adafruit_INA2xx']]],
   ['getbusvoltage_5fv',['getBusVoltage_V',['../class_adafruit___i_n_a2xx.html#a36304d0c5dab151de686817aa629ad3a',1,'Adafruit_INA2xx']]],
   ['getcurrent_5fma',['getCurrent_mA',['../class_adafruit___i_n_a2xx.html#ab7d1e30e371243fbc883033b0ec49c52',1,'Adafruit_INA2xx']]],

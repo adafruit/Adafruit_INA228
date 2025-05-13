@@ -5,6 +5,5 @@ var searchData=
   ['_5falert_5ftype',['_alert_type',['../_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755',1,'Adafruit_INA228.h']]],
   ['_5fconversion_5ftime',['_conversion_time',['../_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136',1,'Adafruit_INA2xx.h']]],
   ['_5fcount',['_count',['../_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983',1,'Adafruit_INA2xx.h']]],
-  ['_5fina237_5falert_5ftype',['_ina237_alert_type',['../_adafruit___i_n_a237_8h.html#aa7613d25bd97136a2b9be3859c22d1c6',1,'Adafruit_INA237.h']]],
   ['_5fmode',['_mode',['../_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99ed',1,'Adafruit_INA2xx.h']]]
 ];

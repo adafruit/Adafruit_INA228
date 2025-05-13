@@ -7,8 +7,7 @@ var searchData=
   ['_5fcount',['_count',['../_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983',1,'Adafruit_INA2xx.h']]],
   ['_5fcurrent_5flsb',['_current_lsb',['../class_adafruit___i_n_a2xx.html#aa7d694fdad7b75aa1ae478f2b63863e7',1,'Adafruit_INA2xx']]],
   ['_5fdevice_5fid',['_device_id',['../class_adafruit___i_n_a2xx.html#aa6310c8639e3bd0b4558c487a673b618',1,'Adafruit_INA2xx']]],
-  ['_5fina237_5falert_5ftype',['_ina237_alert_type',['../_adafruit___i_n_a237_8h.html#aa7613d25bd97136a2b9be3859c22d1c6',1,'Adafruit_INA237.h']]],
   ['_5fmode',['_mode',['../_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99ed',1,'Adafruit_INA2xx.h']]],
   ['_5fshunt_5fres',['_shunt_res',['../class_adafruit___i_n_a2xx.html#abd41be29b7d493a1691aca684127bcd1',1,'Adafruit_INA2xx']]],
-  ['_5fupdateshuntcalregister',['_updateShuntCalRegister',['../class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342',1,'Adafruit_INA228::_updateShuntCalRegister()'],['../class_adafruit___i_n_a237.html#af4e10e12e0d94a5c725aa26aa984dd09',1,'Adafruit_INA237::_updateShuntCalRegister()'],['../class_adafruit___i_n_a2xx.html#a12cb53b09f57bed0b0ae50bb414685c3',1,'Adafruit_INA2xx::_updateShuntCalRegister()']]]
+  ['_5fupdateshuntcalregister',['_updateShuntCalRegister',['../class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342',1,'Adafruit_INA228::_updateShuntCalRegister()'],['../class_adafruit___i_n_a2xx.html#a12cb53b09f57bed0b0ae50bb414685c3',1,'Adafruit_INA2xx::_updateShuntCalRegister()']]]
 ];
