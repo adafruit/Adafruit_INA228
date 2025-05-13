@@ -73,15 +73,15 @@ bool Adafruit_INA237::begin(uint8_t i2c_address, TwoWire* theWire,
 /**************************************************************************/
 void Adafruit_INA237::_updateShuntCalRegister() {
   // Formula from INA237 datasheet (SBOSA20A)
-  // SHUNT_CAL = 13107.2 × (RSHUNT × CURRENT_LSB)
+  // SHUNT_CAL = 819.2 x 10^6 x CURRENT_LSB x RSHUNT
 
   float scale = 1;
   if (getADCRange()) {
     scale = 4; // For lower range (+/-40.96mV)
   }
 
-  // Different calculation for INA237
-  float shunt_cal = 13107.2 * _shunt_res * _current_lsb * scale;
+  // Correct calculation for INA237
+  float shunt_cal = 819.2e6 * _current_lsb * _shunt_res * scale;
 
   Adafruit_I2CRegister shunt =
       Adafruit_I2CRegister(i2c_dev, INA2XX_REG_SHUNTCAL, 2, MSBFIRST);
