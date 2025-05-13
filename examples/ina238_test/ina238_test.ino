@@ -110,8 +110,8 @@ void loop() {
   Serial.println(" V");
 
   Serial.print("Shunt Voltage: ");
-  Serial.print(ina238.getShuntVoltage_mV());
-  Serial.println(" mV");
+  Serial.print(ina238.getShuntVoltage_mV() * 1000.0); // Convert from mV to μV
+  Serial.println(" uV");
 
   Serial.print("Power: ");
   Serial.print(ina238.getPower_mW());
