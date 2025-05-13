@@ -19,3 +19,5 @@ All text above must be included in any redistribution
 
 To install, use the Arduino Library Manager and search for "Adafruit INA228" and install the library.
 
+Note: For INA237 and INA238 support, please use the separate [Adafruit INA237 and INA238 Library](https://github.com/adafruit/Adafruit_INA237_INA238)
+
