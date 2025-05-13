@@ -202,11 +202,11 @@ class Adafruit_INA2xx {
       *Diag_Alert;              ///< BusIO Register for Diagnostic Alerts
 
  protected:
-  virtual void _updateShuntCalRegister(void);
-  float _shunt_res;
-  float _current_lsb;
-  Adafruit_I2CDevice* i2c_dev;
-  uint16_t _device_id; // Device ID for validation
+  virtual void _updateShuntCalRegister(void); ///< Updates the shunt calibration register based on device-specific calculations
+  float _shunt_res;     ///< Shunt resistance value in ohms
+  float _current_lsb;   ///< Current LSB value used for calculations
+  Adafruit_I2CDevice* i2c_dev; ///< I2C device interface
+  uint16_t _device_id;  ///< Device ID for chip verification
 };
 
 #endif

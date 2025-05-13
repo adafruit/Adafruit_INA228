@@ -1,9 +1,7 @@
 /*!
  *  @file Adafruit_INA228.cpp
  *
- *  @mainpage Adafruit INA228 I2C Current and Power sensor
- *
- *  @section intro_sec Introduction
+ *  @section ina228_intro Introduction
  *
  * 	I2C Driver for the INA228 I2C Current and Power sensor
  *
@@ -14,19 +12,19 @@
  *  please support Adafruit and open-source hardware by purchasing products from
  * 	Adafruit!
  *
- *  @section dependencies Dependencies
+ *  @section ina228_dependencies Dependencies
  *
  *  This library depends on the Adafruit BusIO library
  *
- *  @section author Author
+ *  @section ina228_author Author
  *
  *  Bryan Siepert for Adafruit Industries
  *
- * 	@section license License
+ * 	@section ina228_license License
  *
  * 	BSD (see license.txt)
  *
- * 	@section  HISTORY
+ * 	@section ina228_history HISTORY
  *
  *     v1.0 - First release
  */

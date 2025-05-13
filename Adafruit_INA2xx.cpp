@@ -1,9 +1,7 @@
 /*!
  *  @file Adafruit_INA2xx.cpp
  *
- *  @mainpage Adafruit INA2xx I2C Current and Power sensor base class
- *
- *  @section intro_sec Introduction
+ *  @section ina2xx_intro Introduction
  *
  * 	I2C Driver base class for the INA2xx I2C Current and Power sensors
  *
@@ -14,19 +12,19 @@
  *  please support Adafruit and open-source hardware by purchasing products from
  * 	Adafruit!
  *
- *  @section dependencies Dependencies
+ *  @section ina2xx_dependencies Dependencies
  *
  *  This library depends on the Adafruit BusIO library
  *
- *  @section author Author
+ *  @section ina2xx_author Author
  *
  *  Bryan Siepert for Adafruit Industries
  *
- * 	@section license License
+ * 	@section ina2xx_license License
  *
  * 	BSD (see license.txt)
  *
- * 	@section  HISTORY
+ * 	@section ina2xx_history HISTORY
  *
  *     v1.0 - First release
  */
