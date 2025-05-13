@@ -201,3 +201,17 @@ float Adafruit_INA228::readBusVoltage(void) {
   // INA228 uses 195.3125 µV/LSB for bus voltage
   return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125 / 1e6;
 }
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt calibration by resistor for INA228.
+    @param shunt_res Resistance of the shunt in ohms (floating point)
+    @param max_current Maximum expected current in A (floating point)
+*/
+/**************************************************************************/
+void Adafruit_INA228::setShunt(float shunt_res, float max_current) {
+  _shunt_res = shunt_res;
+  // INA228 uses 2^19 as the divisor
+  _current_lsb = max_current / (float)(1UL << 19);
+  _updateShuntCalRegister();
+}

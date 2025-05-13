@@ -155,6 +155,7 @@ class Adafruit_INA228 : public Adafruit_INA2xx {
   void resetAccumulators(void);
   float readDieTemp(void) override;
   float readBusVoltage(void) override;
+  void setShunt(float shunt_res = 0.1, float max_current = 3.2) override;
 
   // INA228 specific register pointer
   Adafruit_I2CRegister* AlertLimit; ///< BusIO Register for AlertLimit

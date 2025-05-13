@@ -116,12 +116,15 @@ void Adafruit_INA2xx::_updateShuntCalRegister() {
 /**************************************************************************/
 /*!
     @brief Sets the shunt calibration by resistor.
+    @note This base implementation uses INA228 settings.
+          Derived classes override this method for their specific settings.
     @param shunt_res Resistance of the shunt in ohms (floating point)
     @param max_current Maximum expected current in A (floating point)
 */
 /**************************************************************************/
 void Adafruit_INA2xx::setShunt(float shunt_res, float max_current) {
   _shunt_res = shunt_res;
+  // Default to INA228 behavior (2^19 divisor)
   _current_lsb = max_current / (float)(1UL << 19);
   _updateShuntCalRegister();
 }

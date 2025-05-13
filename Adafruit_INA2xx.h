@@ -159,7 +159,7 @@ class Adafruit_INA2xx {
                      TwoWire* theWire = &Wire, bool skipReset = false);
   virtual void reset(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  virtual void setShunt(float shunt_res = 0.1, float max_current = 3.2);
   void setADCRange(uint8_t);
   uint8_t getADCRange(void);
   virtual float readDieTemp(void);

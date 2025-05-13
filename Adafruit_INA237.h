@@ -57,6 +57,7 @@ class Adafruit_INA237 : public Adafruit_INA2xx {
   float readShuntVoltage(void) override;
   float readCurrent(void) override;
   float readPower(void) override;
+  void setShunt(float shunt_res = 0.1, float max_current = 3.2) override;
 
  protected:
   void _updateShuntCalRegister(void) override;
