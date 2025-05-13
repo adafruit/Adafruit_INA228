@@ -120,6 +120,10 @@ void loop() {
   Serial.print("Energy: ");
   Serial.print(ina228.readEnergy());
   Serial.println(" J");
+  
+  Serial.print("Charge: ");
+  Serial.print(ina228.readCharge());
+  Serial.println(" C");
 
   Serial.print("Temperature: ");
   Serial.print(ina228.readDieTemp());
