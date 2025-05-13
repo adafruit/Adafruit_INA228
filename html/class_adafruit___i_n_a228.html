@@ -114,14 +114,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a47ecdb012860564bad447f04c6a00e2e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e">readDieTemp</a> (void) override</td></tr>
 <tr class="memdesc:a47ecdb012860564bad447f04c6a00e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the die temperature with the INA228-specific conversion factor.  <a href="#a47ecdb012860564bad447f04c6a00e2e">More...</a><br /></td></tr>
 <tr class="separator:a47ecdb012860564bad447f04c6a00e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15ad2bb42b2e5954668242dbe5487f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#ac15ad2bb42b2e5954668242dbe5487f1">readBusVoltage</a> (void) override</td></tr>
+<tr class="memdesc:ac15ad2bb42b2e5954668242dbe5487f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Bus Voltage register using INA228-specific conversion factor.  <a href="#ac15ad2bb42b2e5954668242dbe5487f1">More...</a><br /></td></tr>
+<tr class="separator:ac15ad2bb42b2e5954668242dbe5487f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d1be4af28e9d3e2389deffcaaa6382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#ab7d1be4af28e9d3e2389deffcaaa6382">setShunt</a> (float shunt_res=0.1, float max_current=3.2) override</td></tr>
+<tr class="memdesc:ab7d1be4af28e9d3e2389deffcaaa6382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the shunt calibration by resistor for INA228.  <a href="#ab7d1be4af28e9d3e2389deffcaaa6382">More...</a><br /></td></tr>
+<tr class="separator:ab7d1be4af28e9d3e2389deffcaaa6382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_adafruit___i_n_a2xx"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_adafruit___i_n_a2xx')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_adafruit___i_n_a2xx.html">Adafruit_INA2xx</a></td></tr>
 <tr class="memitem:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top"><a id="ab36bdc76bfa37bf55e9d4fe6c1139d37"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ab36bdc76bfa37bf55e9d4fe6c1139d37">Adafruit_INA2xx</a> ()</td></tr>
 <tr class="memdesc:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a new INA2xx class. <br /></td></tr>
 <tr class="separator:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ac15f9a66950658c807fef8ffcc50cdf5">setShunt</a> (float shunt_res=0.1, float max_current=3.2)</td></tr>
-<tr class="memdesc:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the shunt calibration by resistor.  <a href="class_adafruit___i_n_a2xx.html#ac15f9a66950658c807fef8ffcc50cdf5">More...</a><br /></td></tr>
-<tr class="separator:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23260ecc91883043fa69d136b203743e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#a23260ecc91883043fa69d136b203743e">setADCRange</a> (uint8_t)</td></tr>
 <tr class="memdesc:a23260ecc91883043fa69d136b203743e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the shunt full scale ADC range across IN+ and IN-.  <a href="class_adafruit___i_n_a2xx.html#a23260ecc91883043fa69d136b203743e">More...</a><br /></td></tr>
 <tr class="separator:a23260ecc91883043fa69d136b203743e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,16 +143,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a72eaf969fb54546abf441a653daadc50 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#a72eaf969fb54546abf441a653daadc50">getPower_mW</a> (void)</td></tr>
 <tr class="memdesc:a72eaf969fb54546abf441a653daadc50 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Power register.  <a href="class_adafruit___i_n_a2xx.html#a72eaf969fb54546abf441a653daadc50">More...</a><br /></td></tr>
 <tr class="separator:a72eaf969fb54546abf441a653daadc50 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af94fbdefcabf722fa82261b68fc1024e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#af94fbdefcabf722fa82261b68fc1024e">readCurrent</a> (void)</td></tr>
+<tr class="memitem:af94fbdefcabf722fa82261b68fc1024e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#af94fbdefcabf722fa82261b68fc1024e">readCurrent</a> (void)</td></tr>
 <tr class="memdesc:af94fbdefcabf722fa82261b68fc1024e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Current register.  <a href="class_adafruit___i_n_a2xx.html#af94fbdefcabf722fa82261b68fc1024e">More...</a><br /></td></tr>
 <tr class="separator:af94fbdefcabf722fa82261b68fc1024e inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d3a5eab5542c94d2d9a7d302d36069 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ab8d3a5eab5542c94d2d9a7d302d36069">readBusVoltage</a> (void)</td></tr>
-<tr class="memdesc:ab8d3a5eab5542c94d2d9a7d302d36069 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Bus Voltage register.  <a href="class_adafruit___i_n_a2xx.html#ab8d3a5eab5542c94d2d9a7d302d36069">More...</a><br /></td></tr>
-<tr class="separator:ab8d3a5eab5542c94d2d9a7d302d36069 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af11dad939e5072cc063edcc84c580ddb inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#af11dad939e5072cc063edcc84c580ddb">readShuntVoltage</a> (void)</td></tr>
+<tr class="memitem:af11dad939e5072cc063edcc84c580ddb inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#af11dad939e5072cc063edcc84c580ddb">readShuntVoltage</a> (void)</td></tr>
 <tr class="memdesc:af11dad939e5072cc063edcc84c580ddb inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Shunt Voltage register.  <a href="class_adafruit___i_n_a2xx.html#af11dad939e5072cc063edcc84c580ddb">More...</a><br /></td></tr>
 <tr class="separator:af11dad939e5072cc063edcc84c580ddb inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa044dc5239e8d854fe70e8295a7f3c4b inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#aa044dc5239e8d854fe70e8295a7f3c4b">readPower</a> (void)</td></tr>
+<tr class="memitem:aa044dc5239e8d854fe70e8295a7f3c4b inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#aa044dc5239e8d854fe70e8295a7f3c4b">readPower</a> (void)</td></tr>
 <tr class="memdesc:aa044dc5239e8d854fe70e8295a7f3c4b inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Power register.  <a href="class_adafruit___i_n_a2xx.html#aa044dc5239e8d854fe70e8295a7f3c4b">More...</a><br /></td></tr>
 <tr class="separator:aa044dc5239e8d854fe70e8295a7f3c4b inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8e0d2eb3399e0835a8b01c57bfa2970 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ab8e0d2eb3399e0835a8b01c57bfa2970">setMode</a> (<a class="el" href="_adafruit___i_n_a2xx_8h.html#a9b07e92428fc51e2f7cf449b75dfc742">INA2XX_MeasurementMode</a> mode)</td></tr>
@@ -423,6 +423,84 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <dl class="section return"><dt>Returns</dt><dd>The current die temp in deg C </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_adafruit___i_n_a2xx.html#af86260c80ab1528b1182ede89c3d3aea">Adafruit_INA2xx</a>.</p>
+
+</div>
+</div>
+<a id="ac15ad2bb42b2e5954668242dbe5487f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15ad2bb42b2e5954668242dbe5487f1">&#9670;&nbsp;</a></span>readBusVoltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Adafruit_INA228::readBusVoltage </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads and scales the current value of the Bus Voltage register using INA228-specific conversion factor. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current bus voltage measurement in V </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_adafruit___i_n_a2xx.html#ab8d3a5eab5542c94d2d9a7d302d36069">Adafruit_INA2xx</a>.</p>
+
+</div>
+</div>
+<a id="ab7d1be4af28e9d3e2389deffcaaa6382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d1be4af28e9d3e2389deffcaaa6382">&#9670;&nbsp;</a></span>setShunt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Adafruit_INA228::setShunt </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>shunt_res</em> = <code>0.1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>max_current</em> = <code>3.2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the shunt calibration by resistor for INA228. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shunt_res</td><td>Resistance of the shunt in ohms (floating point) </td></tr>
+    <tr><td class="paramname">max_current</td><td>Maximum expected current in A (floating point) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_adafruit___i_n_a2xx.html#ac15f9a66950658c807fef8ffcc50cdf5">Adafruit_INA2xx</a>.</p>
 
 </div>
 </div>
