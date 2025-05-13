@@ -187,13 +187,17 @@ float Adafruit_INA2xx::getCurrent_mA(void) {
 /**************************************************************************/
 /*!
     @brief Reads and scales the current value of the Bus Voltage register.
+    @note This base implementation uses the INA228 conversion factor.
+          Derived classes override this method for their specific conversion factors.
     @return The current bus voltage measurement in V
 */
 /**************************************************************************/
 float Adafruit_INA2xx::readBusVoltage(void) {
   Adafruit_I2CRegister bus_voltage =
       Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 3, MSBFIRST);
-  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125;
+  // INA228 uses 195.3125 µV/LSB (microvolts) for bus voltage,
+  // so we need to divide by 1e6 to get Volts
+  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125 / 1e6;
 }
 
 /**************************************************************************/

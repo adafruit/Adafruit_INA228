@@ -129,3 +129,17 @@ float Adafruit_INA237::readDieTemp(void) {
   // Shift by 4 to get the actual value from register bits 15:4
   return (float)(t >> 4) * 125.0 / 1000.0;
 }
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Bus Voltage register
+           using INA237-specific conversion factor.
+    @return The current bus voltage measurement in V
+*/
+/**************************************************************************/
+float Adafruit_INA237::readBusVoltage(void) {
+  Adafruit_I2CRegister bus_voltage =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 3, MSBFIRST);
+  // INA237 uses 3.125 mV/LSB for bus voltage
+  return (float)((uint32_t)bus_voltage.read() >> 4) * 3.125 / 1000.0;
+}

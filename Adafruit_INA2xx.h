@@ -163,6 +163,7 @@ class Adafruit_INA2xx {
   void setADCRange(uint8_t);
   uint8_t getADCRange(void);
   virtual float readDieTemp(void);
+  virtual float readBusVoltage(void);
 
   // Common INA interface:
   float getBusVoltage_V(void);

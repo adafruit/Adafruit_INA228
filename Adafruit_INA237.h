@@ -53,6 +53,7 @@ class Adafruit_INA237 : public Adafruit_INA2xx {
   INA237_AlertType getAlertType(void);
   void setAlertType(INA237_AlertType alert);
   float readDieTemp(void) override;
+  float readBusVoltage(void) override;
 
  protected:
   void _updateShuntCalRegister(void) override;
