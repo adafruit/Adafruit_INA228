@@ -49,8 +49,9 @@ Adafruit_INA2xx::Adafruit_INA2xx(void) {}
  *    @param  skipReset
  *            When set to true, will omit resetting all registers to
  *            their default values. Default: false.
- *    @return True if initialization was successful (including verifying 
- *            the manufacturer ID is Texas Instruments: 0x5449), otherwise false.
+ *    @return True if initialization was successful (including verifying
+ *            the manufacturer ID is Texas Instruments: 0x5449), otherwise
+ * false.
  */
 bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
                             bool skipReset) {
