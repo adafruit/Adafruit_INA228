@@ -139,7 +139,55 @@ float Adafruit_INA237::readDieTemp(void) {
 /**************************************************************************/
 float Adafruit_INA237::readBusVoltage(void) {
   Adafruit_I2CRegister bus_voltage =
-      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 3, MSBFIRST);
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 2, MSBFIRST);
   // INA237 uses 3.125 mV/LSB for bus voltage
-  return (float)((uint32_t)bus_voltage.read() >> 4) * 3.125 / 1000.0;
+  // Bus voltage is a 16-bit value in the INA237 (unlike INA228 which is 24-bit)
+  return (float)((uint16_t)bus_voltage.read()) * 3.125 / 1000.0;
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Shunt Voltage register
+           using INA237-specific conversion factor.
+    @return The current shunt voltage measurement in V
+*/
+/**************************************************************************/
+float Adafruit_INA237::readShuntVoltage(void) {
+  float scale = 5.0; // 5 µV/LSB in normal mode
+  if (getADCRange()) {
+    scale = 1.25; // 1.25 µV/LSB in low range mode
+  }
+
+  Adafruit_I2CRegister shunt_voltage =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VSHUNT, 2, MSBFIRST);
+  int16_t v = shunt_voltage.read();
+  return (float)v * scale / 1000000.0; // Convert µV to V
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Current register
+           using INA237-specific handling.
+    @return The current measurement in mA
+*/
+/**************************************************************************/
+float Adafruit_INA237::readCurrent(void) {
+  Adafruit_I2CRegister current =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_CURRENT, 2, MSBFIRST);
+  int16_t i = current.read();
+  return (float)i * _current_lsb * 1000.0; // Convert A to mA
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Power register
+           using INA237-specific handling.
+    @return The current Power calculation in mW
+*/
+/**************************************************************************/
+float Adafruit_INA237::readPower(void) {
+  Adafruit_I2CRegister power =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_POWER, 2, MSBFIRST);
+  // INA237 power LSB = 20 * current_lsb
+  return (float)power.read() * 20.0 * _current_lsb * 1000.0; // Convert W to mW
 }
