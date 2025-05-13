@@ -149,7 +149,7 @@ class Adafruit_INA228 : public Adafruit_INA2xx {
 
   // INA228 specific functions
   float readEnergy(void);
-  float readCharge(void); 
+  float readCharge(void);
   INA228_AlertType getAlertType(void);
   void setAlertType(INA228_AlertType alert);
   void resetAccumulators(void);

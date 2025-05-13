@@ -123,18 +123,18 @@ float Adafruit_INA228::readCharge(void) {
       Adafruit_I2CRegister(i2c_dev, INA228_REG_CHARGE, 5, MSBFIRST);
   uint8_t buff[5];
   charge.read(buff, 5);
-  
+
   // Convert 40-bit two's complement value
   int64_t c = 0;
   for (int i = 0; i < 5; i++) {
     c = (c << 8) | buff[i];
   }
-  
+
   // Handle sign extension for 40-bit two's complement
   if (c & ((int64_t)1 << 39)) {
     c |= 0xFFFFFF0000000000; // Sign extend to 64 bits
   }
-  
+
   return (float)c * _current_lsb;
 }
 
