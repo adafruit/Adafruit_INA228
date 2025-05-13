@@ -172,9 +172,9 @@ class Adafruit_INA2xx {
   float getPower_mW(void);
   //
 
-  float readCurrent(void);
-  float readShuntVoltage(void);
-  float readPower(void);
+  virtual float readCurrent(void);
+  virtual float readShuntVoltage(void);
+  virtual float readPower(void);
 
   void setMode(INA2XX_MeasurementMode mode);
   INA2XX_MeasurementMode getMode(void);
