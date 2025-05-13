@@ -49,7 +49,8 @@ Adafruit_INA2xx::Adafruit_INA2xx(void) {}
  *    @param  skipReset
  *            When set to true, will omit resetting all registers to
  *            their default values. Default: false.
- *    @return True if initialization was successful, otherwise false.
+ *    @return True if initialization was successful (including verifying 
+ *            the manufacturer ID is Texas Instruments: 0x5449), otherwise false.
  */
 bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
                             bool skipReset) {
@@ -65,6 +66,12 @@ bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
       new Adafruit_I2CRegister(i2c_dev, INA2XX_REG_MFG_UID, 2, MSBFIRST);
   Adafruit_I2CRegisterBits* device_id =
       new Adafruit_I2CRegisterBits(device_register, 12, 4);
+
+  // Check manufacturer ID (should be 0x5449 for Texas Instruments)
+  uint16_t mfg_id = mfg_register->read();
+  if (mfg_id != 0x5449) {
+    return false;
+  }
 
   // Store device ID for validation in derived classes
   _device_id = device_id->read();
