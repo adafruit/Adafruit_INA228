@@ -158,12 +158,11 @@ class Adafruit_INA2xx {
   virtual bool begin(uint8_t i2c_addr = INA2XX_I2CADDR_DEFAULT,
                      TwoWire* theWire = &Wire, bool skipReset = false);
   virtual void reset(void);
-  void resetAccumulators(void);
 
   void setShunt(float shunt_res = 0.1, float max_current = 3.2);
   void setADCRange(uint8_t);
   uint8_t getADCRange(void);
-  float readDieTemp(void);
+  virtual float readDieTemp(void);
 
   // Common INA interface:
   float getBusVoltage_V(void);

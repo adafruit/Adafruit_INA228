@@ -136,3 +136,28 @@ void Adafruit_INA228::setAlertType(INA228_AlertType alert) {
       Adafruit_I2CRegisterBits(Diag_Alert, 6, 8);
   alert_type.write(alert);
 }
+
+/**************************************************************************/
+/*!
+    @brief Resets the energy and charge accumulators
+*/
+/**************************************************************************/
+void Adafruit_INA228::resetAccumulators(void) {
+  Adafruit_I2CRegisterBits reset_accumulators =
+      Adafruit_I2CRegisterBits(Config, 1, 14);
+  reset_accumulators.write(1);
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads the die temperature with the INA228-specific conversion factor
+    @return The current die temp in deg C
+*/
+/**************************************************************************/
+float Adafruit_INA228::readDieTemp(void) {
+  Adafruit_I2CRegister temp =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_DIETEMP, 2, MSBFIRST);
+  int16_t t = temp.read();
+  // INA228 uses 16 bits for temperature with 7.8125 m°C/LSB
+  return (float)t * 7.8125 / 1000.0;
+}

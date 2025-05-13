@@ -52,6 +52,7 @@ class Adafruit_INA237 : public Adafruit_INA2xx {
   // INA237/INA238 specific functions
   INA237_AlertType getAlertType(void);
   void setAlertType(INA237_AlertType alert);
+  float readDieTemp(void) override;
 
  protected:
   void _updateShuntCalRegister(void) override;

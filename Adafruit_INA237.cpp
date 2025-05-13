@@ -114,3 +114,18 @@ void Adafruit_INA237::setAlertType(INA237_AlertType alert) {
       Adafruit_I2CRegisterBits(Diag_Alert, 7, 5);
   alert_type.write(alert);
 }
+
+/**************************************************************************/
+/*!
+    @brief Reads the die temperature with the INA237-specific conversion factor
+    @return The current die temp in deg C
+*/
+/**************************************************************************/
+float Adafruit_INA237::readDieTemp(void) {
+  Adafruit_I2CRegister temp =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_DIETEMP, 2, MSBFIRST);
+  int16_t t = temp.read();
+  // INA237 uses 12 bits for temperature (bits 15:4) with 125 m°C/LSB
+  // Shift by 4 to get the actual value from register bits 15:4
+  return (float)(t >> 4) * 125.0 / 1000.0;
+}
