@@ -44,16 +44,16 @@ typedef enum _ina237_alert_type {
  *            INA237/INA238 Current and Power Sensors
  */
 class Adafruit_INA237 : public Adafruit_INA2xx {
-public:
+ public:
   Adafruit_INA237();
   bool begin(uint8_t i2c_addr = INA237_I2CADDR_DEFAULT,
-             TwoWire *theWire = &Wire, bool skipReset = false);
-             
+             TwoWire* theWire = &Wire, bool skipReset = false);
+
   // INA237/INA238 specific functions
   INA237_AlertType getAlertType(void);
   void setAlertType(INA237_AlertType alert);
 
-protected:
+ protected:
   void _updateShuntCalRegister(void) override;
 };
 

@@ -31,10 +31,11 @@
  *     v1.0 - First release
  */
 
-#include "Arduino.h"
+#include "Adafruit_INA2xx.h"
+
 #include <Wire.h>
 
-#include "Adafruit_INA2xx.h"
+#include "Arduino.h"
 
 /*!
  *    @brief  Instantiates a new INA2xx class
@@ -52,19 +53,19 @@ Adafruit_INA2xx::Adafruit_INA2xx(void) {}
  *            their default values. Default: false.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire *theWire,
-                          bool skipReset) {
+bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
+                            bool skipReset) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
     return false;
   }
 
-  Adafruit_I2CRegister *device_register =
+  Adafruit_I2CRegister* device_register =
       new Adafruit_I2CRegister(i2c_dev, INA2XX_REG_DVC_UID, 2, MSBFIRST);
-  Adafruit_I2CRegister *mfg_register =
+  Adafruit_I2CRegister* mfg_register =
       new Adafruit_I2CRegister(i2c_dev, INA2XX_REG_MFG_UID, 2, MSBFIRST);
-  Adafruit_I2CRegisterBits *device_id =
+  Adafruit_I2CRegisterBits* device_id =
       new Adafruit_I2CRegisterBits(device_register, 12, 4);
 
   // Store device ID for validation in derived classes
@@ -150,7 +151,9 @@ void Adafruit_INA2xx::setADCRange(uint8_t adc_range) {
     @return Shunt full scale ADC range (0: +/-163.84 mV or 1: +/-40.96 mV)
 */
 /**************************************************************************/
-uint8_t Adafruit_INA2xx::getADCRange() { return (Config->read() >> 4) & 1; }
+uint8_t Adafruit_INA2xx::getADCRange() {
+  return (Config->read() >> 4) & 1;
+}
 
 /**************************************************************************/
 /*!
@@ -186,7 +189,9 @@ float Adafruit_INA2xx::readCurrent(void) {
     @return The current current measurement in mA
 */
 /**************************************************************************/
-float Adafruit_INA2xx::getCurrent_mA(void) { return readCurrent(); }
+float Adafruit_INA2xx::getCurrent_mA(void) {
+  return readCurrent();
+}
 
 /**************************************************************************/
 /*!
@@ -206,7 +211,9 @@ float Adafruit_INA2xx::readBusVoltage(void) {
     @return The current bus voltage measurement in V
 */
 /**************************************************************************/
-float Adafruit_INA2xx::getBusVoltage_V(void) { return readBusVoltage(); }
+float Adafruit_INA2xx::getBusVoltage_V(void) {
+  return readBusVoltage();
+}
 
 /**************************************************************************/
 /*!
@@ -234,7 +241,9 @@ float Adafruit_INA2xx::readShuntVoltage(void) {
     @return The current shunt voltage measurement in mV
 */
 /**************************************************************************/
-float Adafruit_INA2xx::getShuntVoltage_mV(void) { return readShuntVoltage(); }
+float Adafruit_INA2xx::getShuntVoltage_mV(void) {
+  return readShuntVoltage();
+}
 
 /**************************************************************************/
 /*!
@@ -254,7 +263,9 @@ float Adafruit_INA2xx::readPower(void) {
     @return The current Power calculation in mW
 */
 /**************************************************************************/
-float Adafruit_INA2xx::getPower_mW(void) { return readPower(); }
+float Adafruit_INA2xx::getPower_mW(void) {
+  return readPower();
+}
 
 /**************************************************************************/
 /*!

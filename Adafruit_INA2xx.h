@@ -17,29 +17,30 @@
 #ifndef _ADAFRUIT_INA2XX_H
 #define _ADAFRUIT_INA2XX_H
 
-#include "Arduino.h"
 #include <Adafruit_I2CDevice.h>
 #include <Adafruit_I2CRegister.h>
 #include <Wire.h>
 
+#include "Arduino.h"
+
 // Common registers for INA2xx family
-#define INA2XX_REG_CONFIG 0x00      ///< Configuration register
-#define INA2XX_REG_ADCCFG 0x01      ///< ADC configuration register
-#define INA2XX_REG_SHUNTCAL 0x02    ///< Shunt calibration register
-#define INA2XX_REG_VSHUNT 0x04      ///< Shunt voltage measurement register
-#define INA2XX_REG_VBUS 0x05        ///< Bus voltage measurement register
-#define INA2XX_REG_DIETEMP 0x06     ///< Temperature measurement register
-#define INA2XX_REG_CURRENT 0x07     ///< Current result register
-#define INA2XX_REG_POWER 0x08       ///< Power result register
-#define INA2XX_REG_DIAGALRT 0x0B    ///< Diagnostic flags and alert register
-#define INA2XX_REG_SOVL 0x0C        ///< Shunt overvoltage threshold register
-#define INA2XX_REG_SUVL 0x0D        ///< Shunt undervoltage threshold register
-#define INA2XX_REG_BOVL 0x0E        ///< Bus overvoltage threshold register
-#define INA2XX_REG_BUVL 0x0F        ///< Bus undervoltage threshold register
-#define INA2XX_REG_TEMPLIMIT 0x10   ///< Temperature over-limit threshold register
-#define INA2XX_REG_PWRLIMIT 0x11    ///< Power over-limit threshold register
-#define INA2XX_REG_MFG_UID 0x3E     ///< Manufacturer ID register
-#define INA2XX_REG_DVC_UID 0x3F     ///< Device ID and revision register
+#define INA2XX_REG_CONFIG 0x00    ///< Configuration register
+#define INA2XX_REG_ADCCFG 0x01    ///< ADC configuration register
+#define INA2XX_REG_SHUNTCAL 0x02  ///< Shunt calibration register
+#define INA2XX_REG_VSHUNT 0x04    ///< Shunt voltage measurement register
+#define INA2XX_REG_VBUS 0x05      ///< Bus voltage measurement register
+#define INA2XX_REG_DIETEMP 0x06   ///< Temperature measurement register
+#define INA2XX_REG_CURRENT 0x07   ///< Current result register
+#define INA2XX_REG_POWER 0x08     ///< Power result register
+#define INA2XX_REG_DIAGALRT 0x0B  ///< Diagnostic flags and alert register
+#define INA2XX_REG_SOVL 0x0C      ///< Shunt overvoltage threshold register
+#define INA2XX_REG_SUVL 0x0D      ///< Shunt undervoltage threshold register
+#define INA2XX_REG_BOVL 0x0E      ///< Bus overvoltage threshold register
+#define INA2XX_REG_BUVL 0x0F      ///< Bus undervoltage threshold register
+#define INA2XX_REG_TEMPLIMIT 0x10 ///< Temperature over-limit threshold register
+#define INA2XX_REG_PWRLIMIT 0x11  ///< Power over-limit threshold register
+#define INA2XX_REG_MFG_UID 0x3E   ///< Manufacturer ID register
+#define INA2XX_REG_DVC_UID 0x3F   ///< Device ID and revision register
 
 #define INA2XX_I2CADDR_DEFAULT 0x40 ///< INA2xx default i2c address
 
@@ -131,7 +132,7 @@ typedef enum _count {
  * Allowed values for setAlertPolarity.
  */
 typedef enum _alert_polarity {
-  INA2XX_ALERT_POLARITY_NORMAL = 0x0,   ///< Active high open-collector (Default)
+  INA2XX_ALERT_POLARITY_NORMAL = 0x0, ///< Active high open-collector (Default)
   INA2XX_ALERT_POLARITY_INVERTED = 0x1, ///< Active low open-collector
 } INA2XX_AlertPolarity;
 
@@ -152,10 +153,10 @@ typedef enum _alert_latch {
  *            INA2xx Current and Power Sensor
  */
 class Adafruit_INA2xx {
-public:
+ public:
   Adafruit_INA2xx();
   virtual bool begin(uint8_t i2c_addr = INA2XX_I2CADDR_DEFAULT,
-                     TwoWire *theWire = &Wire, bool skipReset = false);
+                     TwoWire* theWire = &Wire, bool skipReset = false);
   virtual void reset(void);
   void resetAccumulators(void);
 
@@ -196,15 +197,15 @@ public:
   INA2XX_AveragingCount getAveragingCount(void);
   void setAveragingCount(INA2XX_AveragingCount count);
 
-  Adafruit_I2CRegister *Config,     ///< BusIO Register for Config
-      *ADC_Config,                  ///< BusIO Register for ADC Config
-      *Diag_Alert;                  ///< BusIO Register for Diagnostic Alerts
+  Adafruit_I2CRegister *Config, ///< BusIO Register for Config
+      *ADC_Config,              ///< BusIO Register for ADC Config
+      *Diag_Alert;              ///< BusIO Register for Diagnostic Alerts
 
-protected:
+ protected:
   virtual void _updateShuntCalRegister(void);
   float _shunt_res;
   float _current_lsb;
-  Adafruit_I2CDevice *i2c_dev;
+  Adafruit_I2CDevice* i2c_dev;
   uint16_t _device_id; // Device ID for validation
 };
 

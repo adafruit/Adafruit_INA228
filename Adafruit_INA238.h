@@ -27,10 +27,10 @@
  *            INA238 Current and Power Sensor (subclass of INA237)
  */
 class Adafruit_INA238 : public Adafruit_INA237 {
-public:
+ public:
   Adafruit_INA238();
   bool begin(uint8_t i2c_addr = INA238_I2CADDR_DEFAULT,
-             TwoWire *theWire = &Wire, bool skipReset = false);
+             TwoWire* theWire = &Wire, bool skipReset = false);
 };
 
 #endif

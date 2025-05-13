@@ -31,10 +31,11 @@
  *     v1.0 - First release
  */
 
-#include "Arduino.h"
+#include "Adafruit_INA228.h"
+
 #include <Wire.h>
 
-#include "Adafruit_INA228.h"
+#include "Arduino.h"
 
 /*!
  *    @brief  Instantiates a new INA228 class
@@ -52,8 +53,8 @@ Adafruit_INA228::Adafruit_INA228(void) {}
  *            their default values. Default: false.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire *theWire,
-                          bool skipReset) {
+bool Adafruit_INA228::begin(uint8_t i2c_address, TwoWire* theWire,
+                            bool skipReset) {
   if (!Adafruit_INA2xx::begin(i2c_address, theWire, skipReset)) {
     return false;
   }

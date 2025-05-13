@@ -31,10 +31,11 @@
  *     v1.0 - First release
  */
 
-#include "Arduino.h"
+#include "Adafruit_INA237.h"
+
 #include <Wire.h>
 
-#include "Adafruit_INA237.h"
+#include "Arduino.h"
 
 /*!
  *    @brief  Instantiates a new INA237 class
@@ -52,8 +53,8 @@ Adafruit_INA237::Adafruit_INA237(void) {}
  *            their default values. Default: false.
  *    @return True if initialization was successful, otherwise false.
  */
-bool Adafruit_INA237::begin(uint8_t i2c_address, TwoWire *theWire,
-                          bool skipReset) {
+bool Adafruit_INA237::begin(uint8_t i2c_address, TwoWire* theWire,
+                            bool skipReset) {
   if (!Adafruit_INA2xx::begin(i2c_address, theWire, skipReset)) {
     return false;
   }
@@ -75,12 +76,12 @@ bool Adafruit_INA237::begin(uint8_t i2c_address, TwoWire *theWire,
 void Adafruit_INA237::_updateShuntCalRegister() {
   // Formula from INA237 datasheet (SBOSA20A)
   // SHUNT_CAL = 13107.2 × (RSHUNT × CURRENT_LSB)
-  
+
   float scale = 1;
   if (getADCRange()) {
     scale = 4; // For lower range (+/-40.96mV)
   }
-  
+
   // Different calculation for INA237
   float shunt_cal = 13107.2 * _shunt_res * _current_lsb * scale;
 
