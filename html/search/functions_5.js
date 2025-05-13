@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['setadcrange',['setADCRange',['../class_adafruit___i_n_a228.html#a216db0d84488bc31b943c8ff620e3b14',1,'Adafruit_INA228']]],
-  ['setalertlatch',['setAlertLatch',['../class_adafruit___i_n_a228.html#a86c7da6754632c89d650d18dd0a05e2f',1,'Adafruit_INA228']]],
-  ['setalertpolarity',['setAlertPolarity',['../class_adafruit___i_n_a228.html#a7a128f4b7065c224735ddf1ab64e6b29',1,'Adafruit_INA228']]],
-  ['setaveragingcount',['setAveragingCount',['../class_adafruit___i_n_a228.html#a7420d71fa1b8a4034984d8cbb07f5a7a',1,'Adafruit_INA228']]],
-  ['setcurrentconversiontime',['setCurrentConversionTime',['../class_adafruit___i_n_a228.html#af78ecdad675da6644b05d91609c8a86a',1,'Adafruit_INA228']]],
-  ['setmode',['setMode',['../class_adafruit___i_n_a228.html#a942a2c38553c44fc8d32ec31720b8cbf',1,'Adafruit_INA228']]],
-  ['setshunt',['setShunt',['../class_adafruit___i_n_a228.html#a07d5ab67f34d72258433687ba975a590',1,'Adafruit_INA228']]],
-  ['settemperatureconversiontime',['setTemperatureConversionTime',['../class_adafruit___i_n_a228.html#a2fae48cd8bfe5cae3b1c8b94257bf048',1,'Adafruit_INA228']]],
-  ['setvoltageconversiontime',['setVoltageConversionTime',['../class_adafruit___i_n_a228.html#aa63a2e98fde27d9fa0c867707b2aa495',1,'Adafruit_INA228']]]
+  ['readbusvoltage',['readBusVoltage',['../class_adafruit___i_n_a2xx.html#ab8d3a5eab5542c94d2d9a7d302d36069',1,'Adafruit_INA2xx']]],
+  ['readcurrent',['readCurrent',['../class_adafruit___i_n_a2xx.html#af94fbdefcabf722fa82261b68fc1024e',1,'Adafruit_INA2xx']]],
+  ['readdietemp',['readDieTemp',['../class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e',1,'Adafruit_INA228::readDieTemp()'],['../class_adafruit___i_n_a237.html#ab1e34a67d118bca72df89749bad07ee4',1,'Adafruit_INA237::readDieTemp()'],['../class_adafruit___i_n_a2xx.html#af86260c80ab1528b1182ede89c3d3aea',1,'Adafruit_INA2xx::readDieTemp()']]],
+  ['readenergy',['readEnergy',['../class_adafruit___i_n_a228.html#a852cb525767362fe40f1cd05764e1d07',1,'Adafruit_INA228']]],
+  ['readpower',['readPower',['../class_adafruit___i_n_a2xx.html#aa044dc5239e8d854fe70e8295a7f3c4b',1,'Adafruit_INA2xx']]],
+  ['readshuntvoltage',['readShuntVoltage',['../class_adafruit___i_n_a2xx.html#af11dad939e5072cc063edcc84c580ddb',1,'Adafruit_INA2xx']]],
+  ['reset',['reset',['../class_adafruit___i_n_a228.html#a30e03f671542f363a0866bc0c6551278',1,'Adafruit_INA228::reset()'],['../class_adafruit___i_n_a2xx.html#ac99a5e15f372ff9f58e5fe9996231ea0',1,'Adafruit_INA2xx::reset()']]],
+  ['resetaccumulators',['resetAccumulators',['../class_adafruit___i_n_a228.html#af0c20c767211bc0bed898ed586f2165d',1,'Adafruit_INA228']]]
 ];

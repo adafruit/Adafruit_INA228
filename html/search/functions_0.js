@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['adafruit_5fina228',['Adafruit_INA228',['../class_adafruit___i_n_a228.html#ad18151aa5011c1d8f7a11a175f6dd716',1,'Adafruit_INA228']]],
-  ['alertfunctionflags',['alertFunctionFlags',['../class_adafruit___i_n_a228.html#a74c3bc014ed61f2095d9ea5162ac896d',1,'Adafruit_INA228']]]
+  ['_5fupdateshuntcalregister',['_updateShuntCalRegister',['../class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342',1,'Adafruit_INA228::_updateShuntCalRegister()'],['../class_adafruit___i_n_a237.html#af4e10e12e0d94a5c725aa26aa984dd09',1,'Adafruit_INA237::_updateShuntCalRegister()'],['../class_adafruit___i_n_a2xx.html#a12cb53b09f57bed0b0ae50bb414685c3',1,'Adafruit_INA2xx::_updateShuntCalRegister()']]]
 ];

@@ -67,10 +67,7 @@ $(function() {
 <div class="title">Adafruit_INA228.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;Arduino.h&quot;</code><br />
-<code>#include &lt;Adafruit_I2CDevice.h&gt;</code><br />
-<code>#include &lt;Adafruit_I2CRegister.h&gt;</code><br />
-<code>#include &lt;Wire.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_adafruit___i_n_a2xx_8h_source.html">Adafruit_INA2xx.h</a>&quot;</code><br />
 </div>
 <p><a href="_adafruit___i_n_a228_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -86,42 +83,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a892086f6aadfccae94d2bdb9af8580dc">INA228_I2CADDR_DEFAULT</a>&#160;&#160;&#160;0x40</td></tr>
 <tr class="memdesc:a892086f6aadfccae94d2bdb9af8580dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">INA228 default i2c address. <br /></td></tr>
 <tr class="separator:a892086f6aadfccae94d2bdb9af8580dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a464aed22017c89788709404225b27420"><td class="memItemLeft" align="right" valign="top"><a id="a464aed22017c89788709404225b27420"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a464aed22017c89788709404225b27420">INA228_REG_CONFIG</a>&#160;&#160;&#160;0x00</td></tr>
-<tr class="memdesc:a464aed22017c89788709404225b27420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration register. <br /></td></tr>
-<tr class="separator:a464aed22017c89788709404225b27420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5452b2ea1f976ee28b53487c7cc1dbf4"><td class="memItemLeft" align="right" valign="top"><a id="a5452b2ea1f976ee28b53487c7cc1dbf4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a5452b2ea1f976ee28b53487c7cc1dbf4">INA228_REG_ADCCFG</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="memdesc:a5452b2ea1f976ee28b53487c7cc1dbf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC configuration register. <br /></td></tr>
-<tr class="separator:a5452b2ea1f976ee28b53487c7cc1dbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ab7505cb6fbcfb16f97c4c90057c88b"><td class="memItemLeft" align="right" valign="top"><a id="a3ab7505cb6fbcfb16f97c4c90057c88b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a3ab7505cb6fbcfb16f97c4c90057c88b">INA228_REG_SHUNTCAL</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="memdesc:a3ab7505cb6fbcfb16f97c4c90057c88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt calibration register. <br /></td></tr>
-<tr class="separator:a3ab7505cb6fbcfb16f97c4c90057c88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a454606d2d28a8fe66f79e56b46612ca3"><td class="memItemLeft" align="right" valign="top"><a id="a454606d2d28a8fe66f79e56b46612ca3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a454606d2d28a8fe66f79e56b46612ca3">INA228_REG_SHUNTTEMPCO</a>&#160;&#160;&#160;0x03</td></tr>
-<tr class="memdesc:a454606d2d28a8fe66f79e56b46612ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt temperature coefficient register. <br /></td></tr>
-<tr class="separator:a454606d2d28a8fe66f79e56b46612ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcb87d0b26d7215fa85f9b97baf2befb"><td class="memItemLeft" align="right" valign="top"><a id="adcb87d0b26d7215fa85f9b97baf2befb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#adcb87d0b26d7215fa85f9b97baf2befb">INA228_REG_VSHUNT</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="memdesc:adcb87d0b26d7215fa85f9b97baf2befb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt voltage measurement register. <br /></td></tr>
-<tr class="separator:adcb87d0b26d7215fa85f9b97baf2befb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ae523ffa6d67fef11f45fab2975663a"><td class="memItemLeft" align="right" valign="top"><a id="a9ae523ffa6d67fef11f45fab2975663a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a9ae523ffa6d67fef11f45fab2975663a">INA228_REG_VBUS</a>&#160;&#160;&#160;0x05</td></tr>
-<tr class="memdesc:a9ae523ffa6d67fef11f45fab2975663a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bus voltage measurement register. <br /></td></tr>
-<tr class="separator:a9ae523ffa6d67fef11f45fab2975663a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33cca88d9ddd6450949399dbc36f3371"><td class="memItemLeft" align="right" valign="top"><a id="a33cca88d9ddd6450949399dbc36f3371"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a33cca88d9ddd6450949399dbc36f3371">INA228_REG_DIETEMP</a>&#160;&#160;&#160;0x06</td></tr>
-<tr class="memdesc:a33cca88d9ddd6450949399dbc36f3371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature measurement register. <br /></td></tr>
-<tr class="separator:a33cca88d9ddd6450949399dbc36f3371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cf6de4ea069f1d11ab5ecd284dc3c04"><td class="memItemLeft" align="right" valign="top"><a id="a3cf6de4ea069f1d11ab5ecd284dc3c04"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a3cf6de4ea069f1d11ab5ecd284dc3c04">INA228_REG_CURRENT</a>&#160;&#160;&#160;0x07</td></tr>
-<tr class="memdesc:a3cf6de4ea069f1d11ab5ecd284dc3c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current result register. <br /></td></tr>
-<tr class="separator:a3cf6de4ea069f1d11ab5ecd284dc3c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf556d024cc446131ec146fb78774935"><td class="memItemLeft" align="right" valign="top"><a id="aaf556d024cc446131ec146fb78774935"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aaf556d024cc446131ec146fb78774935">INA228_REG_POWER</a>&#160;&#160;&#160;0x08</td></tr>
-<tr class="memdesc:aaf556d024cc446131ec146fb78774935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power result register. <br /></td></tr>
-<tr class="separator:aaf556d024cc446131ec146fb78774935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00549eb6e6fdccc7285f9132ae0e057"><td class="memItemLeft" align="right" valign="top"><a id="af00549eb6e6fdccc7285f9132ae0e057"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af00549eb6e6fdccc7285f9132ae0e057">INA228_DEVICE_ID</a>&#160;&#160;&#160;0x228</td></tr>
+<tr class="memdesc:af00549eb6e6fdccc7285f9132ae0e057"><td class="mdescLeft">&#160;</td><td class="mdescRight">INA228 device ID. <br /></td></tr>
+<tr class="separator:af00549eb6e6fdccc7285f9132ae0e057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae90cf8a1f241de32d65ff9209953c321"><td class="memItemLeft" align="right" valign="top"><a id="ae90cf8a1f241de32d65ff9209953c321"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ae90cf8a1f241de32d65ff9209953c321">INA228_REG_ENERGY</a>&#160;&#160;&#160;0x09</td></tr>
 <tr class="memdesc:ae90cf8a1f241de32d65ff9209953c321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Energy result register. <br /></td></tr>
@@ -130,121 +95,197 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af8e5595b019a34b93087036398195dd3">INA228_REG_CHARGE</a>&#160;&#160;&#160;0x0A</td></tr>
 <tr class="memdesc:af8e5595b019a34b93087036398195dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge result register. <br /></td></tr>
 <tr class="separator:af8e5595b019a34b93087036398195dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd040084a6c901f05cabde56682958e7"><td class="memItemLeft" align="right" valign="top"><a id="abd040084a6c901f05cabde56682958e7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#abd040084a6c901f05cabde56682958e7">INA228_REG_DIAGALRT</a>&#160;&#160;&#160;0x0B</td></tr>
-<tr class="memdesc:abd040084a6c901f05cabde56682958e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostic flags and alert register. <br /></td></tr>
-<tr class="separator:abd040084a6c901f05cabde56682958e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27ef4cd2b547ff6c023be60bace2c6c"><td class="memItemLeft" align="right" valign="top"><a id="ac27ef4cd2b547ff6c023be60bace2c6c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ac27ef4cd2b547ff6c023be60bace2c6c">INA228_REG_SOVL</a>&#160;&#160;&#160;0x0C</td></tr>
-<tr class="memdesc:ac27ef4cd2b547ff6c023be60bace2c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt overvoltage threshold register. <br /></td></tr>
-<tr class="separator:ac27ef4cd2b547ff6c023be60bace2c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c3b278984022d98f1e428c2bce1e06"><td class="memItemLeft" align="right" valign="top"><a id="ab2c3b278984022d98f1e428c2bce1e06"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ab2c3b278984022d98f1e428c2bce1e06">INA228_REG_SUVL</a>&#160;&#160;&#160;0x0D</td></tr>
-<tr class="memdesc:ab2c3b278984022d98f1e428c2bce1e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt undervoltage threshold register. <br /></td></tr>
-<tr class="separator:ab2c3b278984022d98f1e428c2bce1e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8130bd82f88de847011dcc3ff7773b"><td class="memItemLeft" align="right" valign="top"><a id="a9d8130bd82f88de847011dcc3ff7773b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a9d8130bd82f88de847011dcc3ff7773b">INA228_REG_BOVL</a>&#160;&#160;&#160;0x0E</td></tr>
-<tr class="memdesc:a9d8130bd82f88de847011dcc3ff7773b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bus overvoltage threshold register. <br /></td></tr>
-<tr class="separator:a9d8130bd82f88de847011dcc3ff7773b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65688337591d145874d910b921f057ae"><td class="memItemLeft" align="right" valign="top"><a id="a65688337591d145874d910b921f057ae"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a65688337591d145874d910b921f057ae">INA228_REG_BUVL</a>&#160;&#160;&#160;0x0F</td></tr>
-<tr class="memdesc:a65688337591d145874d910b921f057ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bus undervoltage threshold register. <br /></td></tr>
-<tr class="separator:a65688337591d145874d910b921f057ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc3c0a4d3258adef2ff3fa533a1896f0"><td class="memItemLeft" align="right" valign="top"><a id="afc3c0a4d3258adef2ff3fa533a1896f0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#afc3c0a4d3258adef2ff3fa533a1896f0">INA228_REG_TEMPLIMIT</a>&#160;&#160;&#160;0x10</td></tr>
-<tr class="memdesc:afc3c0a4d3258adef2ff3fa533a1896f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature over-limit threshold register. <br /></td></tr>
-<tr class="separator:afc3c0a4d3258adef2ff3fa533a1896f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a715dd90b48925a09e770ebb66f5013d3"><td class="memItemLeft" align="right" valign="top"><a id="a715dd90b48925a09e770ebb66f5013d3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a715dd90b48925a09e770ebb66f5013d3">INA228_REG_PWRLIMIT</a>&#160;&#160;&#160;0x10</td></tr>
-<tr class="memdesc:a715dd90b48925a09e770ebb66f5013d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power over-limit threshold register. <br /></td></tr>
-<tr class="separator:a715dd90b48925a09e770ebb66f5013d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390aa6bd98f3be7b0a9a35645d0a39a1"><td class="memItemLeft" align="right" valign="top"><a id="a390aa6bd98f3be7b0a9a35645d0a39a1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a390aa6bd98f3be7b0a9a35645d0a39a1">INA228_REG_MFG_UID</a>&#160;&#160;&#160;0x3E</td></tr>
-<tr class="memdesc:a390aa6bd98f3be7b0a9a35645d0a39a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manufacturer ID register. <br /></td></tr>
-<tr class="separator:a390aa6bd98f3be7b0a9a35645d0a39a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb2350ba8c9e92eaa0c945ac7e97e681"><td class="memItemLeft" align="right" valign="top"><a id="abb2350ba8c9e92eaa0c945ac7e97e681"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#abb2350ba8c9e92eaa0c945ac7e97e681">INA228_REG_DVC_UID</a>&#160;&#160;&#160;0x3F</td></tr>
-<tr class="memdesc:abb2350ba8c9e92eaa0c945ac7e97e681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device ID and revision register. <br /></td></tr>
-<tr class="separator:abb2350ba8c9e92eaa0c945ac7e97e681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454606d2d28a8fe66f79e56b46612ca3"><td class="memItemLeft" align="right" valign="top"><a id="a454606d2d28a8fe66f79e56b46612ca3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a454606d2d28a8fe66f79e56b46612ca3">INA228_REG_SHUNTTEMPCO</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="memdesc:a454606d2d28a8fe66f79e56b46612ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shunt temperature coefficient register. <br /></td></tr>
+<tr class="separator:a454606d2d28a8fe66f79e56b46612ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Legacy compatibility macros</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These macros provide backward compatibility with earlier versions of the library </p>
+</div></td></tr>
+<tr class="memitem:ac7b9bd5dfd1327806261575b23762cae"><td class="memItemLeft" align="right" valign="top"><a id="ac7b9bd5dfd1327806261575b23762cae"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ac7b9bd5dfd1327806261575b23762cae">INA228_MODE_SHUTDOWN</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99edad7eb8ec18a5366ac62d83ff8ff5a5b67">INA2XX_MODE_SHUTDOWN</a></td></tr>
+<tr class="memdesc:ac7b9bd5dfd1327806261575b23762cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_SHUTDOWN. <br /></td></tr>
+<tr class="separator:ac7b9bd5dfd1327806261575b23762cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099b7415aab4a7728c31f2c7182899c9"><td class="memItemLeft" align="right" valign="top"><a id="a099b7415aab4a7728c31f2c7182899c9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a099b7415aab4a7728c31f2c7182899c9">INA228_MODE_TRIG_BUS</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda5a52db7a7a7819de4b03c944a692ba3e">INA2XX_MODE_TRIG_BUS</a></td></tr>
+<tr class="memdesc:a099b7415aab4a7728c31f2c7182899c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_BUS. <br /></td></tr>
+<tr class="separator:a099b7415aab4a7728c31f2c7182899c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701aaec65cad78b3407133c364be7f0e"><td class="memItemLeft" align="right" valign="top"><a id="a701aaec65cad78b3407133c364be7f0e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a701aaec65cad78b3407133c364be7f0e">INA228_MODE_TRIG_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda1079e772a5a48f65e76c733206e55f21">INA2XX_MODE_TRIG_SHUNT</a></td></tr>
+<tr class="memdesc:a701aaec65cad78b3407133c364be7f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_SHUNT. <br /></td></tr>
+<tr class="separator:a701aaec65cad78b3407133c364be7f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af09047c579d23383dbd883b3109701c8"><td class="memItemLeft" align="right" valign="top"><a id="af09047c579d23383dbd883b3109701c8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af09047c579d23383dbd883b3109701c8">INA228_MODE_TRIG_BUS_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda7678e806040ab8b6c3e12f1cbe613abb">INA2XX_MODE_TRIG_BUS_SHUNT</a></td></tr>
+<tr class="memdesc:af09047c579d23383dbd883b3109701c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_BUS_SHUNT. <br /></td></tr>
+<tr class="separator:af09047c579d23383dbd883b3109701c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1e5d18b16b1ce5d637140899c7b12b"><td class="memItemLeft" align="right" valign="top"><a id="adc1e5d18b16b1ce5d637140899c7b12b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#adc1e5d18b16b1ce5d637140899c7b12b">INA228_MODE_TRIG_TEMP</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99edae5da5bbc2fdf26edcffa64748134d2ee">INA2XX_MODE_TRIG_TEMP</a></td></tr>
+<tr class="memdesc:adc1e5d18b16b1ce5d637140899c7b12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_TEMP. <br /></td></tr>
+<tr class="separator:adc1e5d18b16b1ce5d637140899c7b12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfa7eca69ac4bec38d9b74eb42643228"><td class="memItemLeft" align="right" valign="top"><a id="adfa7eca69ac4bec38d9b74eb42643228"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#adfa7eca69ac4bec38d9b74eb42643228">INA228_MODE_TRIG_TEMP_BUS</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda59ea34afc7b6162c4c9f4b11f30f2705">INA2XX_MODE_TRIG_TEMP_BUS</a></td></tr>
+<tr class="memdesc:adfa7eca69ac4bec38d9b74eb42643228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_TEMP_BUS. <br /></td></tr>
+<tr class="separator:adfa7eca69ac4bec38d9b74eb42643228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f85923b4e0632af3389f4b7dc149c5"><td class="memItemLeft" align="right" valign="top"><a id="a54f85923b4e0632af3389f4b7dc149c5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a54f85923b4e0632af3389f4b7dc149c5">INA228_MODE_TRIG_TEMP_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99edac530188ba750e66dc4b1261dc6bdf4fc">INA2XX_MODE_TRIG_TEMP_SHUNT</a></td></tr>
+<tr class="memdesc:a54f85923b4e0632af3389f4b7dc149c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_TEMP_SHUNT. <br /></td></tr>
+<tr class="separator:a54f85923b4e0632af3389f4b7dc149c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21b2a75a4dd2ddef83516ada68da996"><td class="memItemLeft" align="right" valign="top"><a id="af21b2a75a4dd2ddef83516ada68da996"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af21b2a75a4dd2ddef83516ada68da996">INA228_MODE_TRIG_TEMP_BUS_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda1aeb3462538cdf7cc50e60faac22b6b4">INA2XX_MODE_TRIG_TEMP_BUS_SHUNT</a></td></tr>
+<tr class="memdesc:af21b2a75a4dd2ddef83516ada68da996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIG_TEMP_BUS_SHUNT. <br /></td></tr>
+<tr class="separator:af21b2a75a4dd2ddef83516ada68da996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d60f0b00d9dedeb27fb75d0d225bc3"><td class="memItemLeft" align="right" valign="top"><a id="a29d60f0b00d9dedeb27fb75d0d225bc3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a29d60f0b00d9dedeb27fb75d0d225bc3">INA228_MODE_SHUTDOWN2</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda982ff8e90a698bed583824508de05d2c">INA2XX_MODE_SHUTDOWN2</a></td></tr>
+<tr class="memdesc:a29d60f0b00d9dedeb27fb75d0d225bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_SHUTDOWN2. <br /></td></tr>
+<tr class="separator:a29d60f0b00d9dedeb27fb75d0d225bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcce4e31d232a709095e0fddda8300eb"><td class="memItemLeft" align="right" valign="top"><a id="adcce4e31d232a709095e0fddda8300eb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#adcce4e31d232a709095e0fddda8300eb">INA228_MODE_CONT_BUS</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99edadfd752868dd1cac79c7f5f3089affbab">INA2XX_MODE_CONT_BUS</a></td></tr>
+<tr class="memdesc:adcce4e31d232a709095e0fddda8300eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_BUS. <br /></td></tr>
+<tr class="separator:adcce4e31d232a709095e0fddda8300eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8b7734e4c3dbe3e93edb92bcdcd546"><td class="memItemLeft" align="right" valign="top"><a id="aca8b7734e4c3dbe3e93edb92bcdcd546"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aca8b7734e4c3dbe3e93edb92bcdcd546">INA228_MODE_CONT_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda4b6debc6b7b258fc695747624f30fe6e">INA2XX_MODE_CONT_SHUNT</a></td></tr>
+<tr class="memdesc:aca8b7734e4c3dbe3e93edb92bcdcd546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_SHUNT. <br /></td></tr>
+<tr class="separator:aca8b7734e4c3dbe3e93edb92bcdcd546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abccc36f11315a6dc20218399313b8e0b"><td class="memItemLeft" align="right" valign="top"><a id="abccc36f11315a6dc20218399313b8e0b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#abccc36f11315a6dc20218399313b8e0b">INA228_MODE_CONT_BUS_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda9c3f2419e1a77e94537045b3a46bc5f4">INA2XX_MODE_CONT_BUS_SHUNT</a></td></tr>
+<tr class="memdesc:abccc36f11315a6dc20218399313b8e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_BUS_SHUNT. <br /></td></tr>
+<tr class="separator:abccc36f11315a6dc20218399313b8e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa384fd0160a067612c89d9c075d01ba1"><td class="memItemLeft" align="right" valign="top"><a id="aa384fd0160a067612c89d9c075d01ba1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aa384fd0160a067612c89d9c075d01ba1">INA228_MODE_CONT_TEMP</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda27b97b265d7661fe33c99c52755798fe">INA2XX_MODE_CONT_TEMP</a></td></tr>
+<tr class="memdesc:aa384fd0160a067612c89d9c075d01ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_TEMP. <br /></td></tr>
+<tr class="separator:aa384fd0160a067612c89d9c075d01ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35eb79e48cce0ec10d2b1d0f31aec9b"><td class="memItemLeft" align="right" valign="top"><a id="ab35eb79e48cce0ec10d2b1d0f31aec9b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ab35eb79e48cce0ec10d2b1d0f31aec9b">INA228_MODE_CONT_TEMP_BUS</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda900cbda7e2c56c2fab3f0815fe954c5f">INA2XX_MODE_CONT_TEMP_BUS</a></td></tr>
+<tr class="memdesc:ab35eb79e48cce0ec10d2b1d0f31aec9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_TEMP_BUS. <br /></td></tr>
+<tr class="separator:ab35eb79e48cce0ec10d2b1d0f31aec9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d31c28037fa1aee9c78b6483199cf5"><td class="memItemLeft" align="right" valign="top"><a id="af4d31c28037fa1aee9c78b6483199cf5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af4d31c28037fa1aee9c78b6483199cf5">INA228_MODE_CONT_TEMP_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda5eec368c5741e611bbe67a7f048f86c7">INA2XX_MODE_CONT_TEMP_SHUNT</a></td></tr>
+<tr class="memdesc:af4d31c28037fa1aee9c78b6483199cf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_TEMP_SHUNT. <br /></td></tr>
+<tr class="separator:af4d31c28037fa1aee9c78b6483199cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1214206b45888a96c60905cdb6775d60"><td class="memItemLeft" align="right" valign="top"><a id="a1214206b45888a96c60905cdb6775d60"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a1214206b45888a96c60905cdb6775d60">INA228_MODE_CONT_TEMP_BUS_SHUNT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99eda81b872cf02aa5490f23669cdca5d0b8e">INA2XX_MODE_CONT_TEMP_BUS_SHUNT</a></td></tr>
+<tr class="memdesc:a1214206b45888a96c60905cdb6775d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONT_TEMP_BUS_SHUNT. <br /></td></tr>
+<tr class="separator:a1214206b45888a96c60905cdb6775d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef44f429ea40119631cc9aa7547e4f1e"><td class="memItemLeft" align="right" valign="top"><a id="aef44f429ea40119631cc9aa7547e4f1e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aef44f429ea40119631cc9aa7547e4f1e">INA228_MODE_TRIGGERED</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a47fee6bde6c02f718872a60b664b99edad3d20b4c52683fac9f06d7c1303f25a3">INA2XX_MODE_TRIGGERED</a></td></tr>
+<tr class="memdesc:aef44f429ea40119631cc9aa7547e4f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_TRIGGERED. <br /></td></tr>
+<tr class="separator:aef44f429ea40119631cc9aa7547e4f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dc580e473ba8e7334ea51a70cda89ba"><td class="memItemLeft" align="right" valign="top"><a id="a9dc580e473ba8e7334ea51a70cda89ba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a9dc580e473ba8e7334ea51a70cda89ba">INA228_MODE_CONTINUOUS</a>&#160;&#160;&#160;INA2XX_MODE_CONTINUOUS</td></tr>
+<tr class="memdesc:a9dc580e473ba8e7334ea51a70cda89ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MODE_CONTINUOUS. <br /></td></tr>
+<tr class="separator:a9dc580e473ba8e7334ea51a70cda89ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186499632236f98c85efe8f22c21ef51"><td class="memItemLeft" align="right" valign="top"><a id="a186499632236f98c85efe8f22c21ef51"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a186499632236f98c85efe8f22c21ef51">INA228_TIME_50_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136a293a33fe0869c6094939013ab63a4c9d">INA2XX_TIME_50_us</a></td></tr>
+<tr class="memdesc:a186499632236f98c85efe8f22c21ef51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_50_us. <br /></td></tr>
+<tr class="separator:a186499632236f98c85efe8f22c21ef51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac553cba2d9f1cf72f8036ab4f7e73bc1"><td class="memItemLeft" align="right" valign="top"><a id="ac553cba2d9f1cf72f8036ab4f7e73bc1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ac553cba2d9f1cf72f8036ab4f7e73bc1">INA228_TIME_84_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136a9720d97e3f1bf6d7c1c235d74d1f033b">INA2XX_TIME_84_us</a></td></tr>
+<tr class="memdesc:ac553cba2d9f1cf72f8036ab4f7e73bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_84_us. <br /></td></tr>
+<tr class="separator:ac553cba2d9f1cf72f8036ab4f7e73bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093ab4a41a3c160ee188a749d72f0334"><td class="memItemLeft" align="right" valign="top"><a id="a093ab4a41a3c160ee188a749d72f0334"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a093ab4a41a3c160ee188a749d72f0334">INA228_TIME_150_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136a6f12e3b8277569a52ce24d7829cb7fe0">INA2XX_TIME_150_us</a></td></tr>
+<tr class="memdesc:a093ab4a41a3c160ee188a749d72f0334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_150_us. <br /></td></tr>
+<tr class="separator:a093ab4a41a3c160ee188a749d72f0334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa29c309070bb43428217ac003c00ed99"><td class="memItemLeft" align="right" valign="top"><a id="aa29c309070bb43428217ac003c00ed99"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aa29c309070bb43428217ac003c00ed99">INA228_TIME_280_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136aa3cd462957b66ade6634b84896381794">INA2XX_TIME_280_us</a></td></tr>
+<tr class="memdesc:aa29c309070bb43428217ac003c00ed99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_280_us. <br /></td></tr>
+<tr class="separator:aa29c309070bb43428217ac003c00ed99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4660671facdce783e1d3fce96ac53e66"><td class="memItemLeft" align="right" valign="top"><a id="a4660671facdce783e1d3fce96ac53e66"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a4660671facdce783e1d3fce96ac53e66">INA228_TIME_540_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136af75dff1be7040ee820b600e8dca728ec">INA2XX_TIME_540_us</a></td></tr>
+<tr class="memdesc:a4660671facdce783e1d3fce96ac53e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_540_us. <br /></td></tr>
+<tr class="separator:a4660671facdce783e1d3fce96ac53e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c6bca4aa7e3402e5ed173b90d5d9902"><td class="memItemLeft" align="right" valign="top"><a id="a9c6bca4aa7e3402e5ed173b90d5d9902"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a9c6bca4aa7e3402e5ed173b90d5d9902">INA228_TIME_1052_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136a09d60eef7457bc5162d23612a482078b">INA2XX_TIME_1052_us</a></td></tr>
+<tr class="memdesc:a9c6bca4aa7e3402e5ed173b90d5d9902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_1052_us. <br /></td></tr>
+<tr class="separator:a9c6bca4aa7e3402e5ed173b90d5d9902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5485e5a8fc93bf5feaba1a182d3b4d13"><td class="memItemLeft" align="right" valign="top"><a id="a5485e5a8fc93bf5feaba1a182d3b4d13"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a5485e5a8fc93bf5feaba1a182d3b4d13">INA228_TIME_2074_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136af522f5e8c43ff6c07ea5eef1189daefd">INA2XX_TIME_2074_us</a></td></tr>
+<tr class="memdesc:a5485e5a8fc93bf5feaba1a182d3b4d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_2074_us. <br /></td></tr>
+<tr class="separator:a5485e5a8fc93bf5feaba1a182d3b4d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f525df9e19ca92f15fd72581cc960fa"><td class="memItemLeft" align="right" valign="top"><a id="a7f525df9e19ca92f15fd72581cc960fa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a7f525df9e19ca92f15fd72581cc960fa">INA228_TIME_4120_us</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a3d5299b93dd7a0c86b731c95366d7136a781c9d03ff286fcb182c232d0a38ccaa">INA2XX_TIME_4120_us</a></td></tr>
+<tr class="memdesc:a7f525df9e19ca92f15fd72581cc960fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_TIME_4120_us. <br /></td></tr>
+<tr class="separator:a7f525df9e19ca92f15fd72581cc960fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495e62df4ae6f5266b1f07c4cfd1919e"><td class="memItemLeft" align="right" valign="top"><a id="a495e62df4ae6f5266b1f07c4cfd1919e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a495e62df4ae6f5266b1f07c4cfd1919e">INA228_COUNT_1</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983adddd82a115f0562962d6f773fe1759ca">INA2XX_COUNT_1</a></td></tr>
+<tr class="memdesc:a495e62df4ae6f5266b1f07c4cfd1919e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_1. <br /></td></tr>
+<tr class="separator:a495e62df4ae6f5266b1f07c4cfd1919e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2fa12bfe8d56bb7161b2a40615b3f9"><td class="memItemLeft" align="right" valign="top"><a id="a6b2fa12bfe8d56bb7161b2a40615b3f9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a6b2fa12bfe8d56bb7161b2a40615b3f9">INA228_COUNT_4</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983afb6b42addde1e9e9eaee77104929f860">INA2XX_COUNT_4</a></td></tr>
+<tr class="memdesc:a6b2fa12bfe8d56bb7161b2a40615b3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_4. <br /></td></tr>
+<tr class="separator:a6b2fa12bfe8d56bb7161b2a40615b3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53cbaead1e18e9126e9988d174441f1"><td class="memItemLeft" align="right" valign="top"><a id="ac53cbaead1e18e9126e9988d174441f1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ac53cbaead1e18e9126e9988d174441f1">INA228_COUNT_16</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a326bf61b5aa50995a5eca470bdad993f">INA2XX_COUNT_16</a></td></tr>
+<tr class="memdesc:ac53cbaead1e18e9126e9988d174441f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_16. <br /></td></tr>
+<tr class="separator:ac53cbaead1e18e9126e9988d174441f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b220bd8e098def0a834e057b76183bf"><td class="memItemLeft" align="right" valign="top"><a id="a6b220bd8e098def0a834e057b76183bf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a6b220bd8e098def0a834e057b76183bf">INA228_COUNT_64</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a35c2198887c1047a38806972687925c0">INA2XX_COUNT_64</a></td></tr>
+<tr class="memdesc:a6b220bd8e098def0a834e057b76183bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_64. <br /></td></tr>
+<tr class="separator:a6b220bd8e098def0a834e057b76183bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab7b18b0518e49d25f7d8e3dd05e601"><td class="memItemLeft" align="right" valign="top"><a id="a6ab7b18b0518e49d25f7d8e3dd05e601"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a6ab7b18b0518e49d25f7d8e3dd05e601">INA228_COUNT_128</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983ab3ae19795afdefa908e98f3bd845e180">INA2XX_COUNT_128</a></td></tr>
+<tr class="memdesc:a6ab7b18b0518e49d25f7d8e3dd05e601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_128. <br /></td></tr>
+<tr class="separator:a6ab7b18b0518e49d25f7d8e3dd05e601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab92deb5bf716d69f3f7b32fe9ac5de"><td class="memItemLeft" align="right" valign="top"><a id="a2ab92deb5bf716d69f3f7b32fe9ac5de"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a2ab92deb5bf716d69f3f7b32fe9ac5de">INA228_COUNT_256</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a95203acd80276d51b025251690033090">INA2XX_COUNT_256</a></td></tr>
+<tr class="memdesc:a2ab92deb5bf716d69f3f7b32fe9ac5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_256. <br /></td></tr>
+<tr class="separator:a2ab92deb5bf716d69f3f7b32fe9ac5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1686cb9b1f6f7a69e99b94dcff1c61a"><td class="memItemLeft" align="right" valign="top"><a id="aa1686cb9b1f6f7a69e99b94dcff1c61a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#aa1686cb9b1f6f7a69e99b94dcff1c61a">INA228_COUNT_512</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a0601e5b02fb3f7fcd7a28000cc8c1e1d">INA2XX_COUNT_512</a></td></tr>
+<tr class="memdesc:aa1686cb9b1f6f7a69e99b94dcff1c61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_512. <br /></td></tr>
+<tr class="separator:aa1686cb9b1f6f7a69e99b94dcff1c61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf6596790a802102bd37951658bc2f7"><td class="memItemLeft" align="right" valign="top"><a id="a6cf6596790a802102bd37951658bc2f7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a6cf6596790a802102bd37951658bc2f7">INA228_COUNT_1024</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a2fa67279dc67a74f1dd3d735988ca458">INA2XX_COUNT_1024</a></td></tr>
+<tr class="memdesc:a6cf6596790a802102bd37951658bc2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_COUNT_1024. <br /></td></tr>
+<tr class="separator:a6cf6596790a802102bd37951658bc2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af826b2ebc3cc0a7faf0109d2abd9d157"><td class="memItemLeft" align="right" valign="top"><a id="af826b2ebc3cc0a7faf0109d2abd9d157"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af826b2ebc3cc0a7faf0109d2abd9d157">INA228_ALERT_POLARITY_NORMAL</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1a7579a66de959e4637ac9edb09f04b799">INA2XX_ALERT_POLARITY_NORMAL</a></td></tr>
+<tr class="memdesc:af826b2ebc3cc0a7faf0109d2abd9d157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_ALERT_POLARITY_NORMAL. <br /></td></tr>
+<tr class="separator:af826b2ebc3cc0a7faf0109d2abd9d157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b637adedf56cc5e33e68ede09e746b"><td class="memItemLeft" align="right" valign="top"><a id="ac2b637adedf56cc5e33e68ede09e746b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ac2b637adedf56cc5e33e68ede09e746b">INA228_ALERT_POLARITY_INVERTED</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1a97b8ef1421bc54775149d44dc5915993">INA2XX_ALERT_POLARITY_INVERTED</a></td></tr>
+<tr class="memdesc:ac2b637adedf56cc5e33e68ede09e746b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_ALERT_POLARITY_INVERTED. <br /></td></tr>
+<tr class="separator:ac2b637adedf56cc5e33e68ede09e746b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc7fe405f8bebc405cfb4daa0d0db6c"><td class="memItemLeft" align="right" valign="top"><a id="a5dc7fe405f8bebc405cfb4daa0d0db6c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a5dc7fe405f8bebc405cfb4daa0d0db6c">INA228_ALERT_LATCH_ENABLED</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4a53f25bcba7eb35c5c6bca5cead1028a2">INA2XX_ALERT_LATCH_ENABLED</a></td></tr>
+<tr class="memdesc:a5dc7fe405f8bebc405cfb4daa0d0db6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_ALERT_LATCH_ENABLED. <br /></td></tr>
+<tr class="separator:a5dc7fe405f8bebc405cfb4daa0d0db6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9274d954c6890ae50c45798bc8720ce"><td class="memItemLeft" align="right" valign="top"><a id="ae9274d954c6890ae50c45798bc8720ce"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#ae9274d954c6890ae50c45798bc8720ce">INA228_ALERT_LATCH_TRANSPARENT</a>&#160;&#160;&#160;<a class="el" href="_adafruit___i_n_a2xx_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4a8c1fd48a86dd416694c2a832eb6979d6">INA2XX_ALERT_LATCH_TRANSPARENT</a></td></tr>
+<tr class="memdesc:ae9274d954c6890ae50c45798bc8720ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_ALERT_LATCH_TRANSPARENT. <br /></td></tr>
+<tr class="separator:ae9274d954c6890ae50c45798bc8720ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af3f03981c0cdb8cd5452c03c583b7052"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99ed">_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af3f03981c0cdb8cd5452c03c583b7052">INA228_MeasurementMode</a></td></tr>
-<tr class="memdesc:af3f03981c0cdb8cd5452c03c583b7052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode options.  <a href="#af3f03981c0cdb8cd5452c03c583b7052">More...</a><br /></td></tr>
-<tr class="separator:af3f03981c0cdb8cd5452c03c583b7052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b37f98fe2d66d85b82005379c4e003"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136">_conversion_time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a85b37f98fe2d66d85b82005379c4e003">INA228_ConversionTime</a></td></tr>
-<tr class="memdesc:a85b37f98fe2d66d85b82005379c4e003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion Time options.  <a href="#a85b37f98fe2d66d85b82005379c4e003">More...</a><br /></td></tr>
-<tr class="separator:a85b37f98fe2d66d85b82005379c4e003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a741362714a8fcbf624fd2fa8ea196082"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983">_count</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a741362714a8fcbf624fd2fa8ea196082">INA228_AveragingCount</a></td></tr>
-<tr class="memdesc:a741362714a8fcbf624fd2fa8ea196082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averaging Count options.  <a href="#a741362714a8fcbf624fd2fa8ea196082">More...</a><br /></td></tr>
-<tr class="separator:a741362714a8fcbf624fd2fa8ea196082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27b4685b74845b179bbd1eaa8263bc88"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755">_alert_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a27b4685b74845b179bbd1eaa8263bc88">INA228_AlertType</a></td></tr>
-<tr class="memdesc:a27b4685b74845b179bbd1eaa8263bc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert trigger options.  <a href="#a27b4685b74845b179bbd1eaa8263bc88">More...</a><br /></td></tr>
+<tr class="memdesc:a27b4685b74845b179bbd1eaa8263bc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert trigger options specific to INA228.  <a href="#a27b4685b74845b179bbd1eaa8263bc88">More...</a><br /></td></tr>
 <tr class="separator:a27b4685b74845b179bbd1eaa8263bc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f6571276659bb339cd9e1ca1890022f"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1">_alert_polarity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a8f6571276659bb339cd9e1ca1890022f">INA228_AlertPolarity</a></td></tr>
-<tr class="memdesc:a8f6571276659bb339cd9e1ca1890022f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert pin polarity options.  <a href="#a8f6571276659bb339cd9e1ca1890022f">More...</a><br /></td></tr>
-<tr class="separator:a8f6571276659bb339cd9e1ca1890022f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f9b8f2056b0b1c5d57a1cb35baa3d1c"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4">_alert_latch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a6f9b8f2056b0b1c5d57a1cb35baa3d1c">INA228_AlertLatch</a></td></tr>
-<tr class="memdesc:a6f9b8f2056b0b1c5d57a1cb35baa3d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert pin latch options.  <a href="#a6f9b8f2056b0b1c5d57a1cb35baa3d1c">More...</a><br /></td></tr>
-<tr class="separator:a6f9b8f2056b0b1c5d57a1cb35baa3d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Legacy type aliases</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These typedefs provide backward compatibility with earlier versions of the library </p>
+</div></td></tr>
+<tr class="memitem:afdaad2099fc73f9de2476f80ce0e19ad"><td class="memItemLeft" align="right" valign="top"><a id="afdaad2099fc73f9de2476f80ce0e19ad"></a>
+typedef <a class="el" href="_adafruit___i_n_a2xx_8h.html#a9b07e92428fc51e2f7cf449b75dfc742">INA2XX_MeasurementMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#afdaad2099fc73f9de2476f80ce0e19ad">INA228_MeasurementMode</a></td></tr>
+<tr class="memdesc:afdaad2099fc73f9de2476f80ce0e19ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_MeasurementMode. <br /></td></tr>
+<tr class="separator:afdaad2099fc73f9de2476f80ce0e19ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8901269aef0ef183a021e25931e3adaa"><td class="memItemLeft" align="right" valign="top"><a id="a8901269aef0ef183a021e25931e3adaa"></a>
+typedef <a class="el" href="_adafruit___i_n_a2xx_8h.html#a80f063d15b8d6efc4b1d68c3f28b318b">INA2XX_ConversionTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a8901269aef0ef183a021e25931e3adaa">INA228_ConversionTime</a></td></tr>
+<tr class="memdesc:a8901269aef0ef183a021e25931e3adaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_ConversionTime. <br /></td></tr>
+<tr class="separator:a8901269aef0ef183a021e25931e3adaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593a90cd922382d9c16c793cba7231c0"><td class="memItemLeft" align="right" valign="top"><a id="a593a90cd922382d9c16c793cba7231c0"></a>
+typedef <a class="el" href="_adafruit___i_n_a2xx_8h.html#af9857e31250dd864fae0bade94374c67">INA2XX_AveragingCount</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a593a90cd922382d9c16c793cba7231c0">INA228_AveragingCount</a></td></tr>
+<tr class="memdesc:a593a90cd922382d9c16c793cba7231c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_AveragingCount. <br /></td></tr>
+<tr class="separator:a593a90cd922382d9c16c793cba7231c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af126140301993e6f56c4ea7f4519cdc0"><td class="memItemLeft" align="right" valign="top"><a id="af126140301993e6f56c4ea7f4519cdc0"></a>
+typedef <a class="el" href="_adafruit___i_n_a2xx_8h.html#add29c0793a518722fff0f917f159a780">INA2XX_AlertPolarity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af126140301993e6f56c4ea7f4519cdc0">INA228_AlertPolarity</a></td></tr>
+<tr class="memdesc:af126140301993e6f56c4ea7f4519cdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_AlertPolarity. <br /></td></tr>
+<tr class="separator:af126140301993e6f56c4ea7f4519cdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8963b02649b22c26c2414c4b4ba6eef9"><td class="memItemLeft" align="right" valign="top"><a id="a8963b02649b22c26c2414c4b4ba6eef9"></a>
+typedef <a class="el" href="_adafruit___i_n_a2xx_8h.html#a506602c21f0e225443dffd7c3bc59529">INA2XX_AlertLatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a8963b02649b22c26c2414c4b4ba6eef9">INA228_AlertLatch</a></td></tr>
+<tr class="memdesc:a8963b02649b22c26c2414c4b4ba6eef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for INA2XX_AlertLatch. <br /></td></tr>
+<tr class="separator:a8963b02649b22c26c2414c4b4ba6eef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a47fee6bde6c02f718872a60b664b99ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99ed">_mode</a> { <br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edaa5f2bd5932daf9b0ab15883cd9315cce">INA228_MODE_SHUTDOWN</a> = 0x00, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edad6a32090a0a41bab21d8f7ad7b820a51">INA228_MODE_TRIG_BUS</a> = 0x01, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edacac16f718d56c30bf3dfe3bd79803f8c">INA228_MODE_TRIG_SHUNT</a> = 0x02, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda64629f457b918f240a41131eccf3d113">INA228_MODE_TRIG_BUS_SHUNT</a> = 0x03, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda187b6f19626134386f782e2c48435697">INA228_MODE_TRIG_TEMP</a> = 0x04, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edadc941ebcbf2bafadb3b7723f5c3375c1">INA228_MODE_TRIG_TEMP_BUS</a> = 0x05, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda3bc202cded5df5a89948cef5eae39f84">INA228_MODE_TRIG_TEMP_SHUNT</a> = 0x06, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edaebda841e1f5f0706e4f34c93fe1a830a">INA228_MODE_TRIG_TEMP_BUS_SHUNT</a> = 0x07, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edacfb209359e0e3ef9b5bc05adf844af21">INA228_MODE_SHUTDOWN2</a> = 0x08, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda891110945db1175c94056755905ca1ab">INA228_MODE_CONT_BUS</a> = 0x09, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda51c961445c16b93c9ce79865be004625">INA228_MODE_CONT_SHUNT</a> = 0x0A, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edae02fe7e427b4e1e070e0cd5a11e999a2">INA228_MODE_CONT_BUS_SHUNT</a> = 0x0B, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda0be6dd8c239c9209009b57ec5e1bf41c">INA228_MODE_CONT_TEMP</a> = 0x0C, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edaa90187f23aa09969be5194af0bac4a2d">INA228_MODE_CONT_TEMP_BUS</a> = 0x0D, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda1ddae706852d5690e0f4172a12e32952">INA228_MODE_CONT_TEMP_SHUNT</a> = 0x0E, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99eda505b0e7368529f42aa7c5d7b1d7ff364">INA228_MODE_CONT_TEMP_BUS_SHUNT</a> = 0x0F, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99edadbf8815ed07ceac77ecdd38d8ad06b62">INA228_MODE_TRIGGERED</a> = INA228_MODE_TRIG_TEMP_BUS_SHUNT, 
-<b>INA228_MODE_CONTINUOUS</b> = INA228_MODE_CONT_TEMP_BUS_SHUNT
-<br />
- }<tr class="memdesc:a47fee6bde6c02f718872a60b664b99ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode options.  <a href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99ed">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a47fee6bde6c02f718872a60b664b99ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5299b93dd7a0c86b731c95366d7136"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136">_conversion_time</a> { <br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a3d0e182be6fcc51d306b76d677c7be86">INA228_TIME_50_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a9ecc5ee74a8fbeb5d34b94e9025efc9b">INA228_TIME_84_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a0502653b880fe85e61a4a8471ccfd4c9">INA228_TIME_150_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136ab42bcec80ac1ec5bd5fa0e9992565d18">INA228_TIME_280_us</a>, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136ad9bb47ee2f21f1be5d0639fa709376a4">INA228_TIME_540_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a912f50dc06d8c043bf591224529d99c7">INA228_TIME_1052_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a415856e152b42394ca8b207a44df9ca1">INA228_TIME_2074_us</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136a3c2a01f5198b30354ecb583cb7a954cb">INA228_TIME_4120_us</a>
-<br />
- }<tr class="memdesc:a3d5299b93dd7a0c86b731c95366d7136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion Time options.  <a href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a3d5299b93dd7a0c86b731c95366d7136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69c4cff6b9a1cd95c71fc56b8dd9a983"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983">_count</a> { <br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983aaff8cc1f0b2604fd99bad6d1fdf554c0">INA228_COUNT_1</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983aea52b1ddfaf8395a43640afc34535887">INA228_COUNT_4</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a7780897c1c897f3f0dd61e52db7b0648">INA228_COUNT_16</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a60fa0b265ae6dbb65ce1a3deaacd4247">INA228_COUNT_64</a>, 
-<br />
-&#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a79faa3953ca03c46d494175cb30935ae">INA228_COUNT_128</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a171bea413e26272679255439805700d8">INA228_COUNT_256</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a684c3515744a18db6ebcbf9bc90a80fd">INA228_COUNT_512</a>, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983a2c7cb52b802583bd2588d430b7cd906b">INA228_COUNT_1024</a>
-<br />
- }<tr class="memdesc:a69c4cff6b9a1cd95c71fc56b8dd9a983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averaging Count options.  <a href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a69c4cff6b9a1cd95c71fc56b8dd9a983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f2f5888fded8924162ff8ef86505755"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755">_alert_type</a> { <br />
 &#160;&#160;<a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755a6f11ae3e682840dcc9c40a373e20cd69">INA228_ALERT_CONVERSION_READY</a> = 0x1, 
 <a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755ae55a97a1ff0c05ec0b96b3e9f3e807cc">INA228_ALERT_OVERPOWER</a> = 0x2, 
@@ -255,77 +296,16 @@ Enumerations</h2></td></tr>
 <a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755aeca4efd0478d58776a5fb2f5e8392d14">INA228_ALERT_OVERCURRENT</a> = 0x20, 
 <a class="el" href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755af76e97d9124abb5633e867a0b0d2eb64">INA228_ALERT_NONE</a> = 0x0
 <br />
- }<tr class="memdesc:a3f2f5888fded8924162ff8ef86505755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert trigger options.  <a href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755">More...</a><br /></td></tr>
+ }<tr class="memdesc:a3f2f5888fded8924162ff8ef86505755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert trigger options specific to INA228.  <a href="_adafruit___i_n_a228_8h.html#a3f2f5888fded8924162ff8ef86505755">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a3f2f5888fded8924162ff8ef86505755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af92dcd4b13a0d2dfc9665dadc6aa53d1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1">_alert_polarity</a> { <a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1ab8da3f7b2f41d3a3fba296d5f69ae7df">INA228_ALERT_POLARITY_NORMAL</a> = 0x0, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1acd0692526835da2499f8b3761c6b64a2">INA228_ALERT_POLARITY_INVERTED</a> = 0x1
- }<tr class="memdesc:af92dcd4b13a0d2dfc9665dadc6aa53d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert pin polarity options.  <a href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:af92dcd4b13a0d2dfc9665dadc6aa53d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd786f6e7ca4587a28a8f3b73a4964e4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4">_alert_latch</a> { <a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4abca966d6e5926851baf2cf75246b5bb4">INA228_ALERT_LATCH_ENABLED</a> = 0x1, 
-<a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4abf73a740ff722e1f20a5de0824431d8d">INA228_ALERT_LATCH_TRANSPARENT</a> = 0x0
- }<tr class="memdesc:abd786f6e7ca4587a28a8f3b73a4964e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alert pin latch options.  <a href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:abd786f6e7ca4587a28a8f3b73a4964e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>I2C Driver for INA228 Current and Power sensor</p>
-<p>This is a library for the Adafruit INA228 breakout: <a href="http://www.adafruit.com/products/xxxx">http://www.adafruit.com/products/xxxx</a></p>
+<p>This is a library for the Adafruit INA228 breakout: <a href="http://www.adafruit.com/products/5832">http://www.adafruit.com/products/5832</a></p>
 <p>Adafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!</p>
 <p>BSD license (see license.txt) </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="af3f03981c0cdb8cd5452c03c583b7052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f03981c0cdb8cd5452c03c583b7052">&#9670;&nbsp;</a></span>INA228_MeasurementMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99ed">_mode</a>  <a class="el" href="_adafruit___i_n_a228_8h.html#af3f03981c0cdb8cd5452c03c583b7052">INA228_MeasurementMode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mode options. </p>
-<p>Allowed values for setMode. </p>
-
-</div>
-</div>
-<a id="a85b37f98fe2d66d85b82005379c4e003"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85b37f98fe2d66d85b82005379c4e003">&#9670;&nbsp;</a></span>INA228_ConversionTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136">_conversion_time</a>  <a class="el" href="_adafruit___i_n_a228_8h.html#a85b37f98fe2d66d85b82005379c4e003">INA228_ConversionTime</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Conversion Time options. </p>
-<p>Allowed values for setCurrentConversionTime and setVoltageConversionTime. </p>
-
-</div>
-</div>
-<a id="a741362714a8fcbf624fd2fa8ea196082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a741362714a8fcbf624fd2fa8ea196082">&#9670;&nbsp;</a></span>INA228_AveragingCount</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983">_count</a>  <a class="el" href="_adafruit___i_n_a228_8h.html#a741362714a8fcbf624fd2fa8ea196082">INA228_AveragingCount</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Averaging Count options. </p>
-<p>Allowed values forsetAveragingCount. </p>
-
-</div>
-</div>
 <a id="a27b4685b74845b179bbd1eaa8263bc88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27b4685b74845b179bbd1eaa8263bc88">&#9670;&nbsp;</a></span>INA228_AlertType</h2>
 
@@ -338,169 +318,12 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alert trigger options. </p>
+<p>Alert trigger options specific to INA228. </p>
 <p>Allowed values for setAlertType. </p>
 
 </div>
 </div>
-<a id="a8f6571276659bb339cd9e1ca1890022f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f6571276659bb339cd9e1ca1890022f">&#9670;&nbsp;</a></span>INA228_AlertPolarity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1">_alert_polarity</a>  <a class="el" href="_adafruit___i_n_a228_8h.html#a8f6571276659bb339cd9e1ca1890022f">INA228_AlertPolarity</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Alert pin polarity options. </p>
-<p>Allowed values for setAlertPolarity. </p>
-
-</div>
-</div>
-<a id="a6f9b8f2056b0b1c5d57a1cb35baa3d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f9b8f2056b0b1c5d57a1cb35baa3d1c">&#9670;&nbsp;</a></span>INA228_AlertLatch</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4">_alert_latch</a>  <a class="el" href="_adafruit___i_n_a228_8h.html#a6f9b8f2056b0b1c5d57a1cb35baa3d1c">INA228_AlertLatch</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Alert pin latch options. </p>
-<p>Allowed values for setAlertLatch. </p>
-
-</div>
-</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a47fee6bde6c02f718872a60b664b99ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47fee6bde6c02f718872a60b664b99ed">&#9670;&nbsp;</a></span>_mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_adafruit___i_n_a228_8h.html#a47fee6bde6c02f718872a60b664b99ed">_mode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mode options. </p>
-<p>Allowed values for setMode. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edaa5f2bd5932daf9b0ab15883cd9315cce"></a>INA228_MODE_SHUTDOWN&#160;</td><td class="fielddoc"><p>SHUTDOWN: Minimize quiescient current and turn off current into the device inputs. Set another mode to exit shutown mode Triggered bus voltage, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edad6a32090a0a41bab21d8f7ad7b820a51"></a>INA228_MODE_TRIG_BUS&#160;</td><td class="fielddoc"><p>Triggered shunt voltage, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edacac16f718d56c30bf3dfe3bd79803f8c"></a>INA228_MODE_TRIG_SHUNT&#160;</td><td class="fielddoc"><p>Triggered shunt voltage and bus voltage, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda64629f457b918f240a41131eccf3d113"></a>INA228_MODE_TRIG_BUS_SHUNT&#160;</td><td class="fielddoc"><p>Triggered temperature, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda187b6f19626134386f782e2c48435697"></a>INA228_MODE_TRIG_TEMP&#160;</td><td class="fielddoc"><p>Triggered temperature and bus voltage, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edadc941ebcbf2bafadb3b7723f5c3375c1"></a>INA228_MODE_TRIG_TEMP_BUS&#160;</td><td class="fielddoc"><p>Triggered temperature and shunt voltage, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda3bc202cded5df5a89948cef5eae39f84"></a>INA228_MODE_TRIG_TEMP_SHUNT&#160;</td><td class="fielddoc"><p>Triggered bus voltage, shunt voltage and temperature, single shot </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edaebda841e1f5f0706e4f34c93fe1a830a"></a>INA228_MODE_TRIG_TEMP_BUS_SHUNT&#160;</td><td class="fielddoc"><p>Shutdown </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edacfb209359e0e3ef9b5bc05adf844af21"></a>INA228_MODE_SHUTDOWN2&#160;</td><td class="fielddoc"><p>Continuous bus voltage only </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda891110945db1175c94056755905ca1ab"></a>INA228_MODE_CONT_BUS&#160;</td><td class="fielddoc"><p>Continuous shunt voltage only </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda51c961445c16b93c9ce79865be004625"></a>INA228_MODE_CONT_SHUNT&#160;</td><td class="fielddoc"><p>Continuous shunt and bus voltage </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edae02fe7e427b4e1e070e0cd5a11e999a2"></a>INA228_MODE_CONT_BUS_SHUNT&#160;</td><td class="fielddoc"><p>Continuous temperature only </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda0be6dd8c239c9209009b57ec5e1bf41c"></a>INA228_MODE_CONT_TEMP&#160;</td><td class="fielddoc"><p>Continuous bus voltage and temperature </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edaa90187f23aa09969be5194af0bac4a2d"></a>INA228_MODE_CONT_TEMP_BUS&#160;</td><td class="fielddoc"><p>Continuous temperature and shunt voltage </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda1ddae706852d5690e0f4172a12e32952"></a>INA228_MODE_CONT_TEMP_SHUNT&#160;</td><td class="fielddoc"><p>Continuous bus voltage, shunt voltage and temperature </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99eda505b0e7368529f42aa7c5d7b1d7ff364"></a>INA228_MODE_CONT_TEMP_BUS_SHUNT&#160;</td><td class="fielddoc"><p>TRIGGERED: Trigger a one-shot measurement of temp, current and bus voltage. Set the TRIGGERED mode again to take a new measurement </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a47fee6bde6c02f718872a60b664b99edadbf8815ed07ceac77ecdd38d8ad06b62"></a>INA228_MODE_TRIGGERED&#160;</td><td class="fielddoc"><p>CONTINUOUS: (Default) Continuously update the temp, current, bus voltage and power registers with new measurements </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="a3d5299b93dd7a0c86b731c95366d7136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5299b93dd7a0c86b731c95366d7136">&#9670;&nbsp;</a></span>_conversion_time</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_adafruit___i_n_a228_8h.html#a3d5299b93dd7a0c86b731c95366d7136">_conversion_time</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Conversion Time options. </p>
-<p>Allowed values for setCurrentConversionTime and setVoltageConversionTime. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a3d0e182be6fcc51d306b76d677c7be86"></a>INA228_TIME_50_us&#160;</td><td class="fielddoc"><p>Measurement time: 50us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a9ecc5ee74a8fbeb5d34b94e9025efc9b"></a>INA228_TIME_84_us&#160;</td><td class="fielddoc"><p>Measurement time: 84us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a0502653b880fe85e61a4a8471ccfd4c9"></a>INA228_TIME_150_us&#160;</td><td class="fielddoc"><p>Measurement time: 150us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136ab42bcec80ac1ec5bd5fa0e9992565d18"></a>INA228_TIME_280_us&#160;</td><td class="fielddoc"><p>Measurement time: 280us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136ad9bb47ee2f21f1be5d0639fa709376a4"></a>INA228_TIME_540_us&#160;</td><td class="fielddoc"><p>Measurement time: 540us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a912f50dc06d8c043bf591224529d99c7"></a>INA228_TIME_1052_us&#160;</td><td class="fielddoc"><p>Measurement time: 1052us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a415856e152b42394ca8b207a44df9ca1"></a>INA228_TIME_2074_us&#160;</td><td class="fielddoc"><p>Measurement time: 2074us. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3d5299b93dd7a0c86b731c95366d7136a3c2a01f5198b30354ecb583cb7a954cb"></a>INA228_TIME_4120_us&#160;</td><td class="fielddoc"><p>Measurement time: 4120us. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="a69c4cff6b9a1cd95c71fc56b8dd9a983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69c4cff6b9a1cd95c71fc56b8dd9a983">&#9670;&nbsp;</a></span>_count</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_adafruit___i_n_a228_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983">_count</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Averaging Count options. </p>
-<p>Allowed values forsetAveragingCount. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983aaff8cc1f0b2604fd99bad6d1fdf554c0"></a>INA228_COUNT_1&#160;</td><td class="fielddoc"><p>Window size: 1 sample (Default) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983aea52b1ddfaf8395a43640afc34535887"></a>INA228_COUNT_4&#160;</td><td class="fielddoc"><p>Window size: 4 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a7780897c1c897f3f0dd61e52db7b0648"></a>INA228_COUNT_16&#160;</td><td class="fielddoc"><p>Window size: 16 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a60fa0b265ae6dbb65ce1a3deaacd4247"></a>INA228_COUNT_64&#160;</td><td class="fielddoc"><p>Window size: 64 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a79faa3953ca03c46d494175cb30935ae"></a>INA228_COUNT_128&#160;</td><td class="fielddoc"><p>Window size: 128 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a171bea413e26272679255439805700d8"></a>INA228_COUNT_256&#160;</td><td class="fielddoc"><p>Window size: 256 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a684c3515744a18db6ebcbf9bc90a80fd"></a>INA228_COUNT_512&#160;</td><td class="fielddoc"><p>Window size: 512 samples. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a69c4cff6b9a1cd95c71fc56b8dd9a983a2c7cb52b802583bd2588d430b7cd906b"></a>INA228_COUNT_1024&#160;</td><td class="fielddoc"><p>Window size: 1024 samples. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a id="a3f2f5888fded8924162ff8ef86505755"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f2f5888fded8924162ff8ef86505755">&#9670;&nbsp;</a></span>_alert_type</h2>
 
@@ -513,7 +336,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alert trigger options. </p>
+<p>Alert trigger options specific to INA228. </p>
 <p>Allowed values for setAlertType. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3f2f5888fded8924162ff8ef86505755a6f11ae3e682840dcc9c40a373e20cd69"></a>INA228_ALERT_CONVERSION_READY&#160;</td><td class="fielddoc"><p>Trigger on conversion ready. </p>
@@ -529,52 +352,6 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a3f2f5888fded8924162ff8ef86505755aeca4efd0478d58776a5fb2f5e8392d14"></a>INA228_ALERT_OVERCURRENT&#160;</td><td class="fielddoc"><p>Trigger on current over limit. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a3f2f5888fded8924162ff8ef86505755af76e97d9124abb5633e867a0b0d2eb64"></a>INA228_ALERT_NONE&#160;</td><td class="fielddoc"><p>Do not trigger alert pin (Default) </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="af92dcd4b13a0d2dfc9665dadc6aa53d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af92dcd4b13a0d2dfc9665dadc6aa53d1">&#9670;&nbsp;</a></span>_alert_polarity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_adafruit___i_n_a228_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1">_alert_polarity</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Alert pin polarity options. </p>
-<p>Allowed values for setAlertPolarity. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af92dcd4b13a0d2dfc9665dadc6aa53d1ab8da3f7b2f41d3a3fba296d5f69ae7df"></a>INA228_ALERT_POLARITY_NORMAL&#160;</td><td class="fielddoc"><p>Active high open-collector (Default) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af92dcd4b13a0d2dfc9665dadc6aa53d1acd0692526835da2499f8b3761c6b64a2"></a>INA228_ALERT_POLARITY_INVERTED&#160;</td><td class="fielddoc"><p>Active low open-collector. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="abd786f6e7ca4587a28a8f3b73a4964e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd786f6e7ca4587a28a8f3b73a4964e4">&#9670;&nbsp;</a></span>_alert_latch</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_adafruit___i_n_a228_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4">_alert_latch</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Alert pin latch options. </p>
-<p>Allowed values for setAlertLatch. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abd786f6e7ca4587a28a8f3b73a4964e4abca966d6e5926851baf2cf75246b5bb4"></a>INA228_ALERT_LATCH_ENABLED&#160;</td><td class="fielddoc"><p>Alert will latch until Mask/Enable register is read </p>
-</td></tr>
-<tr><td class="fieldname"><a id="abd786f6e7ca4587a28a8f3b73a4964e4abf73a740ff722e1f20a5de0824431d8d"></a>INA228_ALERT_LATCH_TRANSPARENT&#160;</td><td class="fielddoc"><p>Alert will reset when fault is cleared </p>
 </td></tr>
 </table>
 

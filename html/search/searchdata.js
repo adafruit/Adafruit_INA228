@@ -3,13 +3,12 @@ var indexSectionsWithContent =
   0: "_abcdgirs",
   1: "a",
   2: "a",
-  3: "abcgrs",
-  4: "acd",
+  3: "_abcgrs",
+  4: "_acdi",
   5: "i",
   6: "_",
   7: "i",
-  8: "i",
-  9: "a"
+  8: "i"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines",
-  9: "pages"
+  8: "defines"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "Typedefs",
   6: "Enumerations",
   7: "Enumerator",
-  8: "Macros",
-  9: "Pages"
+  8: "Macros"
 };
 

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adafruit INA260 Arduino Library: Adafruit_INA228 Class Reference</title>
+<title>Adafruit INA260 Arduino Library: Adafruit_INA237 Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,62 +60,55 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="class_adafruit___i_n_a228-members.html">List of all members</a>  </div>
+<a href="class_adafruit___i_n_a237-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Adafruit_INA228 Class Reference</div>  </div>
+<div class="title">Adafruit_INA237 Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class that stores state and functions for interacting with INA228 Current and Power Sensor.  
- <a href="class_adafruit___i_n_a228.html#details">More...</a></p>
+<p>Class that stores state and functions for interacting with INA237/INA238 Current and Power Sensors.  
+ <a href="class_adafruit___i_n_a237.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_adafruit___i_n_a228_8h_source.html">Adafruit_INA228.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_adafruit___i_n_a237_8h_source.html">Adafruit_INA237.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Adafruit_INA228:</div>
+Inheritance diagram for Adafruit_INA237:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_adafruit___i_n_a228.png" usemap="#Adafruit_5FINA228_map" alt=""/>
-  <map id="Adafruit_5FINA228_map" name="Adafruit_5FINA228_map">
+  <img src="class_adafruit___i_n_a237.png" usemap="#Adafruit_5FINA237_map" alt=""/>
+  <map id="Adafruit_5FINA237_map" name="Adafruit_5FINA237_map">
 <area href="class_adafruit___i_n_a2xx.html" title="Class that stores state and functions for interacting with INA2xx Current and Power Sensor..." alt="Adafruit_INA2xx" shape="rect" coords="0,0,106,24"/>
+<area href="class_adafruit___i_n_a238.html" title="Class that stores state and functions for interacting with INA238 Current and Power Sensor (subclass ..." alt="Adafruit_INA238" shape="rect" coords="0,112,106,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad18151aa5011c1d8f7a11a175f6dd716"><td class="memItemLeft" align="right" valign="top"><a id="ad18151aa5011c1d8f7a11a175f6dd716"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#ad18151aa5011c1d8f7a11a175f6dd716">Adafruit_INA228</a> ()</td></tr>
-<tr class="memdesc:ad18151aa5011c1d8f7a11a175f6dd716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a new INA228 class. <br /></td></tr>
-<tr class="separator:ad18151aa5011c1d8f7a11a175f6dd716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6deb385940093a7a8c2ba0938168e709"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a6deb385940093a7a8c2ba0938168e709">begin</a> (uint8_t i2c_addr=<a class="el" href="_adafruit___i_n_a228_8h.html#a892086f6aadfccae94d2bdb9af8580dc">INA228_I2CADDR_DEFAULT</a>, TwoWire *theWire=&amp;Wire, bool skipReset=false)</td></tr>
-<tr class="memdesc:a6deb385940093a7a8c2ba0938168e709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the HW.  <a href="#a6deb385940093a7a8c2ba0938168e709">More...</a><br /></td></tr>
-<tr class="separator:a6deb385940093a7a8c2ba0938168e709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30e03f671542f363a0866bc0c6551278"><td class="memItemLeft" align="right" valign="top"><a id="a30e03f671542f363a0866bc0c6551278"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a30e03f671542f363a0866bc0c6551278">reset</a> (void) override</td></tr>
-<tr class="memdesc:a30e03f671542f363a0866bc0c6551278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the hardware specific to INA228. <br /></td></tr>
-<tr class="separator:a30e03f671542f363a0866bc0c6551278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a852cb525767362fe40f1cd05764e1d07"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a852cb525767362fe40f1cd05764e1d07">readEnergy</a> (void)</td></tr>
-<tr class="memdesc:a852cb525767362fe40f1cd05764e1d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and scales the current value of the Energy register.  <a href="#a852cb525767362fe40f1cd05764e1d07">More...</a><br /></td></tr>
-<tr class="separator:a852cb525767362fe40f1cd05764e1d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1e4b42cc9d92b2544527a4c9b1d9b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___i_n_a228_8h.html#a27b4685b74845b179bbd1eaa8263bc88">INA228_AlertType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a7e1e4b42cc9d92b2544527a4c9b1d9b1">getAlertType</a> (void)</td></tr>
-<tr class="memdesc:a7e1e4b42cc9d92b2544527a4c9b1d9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current alert type.  <a href="#a7e1e4b42cc9d92b2544527a4c9b1d9b1">More...</a><br /></td></tr>
-<tr class="separator:a7e1e4b42cc9d92b2544527a4c9b1d9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33ba9f7134bab3b13980744cea30d651"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a33ba9f7134bab3b13980744cea30d651">setAlertType</a> (<a class="el" href="_adafruit___i_n_a228_8h.html#a27b4685b74845b179bbd1eaa8263bc88">INA228_AlertType</a> alert)</td></tr>
-<tr class="memdesc:a33ba9f7134bab3b13980744cea30d651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new alert type.  <a href="#a33ba9f7134bab3b13980744cea30d651">More...</a><br /></td></tr>
-<tr class="separator:a33ba9f7134bab3b13980744cea30d651"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0c20c767211bc0bed898ed586f2165d"><td class="memItemLeft" align="right" valign="top"><a id="af0c20c767211bc0bed898ed586f2165d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#af0c20c767211bc0bed898ed586f2165d">resetAccumulators</a> (void)</td></tr>
-<tr class="memdesc:af0c20c767211bc0bed898ed586f2165d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the energy and charge accumulators. <br /></td></tr>
-<tr class="separator:af0c20c767211bc0bed898ed586f2165d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47ecdb012860564bad447f04c6a00e2e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e">readDieTemp</a> (void) override</td></tr>
-<tr class="memdesc:a47ecdb012860564bad447f04c6a00e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the die temperature with the INA228-specific conversion factor.  <a href="#a47ecdb012860564bad447f04c6a00e2e">More...</a><br /></td></tr>
-<tr class="separator:a47ecdb012860564bad447f04c6a00e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a593696b8d55749537bc6af8b69c48"><td class="memItemLeft" align="right" valign="top"><a id="a00a593696b8d55749537bc6af8b69c48"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#a00a593696b8d55749537bc6af8b69c48">Adafruit_INA237</a> ()</td></tr>
+<tr class="memdesc:a00a593696b8d55749537bc6af8b69c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a new INA237 class. <br /></td></tr>
+<tr class="separator:a00a593696b8d55749537bc6af8b69c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b57c715d573272a487186edd4469e71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#a5b57c715d573272a487186edd4469e71">begin</a> (uint8_t i2c_addr=<a class="el" href="_adafruit___i_n_a237_8h.html#a9177aab49a4aa471df9745486905a18b">INA237_I2CADDR_DEFAULT</a>, TwoWire *theWire=&amp;Wire, bool skipReset=false)</td></tr>
+<tr class="memdesc:a5b57c715d573272a487186edd4469e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the HW.  <a href="#a5b57c715d573272a487186edd4469e71">More...</a><br /></td></tr>
+<tr class="separator:a5b57c715d573272a487186edd4469e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a838055b7f33554847d78d6bcc1d8f96f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___i_n_a237_8h.html#a1c988ddedc2786e59aca503b313b0724">INA237_AlertType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#a838055b7f33554847d78d6bcc1d8f96f">getAlertType</a> (void)</td></tr>
+<tr class="memdesc:a838055b7f33554847d78d6bcc1d8f96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current alert type.  <a href="#a838055b7f33554847d78d6bcc1d8f96f">More...</a><br /></td></tr>
+<tr class="separator:a838055b7f33554847d78d6bcc1d8f96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d973a1c34188e0651566ea0bf15018"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#a11d973a1c34188e0651566ea0bf15018">setAlertType</a> (<a class="el" href="_adafruit___i_n_a237_8h.html#a1c988ddedc2786e59aca503b313b0724">INA237_AlertType</a> alert)</td></tr>
+<tr class="memdesc:a11d973a1c34188e0651566ea0bf15018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new alert type.  <a href="#a11d973a1c34188e0651566ea0bf15018">More...</a><br /></td></tr>
+<tr class="separator:a11d973a1c34188e0651566ea0bf15018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e34a67d118bca72df89749bad07ee4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#ab1e34a67d118bca72df89749bad07ee4">readDieTemp</a> (void) override</td></tr>
+<tr class="memdesc:ab1e34a67d118bca72df89749bad07ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the die temperature with the INA237-specific conversion factor.  <a href="#ab1e34a67d118bca72df89749bad07ee4">More...</a><br /></td></tr>
+<tr class="separator:ab1e34a67d118bca72df89749bad07ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_adafruit___i_n_a2xx"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_adafruit___i_n_a2xx')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_adafruit___i_n_a2xx.html">Adafruit_INA2xx</a></td></tr>
 <tr class="memitem:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top"><a id="ab36bdc76bfa37bf55e9d4fe6c1139d37"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ab36bdc76bfa37bf55e9d4fe6c1139d37">Adafruit_INA2xx</a> ()</td></tr>
 <tr class="memdesc:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a new INA2xx class. <br /></td></tr>
 <tr class="separator:ab36bdc76bfa37bf55e9d4fe6c1139d37 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac99a5e15f372ff9f58e5fe9996231ea0 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top"><a id="ac99a5e15f372ff9f58e5fe9996231ea0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ac99a5e15f372ff9f58e5fe9996231ea0">reset</a> (void)</td></tr>
+<tr class="memdesc:ac99a5e15f372ff9f58e5fe9996231ea0 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the hardware. All registers are set to default values, the same as a power-on reset. <br /></td></tr>
+<tr class="separator:ac99a5e15f372ff9f58e5fe9996231ea0 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#ac15f9a66950658c807fef8ffcc50cdf5">setShunt</a> (float shunt_res=0.1, float max_current=3.2)</td></tr>
 <tr class="memdesc:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the shunt calibration by resistor.  <a href="class_adafruit___i_n_a2xx.html#ac15f9a66950658c807fef8ffcc50cdf5">More...</a><br /></td></tr>
 <tr class="separator:ac15f9a66950658c807fef8ffcc50cdf5 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,12 +191,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a0392f9ab1cdc7b2336ad2b79db037769 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of averaging samples.  <a href="class_adafruit___i_n_a2xx.html#a0392f9ab1cdc7b2336ad2b79db037769">More...</a><br /></td></tr>
 <tr class="separator:a0392f9ab1cdc7b2336ad2b79db037769 inherit pub_methods_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:afde972f6884620d86483cccb1c0d10f2"><td class="memItemLeft" align="right" valign="top"><a id="afde972f6884620d86483cccb1c0d10f2"></a>
-Adafruit_I2CRegister *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#afde972f6884620d86483cccb1c0d10f2">AlertLimit</a></td></tr>
-<tr class="memdesc:afde972f6884620d86483cccb1c0d10f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">BusIO Register for AlertLimit. <br /></td></tr>
-<tr class="separator:afde972f6884620d86483cccb1c0d10f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af4e10e12e0d94a5c725aa26aa984dd09"><td class="memItemLeft" align="right" valign="top"><a id="af4e10e12e0d94a5c725aa26aa984dd09"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a237.html#af4e10e12e0d94a5c725aa26aa984dd09">_updateShuntCalRegister</a> (void) override</td></tr>
+<tr class="memdesc:af4e10e12e0d94a5c725aa26aa984dd09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the shunt calibration value to the INA237 register. The INA237 uses a different calculation than the INA228. <br /></td></tr>
+<tr class="separator:af4e10e12e0d94a5c725aa26aa984dd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_class_adafruit___i_n_a2xx"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_adafruit___i_n_a2xx')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_adafruit___i_n_a2xx.html">Adafruit_INA2xx</a></td></tr>
 <tr class="memitem:a0e81789a6feeb277062187381af48a8e inherit pub_attribs_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top"><a id="a0e81789a6feeb277062187381af48a8e"></a>
 Adafruit_I2CRegister *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#a0e81789a6feeb277062187381af48a8e">Config</a></td></tr>
@@ -217,16 +213,6 @@ Adafruit_I2CRegister *&#160;</td><td class="memItemRight" valign="bottom"><a cla
 Adafruit_I2CRegister *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#af259ff10c999b89095c0c2711a6d6849">Diag_Alert</a></td></tr>
 <tr class="memdesc:af259ff10c999b89095c0c2711a6d6849 inherit pub_attribs_class_adafruit___i_n_a2xx"><td class="mdescLeft">&#160;</td><td class="mdescRight">BusIO Register for Diagnostic Alerts. <br /></td></tr>
 <tr class="separator:af259ff10c999b89095c0c2711a6d6849 inherit pub_attribs_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6bf13788a562997786037a662e1cb342"><td class="memItemLeft" align="right" valign="top"><a id="a6bf13788a562997786037a662e1cb342"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a228.html#a6bf13788a562997786037a662e1cb342">_updateShuntCalRegister</a> (void) override</td></tr>
-<tr class="memdesc:a6bf13788a562997786037a662e1cb342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the shunt calibration value to the INA228 register. <br /></td></tr>
-<tr class="separator:a6bf13788a562997786037a662e1cb342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_adafruit___i_n_a2xx"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_adafruit___i_n_a2xx')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_adafruit___i_n_a2xx.html">Adafruit_INA2xx</a></td></tr>
 <tr class="memitem:abd41be29b7d493a1691aca684127bcd1 inherit pro_attribs_class_adafruit___i_n_a2xx"><td class="memItemLeft" align="right" valign="top"><a id="abd41be29b7d493a1691aca684127bcd1"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a2xx.html#abd41be29b7d493a1691aca684127bcd1">_shunt_res</a></td></tr>
@@ -246,10 +232,10 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:aa6310c8639e3bd0b4558c487a673b618 inherit pro_attribs_class_adafruit___i_n_a2xx"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that stores state and functions for interacting with INA228 Current and Power Sensor. </p>
+<div class="textblock"><p>Class that stores state and functions for interacting with INA237/INA238 Current and Power Sensors. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6deb385940093a7a8c2ba0938168e709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6deb385940093a7a8c2ba0938168e709">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="a5b57c715d573272a487186edd4469e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b57c715d573272a487186edd4469e71">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,10 +244,10 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Adafruit_INA228::begin </td>
+          <td class="memname">bool Adafruit_INA237::begin </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="_adafruit___i_n_a228_8h.html#a892086f6aadfccae94d2bdb9af8580dc">INA228_I2CADDR_DEFAULT</a></code>, </td>
+          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="_adafruit___i_n_a237_8h.html#a9177aab49a4aa471df9745486905a18b">INA237_I2CADDR_DEFAULT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -293,7 +279,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   <table class="params">
     <tr><td class="paramname">i2c_address</td><td>The I2C address to be used. </td></tr>
     <tr><td class="paramname">theWire</td><td>The Wire object to be used for I2C connections. </td></tr>
-    <tr><td class="paramname">skipReset</td><td>When set to true, will omit resetting all INA228 registers to their default values. Default: false. </td></tr>
+    <tr><td class="paramname">skipReset</td><td>When set to true, will omit resetting all INA237 registers to their default values. Default: false. </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,37 +287,18 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 <p>Reimplemented from <a class="el" href="class_adafruit___i_n_a2xx.html#a21c6faae80cb5800191844187bf890b3">Adafruit_INA2xx</a>.</p>
 
+<p>Reimplemented in <a class="el" href="class_adafruit___i_n_a238.html#a419f14f55eb3aff12f7f9e63f5eaf9a1">Adafruit_INA238</a>.</p>
+
 </div>
 </div>
-<a id="a852cb525767362fe40f1cd05764e1d07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a852cb525767362fe40f1cd05764e1d07">&#9670;&nbsp;</a></span>readEnergy()</h2>
+<a id="a838055b7f33554847d78d6bcc1d8f96f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838055b7f33554847d78d6bcc1d8f96f">&#9670;&nbsp;</a></span>getAlertType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Adafruit_INA228::readEnergy </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reads and scales the current value of the Energy register. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current Energy calculation in Joules </dd></dl>
-
-</div>
-</div>
-<a id="a7e1e4b42cc9d92b2544527a4c9b1d9b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e1e4b42cc9d92b2544527a4c9b1d9b1">&#9670;&nbsp;</a></span>getAlertType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_adafruit___i_n_a228_8h.html#a27b4685b74845b179bbd1eaa8263bc88">INA228_AlertType</a> Adafruit_INA228::getAlertType </td>
+          <td class="memname"><a class="el" href="_adafruit___i_n_a237_8h.html#a1c988ddedc2786e59aca503b313b0724">INA237_AlertType</a> Adafruit_INA237::getAlertType </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -345,16 +312,16 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="a33ba9f7134bab3b13980744cea30d651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33ba9f7134bab3b13980744cea30d651">&#9670;&nbsp;</a></span>setAlertType()</h2>
+<a id="a11d973a1c34188e0651566ea0bf15018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d973a1c34188e0651566ea0bf15018">&#9670;&nbsp;</a></span>setAlertType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Adafruit_INA228::setAlertType </td>
+          <td class="memname">void Adafruit_INA237::setAlertType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_adafruit___i_n_a228_8h.html#a27b4685b74845b179bbd1eaa8263bc88">INA228_AlertType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="_adafruit___i_n_a237_8h.html#a1c988ddedc2786e59aca503b313b0724">INA237_AlertType</a>&#160;</td>
           <td class="paramname"><em>alert</em></td><td>)</td>
           <td></td>
         </tr>
@@ -371,8 +338,8 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="a47ecdb012860564bad447f04c6a00e2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47ecdb012860564bad447f04c6a00e2e">&#9670;&nbsp;</a></span>readDieTemp()</h2>
+<a id="ab1e34a67d118bca72df89749bad07ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e34a67d118bca72df89749bad07ee4">&#9670;&nbsp;</a></span>readDieTemp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +348,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Adafruit_INA228::readDieTemp </td>
+          <td class="memname">float Adafruit_INA237::readDieTemp </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -395,7 +362,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </table>
 </div><div class="memdoc">
 
-<p>Reads the die temperature with the INA228-specific conversion factor. </p>
+<p>Reads the die temperature with the INA237-specific conversion factor. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current die temp in deg C </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_adafruit___i_n_a2xx.html#af86260c80ab1528b1182ede89c3d3aea">Adafruit_INA2xx</a>.</p>
@@ -403,8 +370,8 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_adafruit___i_n_a228_8h_source.html">Adafruit_INA228.h</a></li>
-<li><a class="el" href="_adafruit___i_n_a228_8cpp.html">Adafruit_INA228.cpp</a></li>
+<li><a class="el" href="_adafruit___i_n_a237_8h_source.html">Adafruit_INA237.h</a></li>
+<li><a class="el" href="_adafruit___i_n_a237_8cpp.html">Adafruit_INA237.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
