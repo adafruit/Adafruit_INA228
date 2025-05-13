@@ -173,7 +173,6 @@ class Adafruit_INA2xx {
   //
 
   float readCurrent(void);
-  float readBusVoltage(void);
   float readShuntVoltage(void);
   float readPower(void);
 
