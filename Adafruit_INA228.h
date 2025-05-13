@@ -24,7 +24,7 @@
 
 // INA228 specific registers
 #define INA228_REG_ENERGY 0x09      ///< Energy result register
-#define INA228_REG_CHARGE 0x0A      ///< Charge result register
+#define INA228_REG_CHARGE 0x0A      ///< Charge result register (40-bit)
 #define INA228_REG_SHUNTTEMPCO 0x03 ///< Shunt temperature coefficient register
 
 ///@{
@@ -149,6 +149,7 @@ class Adafruit_INA228 : public Adafruit_INA2xx {
 
   // INA228 specific functions
   float readEnergy(void);
+  float readCharge(void);
   INA228_AlertType getAlertType(void);
   void setAlertType(INA228_AlertType alert);
   void resetAccumulators(void);
