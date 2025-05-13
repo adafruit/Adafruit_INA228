@@ -1,0 +1,86 @@
+#######################################
+# Syntax Coloring Map for Adafruit_INA228/INA237/INA238 Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Adafruit_INA2xx	KEYWORD1
+Adafruit_INA228	KEYWORD1
+Adafruit_INA237	KEYWORD1
+Adafruit_INA238	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+reset	KEYWORD2
+setShunt	KEYWORD2
+setADCRange	KEYWORD2
+getADCRange	KEYWORD2
+readDieTemp	KEYWORD2
+readCurrent	KEYWORD2
+readBusVoltage	KEYWORD2
+readShuntVoltage	KEYWORD2
+readPower	KEYWORD2
+readEnergy	KEYWORD2
+readCharge	KEYWORD2
+setMode	KEYWORD2
+getMode	KEYWORD2
+conversionReady	KEYWORD2
+resetAccumulators	KEYWORD2
+getAlertType	KEYWORD2
+setAlertType	KEYWORD2
+getBusVoltage_V	KEYWORD2
+getShuntVoltage_mV	KEYWORD2
+getCurrent_mA	KEYWORD2
+getPower_mW	KEYWORD2
+getCurrentConversionTime	KEYWORD2
+setCurrentConversionTime	KEYWORD2
+getVoltageConversionTime	KEYWORD2
+setVoltageConversionTime	KEYWORD2
+getTemperatureConversionTime	KEYWORD2
+setTemperatureConversionTime	KEYWORD2
+getAveragingCount	KEYWORD2
+setAveragingCount	KEYWORD2
+getAlertLatch	KEYWORD2
+setAlertLatch	KEYWORD2
+getAlertPolarity	KEYWORD2
+setAlertPolarity	KEYWORD2
+alertFunctionFlags	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+INA228_I2CADDR_DEFAULT	LITERAL1
+INA237_I2CADDR_DEFAULT	LITERAL1
+INA238_I2CADDR_DEFAULT	LITERAL1
+INA228_DEVICE_ID	LITERAL1
+INA237_DEVICE_ID	LITERAL1
+INA238_DEVICE_ID	LITERAL1
+INA2XX_MODE_SHUTDOWN	LITERAL1
+INA2XX_MODE_TRIGGERED	LITERAL1
+INA2XX_MODE_CONTINUOUS	LITERAL1
+INA2XX_TIME_50_us	LITERAL1
+INA2XX_TIME_84_us	LITERAL1
+INA2XX_TIME_150_us	LITERAL1
+INA2XX_TIME_280_us	LITERAL1
+INA2XX_TIME_540_us	LITERAL1
+INA2XX_TIME_1052_us	LITERAL1
+INA2XX_TIME_2074_us	LITERAL1
+INA2XX_TIME_4120_us	LITERAL1
+INA2XX_COUNT_1	LITERAL1
+INA2XX_COUNT_4	LITERAL1
+INA2XX_COUNT_16	LITERAL1
+INA2XX_COUNT_64	LITERAL1
+INA2XX_COUNT_128	LITERAL1
+INA2XX_COUNT_256	LITERAL1
+INA2XX_COUNT_512	LITERAL1
+INA2XX_COUNT_1024	LITERAL1
+INA2XX_ALERT_POLARITY_NORMAL	LITERAL1
+INA2XX_ALERT_POLARITY_INVERTED	LITERAL1
+INA2XX_ALERT_LATCH_ENABLED	LITERAL1
+INA2XX_ALERT_LATCH_TRANSPARENT	LITERAL1
