@@ -102,19 +102,19 @@ void loop() {
   //  delay(1);
 
   Serial.print("Current: ");
-  Serial.print(ina238.readCurrent());
+  Serial.print(ina238.getCurrent_mA());
   Serial.println(" mA");
 
   Serial.print("Bus Voltage: ");
-  Serial.print(ina238.readBusVoltage());
-  Serial.println(" mV");
+  Serial.print(ina238.getBusVoltage_V());
+  Serial.println(" V");
 
   Serial.print("Shunt Voltage: ");
-  Serial.print(ina238.readShuntVoltage());
-  Serial.println(" mV");
+  Serial.print(ina238.getShuntVoltage_mV() * 1000.0); // Convert from mV to μV
+  Serial.println(" uV");
 
   Serial.print("Power: ");
-  Serial.print(ina238.readPower());
+  Serial.print(ina238.getPower_mW());
   Serial.println(" mW");
 
   Serial.print("Temperature: ");

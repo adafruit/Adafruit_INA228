@@ -20,8 +20,9 @@
 #include "Adafruit_INA2xx.h"
 
 #define INA237_I2CADDR_DEFAULT 0x40 ///< INA237/INA238 default i2c address
-#define INA237_DEVICE_ID 0x237      ///< INA237 device ID
-#define INA238_DEVICE_ID 0x238      ///< INA238 device ID
+#define INA237_DEVICE_ID \
+  0x238 ///< INA237 device ID (technically doesnt have one)
+#define INA238_DEVICE_ID 0x238 ///< INA238 device ID
 
 /**
  * @brief Alert trigger options specific to INA237/INA238.
@@ -53,6 +54,11 @@ class Adafruit_INA237 : public Adafruit_INA2xx {
   INA237_AlertType getAlertType(void);
   void setAlertType(INA237_AlertType alert);
   float readDieTemp(void) override;
+  float readBusVoltage(void) override;
+  float readShuntVoltage(void) override;
+  float readCurrent(void) override;
+  float readPower(void) override;
+  void setShunt(float shunt_res = 0.1, float max_current = 3.2) override;
 
  protected:
   void _updateShuntCalRegister(void) override;

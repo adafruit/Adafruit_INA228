@@ -73,15 +73,15 @@ bool Adafruit_INA237::begin(uint8_t i2c_address, TwoWire* theWire,
 /**************************************************************************/
 void Adafruit_INA237::_updateShuntCalRegister() {
   // Formula from INA237 datasheet (SBOSA20A)
-  // SHUNT_CAL = 13107.2 × (RSHUNT × CURRENT_LSB)
+  // SHUNT_CAL = 819.2 x 10^6 x CURRENT_LSB x RSHUNT
 
   float scale = 1;
   if (getADCRange()) {
     scale = 4; // For lower range (+/-40.96mV)
   }
 
-  // Different calculation for INA237
-  float shunt_cal = 13107.2 * _shunt_res * _current_lsb * scale;
+  // Correct calculation for INA237
+  float shunt_cal = 819.2e6 * _current_lsb * _shunt_res * scale;
 
   Adafruit_I2CRegister shunt =
       Adafruit_I2CRegister(i2c_dev, INA2XX_REG_SHUNTCAL, 2, MSBFIRST);
@@ -128,4 +128,80 @@ float Adafruit_INA237::readDieTemp(void) {
   // INA237 uses 12 bits for temperature (bits 15:4) with 125 m°C/LSB
   // Shift by 4 to get the actual value from register bits 15:4
   return (float)(t >> 4) * 125.0 / 1000.0;
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Bus Voltage register
+           using INA237-specific conversion factor.
+    @return The current bus voltage measurement in V
+*/
+/**************************************************************************/
+float Adafruit_INA237::readBusVoltage(void) {
+  Adafruit_I2CRegister bus_voltage =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 2, MSBFIRST);
+  // INA237 uses 3.125 mV/LSB for bus voltage
+  // Bus voltage is a 16-bit value in the INA237 (unlike INA228 which is 24-bit)
+  return (float)((uint16_t)bus_voltage.read()) * 3.125 / 1000.0;
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Shunt Voltage register
+           using INA237-specific conversion factor.
+    @return The current shunt voltage measurement in V
+*/
+/**************************************************************************/
+float Adafruit_INA237::readShuntVoltage(void) {
+  float scale = 5.0; // 5 µV/LSB in normal mode
+  if (getADCRange()) {
+    scale = 1.25; // 1.25 µV/LSB in low range mode
+  }
+
+  Adafruit_I2CRegister shunt_voltage =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VSHUNT, 2, MSBFIRST);
+  int16_t v = shunt_voltage.read();
+  return (float)v * scale / 1000000.0; // Convert µV to V
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Current register
+           using INA237-specific handling.
+    @return The current measurement in mA
+*/
+/**************************************************************************/
+float Adafruit_INA237::readCurrent(void) {
+  Adafruit_I2CRegister current =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_CURRENT, 2, MSBFIRST);
+  int16_t i = current.read();
+  return (float)i * _current_lsb * 1000.0; // Convert A to mA
+}
+
+/**************************************************************************/
+/*!
+    @brief Reads and scales the current value of the Power register
+           using INA237-specific handling.
+    @return The current Power calculation in mW
+*/
+/**************************************************************************/
+float Adafruit_INA237::readPower(void) {
+  Adafruit_I2CRegister power =
+      Adafruit_I2CRegister(i2c_dev, INA2XX_REG_POWER, 2, MSBFIRST);
+  // INA237 power LSB = 20 * current_lsb
+  return (float)power.read() * 20.0 * _current_lsb * 1000.0; // Convert W to mW
+}
+
+/**************************************************************************/
+/*!
+    @brief Sets the shunt calibration by resistor for INA237.
+    @param shunt_res Resistance of the shunt in ohms (floating point)
+    @param max_current Maximum expected current in A (floating point)
+*/
+/**************************************************************************/
+void Adafruit_INA237::setShunt(float shunt_res, float max_current) {
+  _shunt_res = shunt_res;
+  // INA237 uses 2^15 as the divisor
+  _current_lsb = max_current / (float)(1UL << 15);
+  _updateShuntCalRegister();
 }

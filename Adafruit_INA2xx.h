@@ -159,10 +159,11 @@ class Adafruit_INA2xx {
                      TwoWire* theWire = &Wire, bool skipReset = false);
   virtual void reset(void);
 
-  void setShunt(float shunt_res = 0.1, float max_current = 3.2);
+  virtual void setShunt(float shunt_res = 0.1, float max_current = 3.2);
   void setADCRange(uint8_t);
   uint8_t getADCRange(void);
   virtual float readDieTemp(void);
+  virtual float readBusVoltage(void);
 
   // Common INA interface:
   float getBusVoltage_V(void);
@@ -171,10 +172,9 @@ class Adafruit_INA2xx {
   float getPower_mW(void);
   //
 
-  float readCurrent(void);
-  float readBusVoltage(void);
-  float readShuntVoltage(void);
-  float readPower(void);
+  virtual float readCurrent(void);
+  virtual float readShuntVoltage(void);
+  virtual float readPower(void);
 
   void setMode(INA2XX_MeasurementMode mode);
   INA2XX_MeasurementMode getMode(void);

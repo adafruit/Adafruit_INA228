@@ -49,7 +49,9 @@ Adafruit_INA2xx::Adafruit_INA2xx(void) {}
  *    @param  skipReset
  *            When set to true, will omit resetting all registers to
  *            their default values. Default: false.
- *    @return True if initialization was successful, otherwise false.
+ *    @return True if initialization was successful (including verifying
+ *            the manufacturer ID is Texas Instruments: 0x5449), otherwise
+ * false.
  */
 bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
                             bool skipReset) {
@@ -65,6 +67,12 @@ bool Adafruit_INA2xx::begin(uint8_t i2c_address, TwoWire* theWire,
       new Adafruit_I2CRegister(i2c_dev, INA2XX_REG_MFG_UID, 2, MSBFIRST);
   Adafruit_I2CRegisterBits* device_id =
       new Adafruit_I2CRegisterBits(device_register, 12, 4);
+
+  // Check manufacturer ID (should be 0x5449 for Texas Instruments)
+  uint16_t mfg_id = mfg_register->read();
+  if (mfg_id != 0x5449) {
+    return false;
+  }
 
   // Store device ID for validation in derived classes
   _device_id = device_id->read();
@@ -109,12 +117,15 @@ void Adafruit_INA2xx::_updateShuntCalRegister() {
 /**************************************************************************/
 /*!
     @brief Sets the shunt calibration by resistor.
+    @note This base implementation uses INA228 settings.
+          Derived classes override this method for their specific settings.
     @param shunt_res Resistance of the shunt in ohms (floating point)
     @param max_current Maximum expected current in A (floating point)
 */
 /**************************************************************************/
 void Adafruit_INA2xx::setShunt(float shunt_res, float max_current) {
   _shunt_res = shunt_res;
+  // Default to INA228 behavior (2^19 divisor)
   _current_lsb = max_current / (float)(1UL << 19);
   _updateShuntCalRegister();
 }
@@ -187,13 +198,18 @@ float Adafruit_INA2xx::getCurrent_mA(void) {
 /**************************************************************************/
 /*!
     @brief Reads and scales the current value of the Bus Voltage register.
+    @note This base implementation uses the INA228 conversion factor.
+          Derived classes override this method for their specific conversion
+   factors.
     @return The current bus voltage measurement in V
 */
 /**************************************************************************/
 float Adafruit_INA2xx::readBusVoltage(void) {
   Adafruit_I2CRegister bus_voltage =
       Adafruit_I2CRegister(i2c_dev, INA2XX_REG_VBUS, 3, MSBFIRST);
-  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125;
+  // INA228 uses 195.3125 µV/LSB (microvolts) for bus voltage,
+  // so we need to divide by 1e6 to get Volts
+  return (float)((uint32_t)bus_voltage.read() >> 4) * 195.3125 / 1e6;
 }
 
 /**************************************************************************/
