@@ -1,6 +1,7 @@
 var searchData=
 [
   ['readbusvoltage',['readBusVoltage',['../class_adafruit___i_n_a2xx.html#ab8d3a5eab5542c94d2d9a7d302d36069',1,'Adafruit_INA2xx']]],
+  ['readcharge',['readCharge',['../class_adafruit___i_n_a228.html#ac5e4bd75ce00dd133b62ce0246ad0f2e',1,'Adafruit_INA228']]],
   ['readcurrent',['readCurrent',['../class_adafruit___i_n_a2xx.html#af94fbdefcabf722fa82261b68fc1024e',1,'Adafruit_INA2xx']]],
   ['readdietemp',['readDieTemp',['../class_adafruit___i_n_a228.html#a47ecdb012860564bad447f04c6a00e2e',1,'Adafruit_INA228::readDieTemp()'],['../class_adafruit___i_n_a237.html#ab1e34a67d118bca72df89749bad07ee4',1,'Adafruit_INA237::readDieTemp()'],['../class_adafruit___i_n_a2xx.html#af86260c80ab1528b1182ede89c3d3aea',1,'Adafruit_INA2xx::readDieTemp()']]],
   ['readenergy',['readEnergy',['../class_adafruit___i_n_a228.html#a852cb525767362fe40f1cd05764e1d07',1,'Adafruit_INA228']]],
