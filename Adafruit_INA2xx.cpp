@@ -188,7 +188,8 @@ float Adafruit_INA2xx::getCurrent_mA(void) {
 /*!
     @brief Reads and scales the current value of the Bus Voltage register.
     @note This base implementation uses the INA228 conversion factor.
-          Derived classes override this method for their specific conversion factors.
+          Derived classes override this method for their specific conversion
+   factors.
     @return The current bus voltage measurement in V
 */
 /**************************************************************************/
