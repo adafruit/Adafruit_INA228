@@ -3,7 +3,7 @@
  *
  * 	I2C Driver base class for INA2xx Current and Power sensors
  *
- * 	This is a library for the Adafruit INA228/INA237 breakouts:
+ * 	This is a library for the Adafruit INA228 breakout:
  * 	http://www.adafruit.com/products/5832
  *
  * 	Adafruit invests time and resources providing this open source code,
